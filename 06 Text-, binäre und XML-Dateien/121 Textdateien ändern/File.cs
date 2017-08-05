@@ -1,0 +1,42 @@
+using System;
+using System.IO;
+using System.Text;
+
+namespace Addison_Wesley.Codebook.Files
+{
+	public class TextFile
+	{
+		public static void AddFileNumbers(string textFileName)
+		{
+			// Dateiname für die temporäre Datei ermitteln
+			string tempFileName = Path.GetTempFileName();
+
+			// Textdatei zum Lesen öffnen
+			StreamReader sr = null;
+			sr = new StreamReader(textFileName, Encoding.GetEncoding("windows-1252"));
+
+			// Temp-Datei zum Schreiben öffnen
+			StreamWriter sw = null;
+			sw = new StreamWriter(tempFileName, false, 
+				Encoding.GetEncoding("windows-1252"));
+
+			// Textdatei zeilenweise einlesen, Zeilen verändern und in die temporäre
+			// Datei schreiben
+			string line;
+			int lineNumber = 0;
+			while ((line = sr.ReadLine()) != null)
+			{
+				lineNumber++;
+				sw.WriteLine(lineNumber + ": " + line);
+			}
+
+			// Streams schließen
+			sr.Close();
+			sw.Close();
+
+			// Textdatei löschen und die temporäre Datei auf die Textdatei verschieben
+			File.Delete(textFileName);
+			File.Move(tempFileName, textFileName);
+		}
+	}
+}

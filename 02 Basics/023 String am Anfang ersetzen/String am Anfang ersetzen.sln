@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String am Anfang ersetzen", "String am Anfang ersetzen.csproj", "{60136B4B-4EC3-410A-B700-08203914BA3F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{60136B4B-4EC3-410A-B700-08203914BA3F}.Debug.ActiveCfg = Debug|.NET
+		{60136B4B-4EC3-410A-B700-08203914BA3F}.Debug.Build.0 = Debug|.NET
+		{60136B4B-4EC3-410A-B700-08203914BA3F}.Release.ActiveCfg = Release|.NET
+		{60136B4B-4EC3-410A-B700-08203914BA3F}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

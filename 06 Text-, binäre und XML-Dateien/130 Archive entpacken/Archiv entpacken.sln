@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archiv entpacken", "Archiv entpacken.csproj", "{E0BD4056-A12D-4FE5-AB1D-82BFCA334379}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E0BD4056-A12D-4FE5-AB1D-82BFCA334379}.Debug.ActiveCfg = Debug|.NET
+		{E0BD4056-A12D-4FE5-AB1D-82BFCA334379}.Debug.Build.0 = Debug|.NET
+		{E0BD4056-A12D-4FE5-AB1D-82BFCA334379}.Release.ActiveCfg = Release|.NET
+		{E0BD4056-A12D-4FE5-AB1D-82BFCA334379}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

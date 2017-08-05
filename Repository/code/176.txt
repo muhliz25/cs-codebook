@@ -1,0 +1,21 @@
+using System.Runtime.InteropServices;
+
+...
+
+/* Deklaration der benötigten API-Funktionen und -Konstanten */
+[DllImport("user32.dll")]
+private static extern IntPtr GetSystemMenu(IntPtr hWnd, int bRevert);
+
+[DllImport("user32.dll")]
+private static extern int DeleteMenu(IntPtr hMenu, int uPosition, int uFlags);      
+
+private const int SC_MOVE = 0xF010;
+private const int MF_BYCOMMAND = 0;
+
+/* Unbewegbar-Machen des Formulars im Load-Ereignis */
+private void StartForm_Load(object sender, System.EventArgs e)
+{
+   // Handle des Systemmenüs ermitteln und den Verschieben-Befehl löschen
+   IntPtr sysMenuHandle = GetSystemMenu(this.Handle, 0);
+   DeleteMenu(sysMenuHandle, SC_MOVE, MF_BYCOMMAND);
+}

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordner verschieben", "Ordner verschieben.csproj", "{3ADECF69-A21B-402E-AB65-3B8C054C29AF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{3ADECF69-A21B-402E-AB65-3B8C054C29AF}.Debug.ActiveCfg = Debug|.NET
+		{3ADECF69-A21B-402E-AB65-3B8C054C29AF}.Debug.Build.0 = Debug|.NET
+		{3ADECF69-A21B-402E-AB65-3B8C054C29AF}.Release.ActiveCfg = Release|.NET
+		{3ADECF69-A21B-402E-AB65-3B8C054C29AF}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

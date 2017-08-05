@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Specialized;
+using Addison_Wesley.Codebook.System; 
+
+namespace Benutzer_auflisten
+{
+	class Start
+	{
+		[STAThread]
+		static void Main(string[] args)
+		{
+			string domainName = null; 
+			string machineName = "Zaphod";
+			string bindUser = null;
+			string bindPassword = null;
+			
+			// Benutzer abfragen
+			try
+			{
+				Users users = UserUtils.EnumUsers(domainName, machineName, 
+					bindUser, bindPassword);
+
+				// Benutzer durchgehen und deren Daten ausgeben
+				for (int i = 0; i < users.Count; i++)
+				{
+					Console.WriteLine();
+					Console.WriteLine("Name: {0}", users[i].Name);
+					Console.WriteLine("Voller Name: {0}", users[i].FullName);
+					Console.WriteLine("Beschreibung: {0}", users[i].Description);
+					Console.WriteLine("Home-Laufwerk: {0}", users[i].HomeDirDrive);
+					Console.WriteLine("Home-Verzeichnis: {0}", users[i].HomeDirectory);
+					Console.WriteLine("Login-Script: {0}", users[i].LoginScript);
+					Console.WriteLine("Passwort abgelaufen: {0}", users[i].PasswordExpired);
+					Console.WriteLine("Passwort-Alter: {0}", users[i].PasswordAge);
+					Console.WriteLine("Maximaler Speicherplatz: {0}", users[i].MaxStorage);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			Console.ReadLine();
+		}
+	}
+}

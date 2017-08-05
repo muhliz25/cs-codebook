@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XML-Dokumente validieren", "XML-Dokumente validieren.csproj", "{A070104D-279F-45F5-8C29-EF9872CB362B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A070104D-279F-45F5-8C29-EF9872CB362B}.Debug.ActiveCfg = Debug|.NET
+		{A070104D-279F-45F5-8C29-EF9872CB362B}.Debug.Build.0 = Debug|.NET
+		{A070104D-279F-45F5-8C29-EF9872CB362B}.Release.ActiveCfg = Release|.NET
+		{A070104D-279F-45F5-8C29-EF9872CB362B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

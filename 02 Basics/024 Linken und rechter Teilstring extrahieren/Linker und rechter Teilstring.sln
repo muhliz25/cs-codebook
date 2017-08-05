@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linker und rechter Teilstring", "Linker und rechter Teilstring.csproj", "{67825DD1-AA51-4FAC-9A75-A2C192F43AB4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{67825DD1-AA51-4FAC-9A75-A2C192F43AB4}.Debug.ActiveCfg = Debug|.NET
+		{67825DD1-AA51-4FAC-9A75-A2C192F43AB4}.Debug.Build.0 = Debug|.NET
+		{67825DD1-AA51-4FAC-9A75-A2C192F43AB4}.Release.ActiveCfg = Release|.NET
+		{67825DD1-AA51-4FAC-9A75-A2C192F43AB4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

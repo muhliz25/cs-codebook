@@ -1,0 +1,23 @@
+using System.Runtime.InteropServices;
+
+...
+
+/* Deklaration der benötigten API-Funktionen */
+[DllImport("user32.dll")]
+private static extern IntPtr GetSystemMenu(IntPtr hWnd, int bRevert);
+
+[DllImport("user32.dll")]
+private static extern int DeleteMenu(IntPtr hMenu, int uPosition, int uFlags);      
+
+private const int SC_CLOSE = 0xF060;
+private const int MF_BYCOMMAND = 0;
+private const int MF_BYPOSITION = 0x00000400;
+
+private void StartForm_Load(object sender, System.EventArgs e)
+{
+   // Handle des Systemmenüs ermitteln und den Schließen-Befehl und 
+   // den nun überflüssigen Separator löschen
+   IntPtr sysMenuHandle = GetSystemMenu(this.Handle, 0);
+   DeleteMenu(sysMenuHandle, SC_CLOSE, MF_BYCOMMAND);
+   DeleteMenu(sysMenuHandle, 5, MF_BYPOSITION);
+}

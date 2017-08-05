@@ -1,0 +1,14 @@
+using System;
+using System.Globalization;
+
+...
+
+// GregorianCalendar-Objekt für den aktuellen Kalender erzeugen
+Calendar calendar = CultureInfo.CurrentCulture.Calendar;
+
+// Anzahl der Tage im aktuellen Jahr berechnen
+DateTime now = DateTime.Now;
+int daysInYear = calendar.GetDaysInYear(now.Year);
+
+Console.WriteLine("Tage des Jahres {0}: {1}", 
+   now.Year, daysInYear);

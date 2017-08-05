@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XML-Dateien verändern", "XML-Dateien verändern.csproj", "{CF63D93E-724D-4AE2-84D8-5656328C34DF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{CF63D93E-724D-4AE2-84D8-5656328C34DF}.Debug.ActiveCfg = Debug|.NET
+		{CF63D93E-724D-4AE2-84D8-5656328C34DF}.Debug.Build.0 = Debug|.NET
+		{CF63D93E-724D-4AE2-84D8-5656328C34DF}.Release.ActiveCfg = Release|.NET
+		{CF63D93E-724D-4AE2-84D8-5656328C34DF}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

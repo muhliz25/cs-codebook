@@ -1,0 +1,71 @@
+using System;
+using System.Text.RegularExpressions;
+
+...
+
+/* Methode zum flexiblen Ersetzen von Strings */
+public static string Replace(string source, string find, 
+   string replacement, bool ignoreCase, int start, int count)
+{
+   int pos1 = 0, pos2 = 0;
+   int findStringLen = find.Length;
+   string baseString;
+   string result = "";
+
+   // Den Sonderfall abhandeln, dass count mit 0 angegeben ist
+   if (count == 0)
+   {
+      return source;
+   }
+
+   // Wenn der Vergleich ohne Berücksichtigung der Groß-/Kleinschreibung 
+   // erfolgen soll, werden der zu durchsuchende und der Suchstring einfach in
+   // Kleinschreibung umgewandelt
+   if (ignoreCase)
+   {
+      baseString = source.ToLower();
+      find = find.ToLower();
+   }
+   else
+      baseString = source;
+
+   // Erstes Vorkommen des Suchstrings suchen
+   pos2 = baseString.IndexOf(find);
+
+   // Den String durchgehen, so lange der Suchstring noch gefunden wurde 
+   int findCount = 0;
+   int replaceCount = 0;
+   while (pos2 != -1)
+   {
+      findCount++;
+      if (findCount >= start)
+      {
+         // Das Ergebnis zusammensetzen und die Such-Indizes auf die neuen
+         // Positionen setzen
+         result += source.Substring(pos1, pos2 - pos1) + replacement;
+         pos1 = pos2 + findStringLen;
+         pos2 = baseString.IndexOf(find, pos1);
+    
+         // Wenn count größer -1 definiert ist, überprüfen, ob die Anzahl 
+         // erreicht ist
+         replaceCount++;
+         if (count > -1 && replaceCount >= count)
+            break;
+      }
+      else
+      {
+         result += source.Substring(pos1, pos2 - pos1 + findStringLen);
+         pos1 = pos2 + findStringLen;
+         pos2 = baseString.IndexOf(find, pos1);
+      }
+   }
+
+   if (pos1 < source.Length)
+   {
+      // Wenn nach dem letzten Suchstring noch ein Teilstring gespeichert ist,
+      // diesen hinten anhängen
+      result +=  source.Substring(pos1, source.Length - pos1);
+   }
+
+   return result;
+}

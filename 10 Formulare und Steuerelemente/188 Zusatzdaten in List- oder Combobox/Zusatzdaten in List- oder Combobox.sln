@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zusatzdaten in List- oder Combobox", "Zusatzdaten in List- oder Combobox.csproj", "{7F2F4279-D2AF-4380-90F3-956EB58D2F74}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{7F2F4279-D2AF-4380-90F3-956EB58D2F74}.Debug.ActiveCfg = Debug|.NET
+		{7F2F4279-D2AF-4380-90F3-956EB58D2F74}.Debug.Build.0 = Debug|.NET
+		{7F2F4279-D2AF-4380-90F3-956EB58D2F74}.Release.ActiveCfg = Release|.NET
+		{7F2F4279-D2AF-4380-90F3-956EB58D2F74}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

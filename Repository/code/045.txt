@@ -1,0 +1,34 @@
+using System;
+
+...
+
+// Aktuelles Datum ermitteln
+DateTime now = DateTime.Now;
+Console.WriteLine("Jetzt: {0}", now.ToString());
+
+// 12,5 Stunden abziehen
+DateTime date = now.AddHours(-12.5);
+Console.WriteLine("Jetzt - 12,5 Stunden: {0}", date.ToString());
+
+// 10,5 Tage hinzuaddieren
+date = now.AddDays(10.5);
+Console.WriteLine("Jetzt + 10,5 Tage: {0}", date.ToString());
+
+// Sechs Monate hinzuaddieren
+date = now.AddMonths(6);
+Console.WriteLine("Jetzt + 6 Monate: {0}", date.ToString());
+
+// Zwei Jahre abziehen
+date = now.AddYears(-2);
+Console.WriteLine("Jetzt - 2 Jahre: {0}", date.ToString());
+
+// Mein Alter als TimeSpan-Wert berechnen (natürlich mit gelogenem Geburtsdatum ;-))
+DateTime birthDate = new DateTime(1972, 9, 27, 2, 30, 0);
+Console.WriteLine("Mein (gelogenes) Geburtsdatum: {0}",
+   birthDate.ToString());
+TimeSpan age = now - birthDate;
+
+// Damit errechnen, welches Datum meinem doppelten Alter entspricht
+date = now.Add(age);
+Console.WriteLine("Dann bin ich doppelt so als wie jetzt: {0}",
+   date.ToString());

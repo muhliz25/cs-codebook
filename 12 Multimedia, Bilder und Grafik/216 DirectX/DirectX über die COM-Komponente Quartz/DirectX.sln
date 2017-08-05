@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectX", "DirectX.csproj", "{D6DC6F4E-EF3C-495E-8A49-BEF4E6321ACD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D6DC6F4E-EF3C-495E-8A49-BEF4E6321ACD}.Debug.ActiveCfg = Debug|.NET
+		{D6DC6F4E-EF3C-495E-8A49-BEF4E6321ACD}.Debug.Build.0 = Debug|.NET
+		{D6DC6F4E-EF3C-495E-8A49-BEF4E6321ACD}.Release.ActiveCfg = Release|.NET
+		{D6DC6F4E-EF3C-495E-8A49-BEF4E6321ACD}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,18 @@
+using System.Drawing;
+using System.Drawing.Drawing2D;
+
+...
+
+private void StartForm_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+{
+   Graphics g = e.Graphics;
+   
+   // LinearGradientBrush für die verlaufende Füllung erzeugen
+   LinearGradientBrush brush = new LinearGradientBrush(
+      this.ClientRectangle, Color.Blue, Color.Black, 30, false);
+
+   // Formularfläche mit dem Pinsel füllen
+   g.FillRectangle(brush, this.ClientRectangle);
+}
+
+

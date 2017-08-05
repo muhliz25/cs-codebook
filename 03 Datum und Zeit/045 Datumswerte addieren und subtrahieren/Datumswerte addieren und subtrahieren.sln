@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datumswerte addieren und subtrahieren", "Datumswerte addieren und subtrahieren.csproj", "{8D983F44-FA5B-4071-92D8-46BC9C91A498}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8D983F44-FA5B-4071-92D8-46BC9C91A498}.Debug.ActiveCfg = Debug|.NET
+		{8D983F44-FA5B-4071-92D8-46BC9C91A498}.Debug.Build.0 = Debug|.NET
+		{8D983F44-FA5B-4071-92D8-46BC9C91A498}.Release.ActiveCfg = Release|.NET
+		{8D983F44-FA5B-4071-92D8-46BC9C91A498}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

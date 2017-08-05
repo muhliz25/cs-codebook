@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Textbox-Autoselect", "Textbox-Autoselect.csproj", "{3ADF384A-30DD-4F83-9915-DDD51D04C8F9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedTextBoxControls", "..\ExtendedTextBoxControls\ExtendedTextBoxControls.csproj", "{B92E7653-36AE-4249-A5A6-3CC290721793}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{3ADF384A-30DD-4F83-9915-DDD51D04C8F9}.Debug.ActiveCfg = Debug|.NET
+		{3ADF384A-30DD-4F83-9915-DDD51D04C8F9}.Debug.Build.0 = Debug|.NET
+		{3ADF384A-30DD-4F83-9915-DDD51D04C8F9}.Release.ActiveCfg = Release|.NET
+		{3ADF384A-30DD-4F83-9915-DDD51D04C8F9}.Release.Build.0 = Release|.NET
+		{B92E7653-36AE-4249-A5A6-3CC290721793}.Debug.ActiveCfg = Debug|.NET
+		{B92E7653-36AE-4249-A5A6-3CC290721793}.Debug.Build.0 = Debug|.NET
+		{B92E7653-36AE-4249-A5A6-3CC290721793}.Release.ActiveCfg = Release|.NET
+		{B92E7653-36AE-4249-A5A6-3CC290721793}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

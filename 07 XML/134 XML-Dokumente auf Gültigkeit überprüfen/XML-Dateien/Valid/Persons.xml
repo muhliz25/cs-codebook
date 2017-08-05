@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persons>
+   <person id="1000">
+      <firstname>Zaphod</firstname>
+      <lastname>Beeblebrox</lastname>
+      <type>Alien</type>
+   </person>
+   <person id="1001">
+      <firstname>Ford</firstname>
+      <lastname>Prefect</lastname>
+      <type>Alien</type>
+   </person>
+   <person id="1002">
+      <firstname>Tricia</firstname>
+      <lastname>McMillan</lastname>
+      <type>Earthling</type>
+   </person>
+   <person id="1004">
+      <firstname>Arthur</firstname>
+      <lastname>Dent</lastname>
+      <type>Earthling</type>
+   </person>
+</persons>

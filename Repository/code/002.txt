@@ -1,0 +1,18 @@
+using System;
+
+...
+
+string hexNumber = "FFA033";
+
+// Konvertieren des Hex-Werts in eine long-Zahl
+long number = 0;
+try
+{
+   number = Convert.ToInt64(hexNumber, 16);
+
+   Console.WriteLine(number);
+}
+catch (Exception ex)
+{
+   Console.WriteLine("Fehler beim Konvertieren: {0}", ex.Message);
+}

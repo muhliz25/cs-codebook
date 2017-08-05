@@ -1,0 +1,21 @@
+using System;
+using System.IO;
+
+...
+
+string fileName = "c:\\pagefile.sys";
+
+/* Ermitteln der Größe der Datei */
+try
+{
+   // Größe über ein FileInfo-Objekt auslesen
+   FileInfo fi = new FileInfo(fileName);
+   long fileSize = fi.Length;
+
+   Console.WriteLine("{0}: {1:#,#0} Byte.", fileName, fileSize); 
+}
+catch (IOException ex)
+{
+   Console.WriteLine("Fehler beim Ermitteln der Dateigröße " +
+      "der Datei '{0}': {1}.", fileName, ex.Message); 
+}

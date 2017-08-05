@@ -1,0 +1,32 @@
+using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+
+/* Dieses Rezept benötigt ein Formular mit einer PictureBox "pictureBox1" */
+
+...
+
+Graphics g = Graphics.FromHwnd(this.pictureBox1.Handle);
+
+// Zeichenmatrix so verschieben, dass die nachfolgenden
+// Zeichnungen ab der Position 10, 10 um 30 Grad gedreht erscheinen
+g.TranslateTransform(30, 30, MatrixOrder.Prepend);
+g.RotateTransform(30, MatrixOrder.Prepend);
+
+// SmoothingMode auf HighQuality einstellen, damit die Linien sauber
+// gezeichnet werden
+g.SmoothingMode = SmoothingMode.HighQuality;
+g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+// Text ausgeben
+g.DrawString("Das ist ein gedrehter Text", new Font("Arial", 20),  new SolidBrush(Color.Black), 0, 0);
+
+// Transformation wieder zurücksetzen
+g.ResetTransform();
+
+// Text ausgeben
+g.DrawString("Das ist ein gerader Text", new Font("Arial", 20),  new SolidBrush(Color.Black), 0, 0);
+
+g.Dispose();

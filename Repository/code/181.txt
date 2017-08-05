@@ -1,0 +1,39 @@
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+/* Dieses Rezept öffnet ein Splash-Formular mit dem Namen "SplashForm" 
+ * in der Main-Methode der Anwendung und simuliert eine Initialisierung */
+
+...
+
+static void Main() 
+{
+   // Splash-Formular erzeugen und anzeigen
+   SplashForm f = new SplashForm();
+   f.Show();
+   Application.DoEvents();
+
+   // Simulation einer Initialisierung
+   try
+   {
+      for (int i = 0; i < 100; i++)
+      {
+         f.infoLabel.Text = "Lese Datensätze. Datensatz " + i;
+         f.infoLabel.Refresh();
+
+         System.Threading.Thread.Sleep(30);
+      }
+   }
+   catch (Exception ex)
+   {
+      MessageBox.Show("Fehler beim Initialisieren: " + ex.Message, 
+         Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+      Application.Exit();
+   }
+
+   // Splash-Formular wieder schließen
+   f.Close();
+
+   Application.Run(new StartForm());
+}

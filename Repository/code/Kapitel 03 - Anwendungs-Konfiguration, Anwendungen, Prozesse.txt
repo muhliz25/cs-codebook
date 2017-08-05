@@ -1,0 +1,68 @@
+059.txt
+59 Den Dateinamen der Anwendung ermitteln
+
+060.txt
+60 Das Verzeichnis der Anwendung ermitteln
+
+061.txt
+61 Konfigurationsdaten aus der .config-Datei lesen
+
+062.txt
+62 Konfigurationsdaten in eigenen Abschnitten speichern
+
+063.txt
+63 Konfigurationsdaten in der .config-Datei speichern
+
+064.txt
+64 Anwendungskonfiguration über eine eigene XML-Datei
+
+065.txt
+65 Daten aus der Registry lesen und in die Registry schreiben
+
+066_1.txt
+66 Verhindern, dass eine Anwendung mehrfach gestartet werden kann (1)
+
+066_2.txt
+66 Verhindern, dass eine Anwendung mehrfach gestartet werden kann (2)
+
+066_3.txt
+66 Verhindern, dass eine Anwendung mehrfach gestartet werden kann (3)
+
+067_1.txt
+67 Aktivieren einer laufenden Anwendung (1)
+
+067_2.txt
+67 Aktivieren einer laufenden Anwendung (2)
+
+067_3.txt
+67 Aktivieren einer laufenden Anwendung (3)
+
+068.txt
+68 Auflisten aller laufenden Prozesse eines Computers
+
+069.txt
+69 Auflisten aller laufenden Anwendungen eines Computers
+
+070.txt
+70 Informationen über die Dienste eines Computers auslesen
+
+071.txt
+71 Dienste starten, anhalten, fortfahren und stoppen
+
+072.txt
+72 Ermitteln, ob eine Anwendung ausgeführt wird
+
+073.txt
+73 Anwendungen starten
+
+074.txt
+74 Dateien mit der assoziierten Anwendung öffnen
+
+075.txt
+75 Starten einer anderen Anwendung und warten, bis diese beendet ist
+
+076.txt
+76 Andere Anwendungen beenden
+
+077.txt
+77 Java-Anwendungen starten

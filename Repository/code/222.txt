@@ -1,0 +1,3 @@
+Thumbnails von Bildern können Sie über die GetThumbnailImage-Methode
+eines Bitmap-Objekts oder - mit einer wesentlich besseren Qualität -
+über die Methode ScaleBitmap des vorhergehenden Rezepts erzeugen.

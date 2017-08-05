@@ -1,0 +1,26 @@
+using System;
+using System.IO;
+using Addison_Wesley.Codebook.App;
+
+namespace Anwendung_starten
+{
+	class Start
+	{
+		[STAThread]
+		static void Main(string[] args)
+		{
+			// Dateinamen zusammensetzen
+			string exeFileName = Path.Combine(
+				Environment.SystemDirectory, "notepad.exe");
+			string arguments = Path.Combine(
+				Environment.SystemDirectory, "eula.txt");
+
+			// Anwendung starten und warten bis diese beendet ist
+			Console.WriteLine("Starte '{0}'", exeFileName);
+			AppUtils.StartApplication(exeFileName, arguments,
+				false, true);
+			Console.WriteLine("Fertig");
+			Console.ReadLine();
+		}
+	}
+}

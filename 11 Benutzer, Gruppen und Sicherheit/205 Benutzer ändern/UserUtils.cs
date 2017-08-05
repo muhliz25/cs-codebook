@@ -1,0 +1,59 @@
+using System;
+using System.DirectoryServices;
+
+namespace Addison_Wesley.Codebook.System
+{
+	public class UserUtils
+	{
+		/* Methode zum Ändern eines Benutzers */
+		public static void ChangeUser(string domainName, string machineName,
+			string userName, string fullName, string description, string profile,
+			string loginScript, string homeDirectory, string password, 
+			bool cantChangePassword, bool passwordDontExpires, string bindUser, 
+			string bindPassword)
+		{
+			// Konstanten für wichtige Flags des User-Objekts
+			const int ADS_UF_PASSWD_CANT_CHANGE = 0x0040;
+			const int ADS_UF_DONT_EXPIRE_PASSWD = 0x10000;
+			const int ADS_UF_NORMAL_ACCOUNT = 0x0200;
+
+			// DirectoryEntry-Objekt für den Benutzer erzeugen
+			if (domainName == null && machineName == null)
+				machineName = Environment.MachineName;
+			string adsiPath = "WinNT://" +
+				(domainName != null ? domainName + "/" : "") +
+				(machineName != null ? machineName + "/" : "") +
+				userName + ",user";
+			DirectoryEntry userEntry = new DirectoryEntry(adsiPath, 
+				bindUser, bindPassword);
+
+			try
+			{
+				// Eigenschaften übergeben
+				userEntry.Properties["FullName"].Add(fullName);
+				userEntry.Properties["Description"].Add(description);
+				userEntry.Properties["Profile"].Add(profile);
+				userEntry.Properties["LoginScript"].Add(loginScript);
+				userEntry.Properties["HomeDirectory"].Add(homeDirectory);
+
+				// Flags definieren und übergeben
+				int flags = ADS_UF_NORMAL_ACCOUNT;
+				if (cantChangePassword)
+					flags |= ADS_UF_PASSWD_CANT_CHANGE;
+				if (passwordDontExpires)
+					flags |= ADS_UF_DONT_EXPIRE_PASSWD;
+				userEntry.Properties["UserFlags"].Add(flags);
+
+				// Passwort setzen
+				userEntry.Invoke("SetPassword", new object[] {password});
+
+				// Geänderte Daten schreiben
+				userEntry.CommitChanges();
+			}
+			finally
+			{
+				userEntry.Dispose();
+			}
+		}
+	}
+}

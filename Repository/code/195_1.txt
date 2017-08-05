@@ -1,0 +1,13 @@
+using System;
+using System.Windows.Forms;
+using System.Windows.Forms.Design;
+
+/* Variante 1 für das .NET-Framework 1.0 über die Klasse FolderNameEditor 
+ * aus System.Windows.Forms.Design */
+
+FolderNameEditor browser =   new FolderNameEditor();
+string folderPath = (string)browser.EditValue(null, null);
+if (folderPath != null)
+   Console.WriteLine("{0}: {1}", folderPath, folderPath.Length);
+else
+   Console.WriteLine("Abbruch");

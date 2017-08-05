@@ -1,0 +1,47 @@
+using System;
+using System.DirectoryServices; // KANN WEG
+using System.Collections.Specialized; 
+using Addison_Wesley.Codebook.System;
+
+namespace Gruppen_Benutzer
+{
+	class Start
+	{
+		[STAThread]
+		static void Main(string[] args)
+		{
+			DirectoryEntry computerContainer = new DirectoryEntry("WinNT://Zaphod,computer", 
+				"Administrator", "honda750");
+			try
+			{
+				foreach(DirectoryEntry de in computerContainer.Children)
+				{
+					switch (de.SchemaClassName.ToLower())
+					{
+						case "user":
+							Console.WriteLine(de.Name);
+							break;
+						default:
+							break;
+					}
+				}
+			}
+			finally 
+			{
+				computerContainer.Dispose();
+			}
+
+
+			Console.WriteLine("Fertig");
+			Console.ReadLine();
+
+			return;
+			
+			StringCollection users = UserUtils.GetGroupMembers("Zaphod", "Administratoren", "Jrgen Bayer", "honda750");
+			for (int i = 0; i < users.Count; i++)
+			{
+				Console.WriteLine(users[i]);
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+using System;
+using System.Security.Cryptography;
+
+...
+
+/* Methode zur Erzeugung von echten Zufallszahlen */
+public static byte[] RandomNumbers(int count, byte min, byte max)
+{
+   // Zufallszahlen erzeugen
+   RNGCryptoServiceProvider csp = new RNGCryptoServiceProvider();
+   byte[] numbers = new Byte[count];
+   csp.GetBytes(numbers);
+
+   // Die Zahlen umrechnen
+   double divisor = 256F / (max - min + 1);
+   if (min > 0 || max < 255)
+   {
+      for (int i = 0; i < count; i++)
+      {
+         numbers[i] = (byte)((numbers[i] / divisor) + min);
+      }
+   }
+
+   return numbers;
+}

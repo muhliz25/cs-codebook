@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dual-Zahlen", "Dual-Zahlen.csproj", "{4A529D81-173E-401F-9AFE-7EDA4F7876AF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{4A529D81-173E-401F-9AFE-7EDA4F7876AF}.Debug.ActiveCfg = Debug|.NET
+		{4A529D81-173E-401F-9AFE-7EDA4F7876AF}.Debug.Build.0 = Debug|.NET
+		{4A529D81-173E-401F-9AFE-7EDA4F7876AF}.Release.ActiveCfg = Release|.NET
+		{4A529D81-173E-401F-9AFE-7EDA4F7876AF}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

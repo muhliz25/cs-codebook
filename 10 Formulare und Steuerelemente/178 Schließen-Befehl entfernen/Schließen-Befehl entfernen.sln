@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schlieﬂen-Befehl entfernen", "Schlieﬂen-Befehl entfernen.csproj", "{ABED39F0-9572-4131-9363-98167069E8FD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{ABED39F0-9572-4131-9363-98167069E8FD}.Debug.ActiveCfg = Debug|.NET
+		{ABED39F0-9572-4131-9363-98167069E8FD}.Debug.Build.0 = Debug|.NET
+		{ABED39F0-9572-4131-9363-98167069E8FD}.Release.ActiveCfg = Release|.NET
+		{ABED39F0-9572-4131-9363-98167069E8FD}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

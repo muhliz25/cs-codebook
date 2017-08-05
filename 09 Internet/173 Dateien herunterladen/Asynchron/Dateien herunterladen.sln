@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dateien herunterladen", "Dateien herunterladen.csproj", "{109DADFA-9CE2-448D-A705-E9153C6B2528}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{109DADFA-9CE2-448D-A705-E9153C6B2528}.Debug.ActiveCfg = Debug|.NET
+		{109DADFA-9CE2-448D-A705-E9153C6B2528}.Debug.Build.0 = Debug|.NET
+		{109DADFA-9CE2-448D-A705-E9153C6B2528}.Release.ActiveCfg = Release|.NET
+		{109DADFA-9CE2-448D-A705-E9153C6B2528}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

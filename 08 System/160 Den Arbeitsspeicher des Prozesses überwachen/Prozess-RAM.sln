@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prozess-RAM", "Prozess-RAM.csproj", "{44EE62BA-84DB-4FF2-83D9-C2E15F485E95}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{44EE62BA-84DB-4FF2-83D9-C2E15F485E95}.Debug.ActiveCfg = Debug|.NET
+		{44EE62BA-84DB-4FF2-83D9-C2E15F485E95}.Debug.Build.0 = Debug|.NET
+		{44EE62BA-84DB-4FF2-83D9-C2E15F485E95}.Release.ActiveCfg = Release|.NET
+		{44EE62BA-84DB-4FF2-83D9-C2E15F485E95}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

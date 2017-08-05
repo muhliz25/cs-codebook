@@ -1,0 +1,48 @@
+using System;
+using System.Threading;
+using System.Diagnostics;
+
+namespace Addison_Wesley.Codebook.Application
+{
+	public class AppUtils
+	{
+		/* Methode zum Schließen einer anderen Anwendung */ 
+		public static int CloseApplication(string processName, 
+			string mainWindowTitle, int waitForExitTimeout)
+		{
+			int count = 0; 
+
+			// Liste der Prozesse holen, die den übergebenen Prozessnamen tragen
+			Process[] processes = Process.GetProcessesByName(processName);
+			foreach (Process process in processes)
+			{
+				// Überprüfen des Hauptfenster-Titels, sofern dieser übergeben wurde
+				if ((mainWindowTitle != null && 
+					process.MainWindowTitle == mainWindowTitle) || 
+					(mainWindowTitle == null))
+				{
+					// Eine Beenden-Nachricht an das Hauptfenster senden
+					process.CloseMainWindow();
+         
+					// Auf das Beenden des Prozesses warten, wenn ein Timeout 
+					// übergeben wurde
+					if (waitForExitTimeout > 0)
+					{
+						if (process.WaitForExit(waitForExitTimeout))
+							count++;
+					}
+					else
+					{
+						// Etwas warten, um dem Prozess Zeit zu lassen sich zu beenden
+						Thread.Sleep(100);
+						if (process.HasExited)
+							count++;
+					}
+				}
+			}
+
+			// Anzahl der beendeten Prozesse zurückgeben
+			return count;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excel-Arbeitsmappen erzeugen", "Excel-Arbeitsmappen erzeugen.csproj", "{E755063D-B3C3-4EA3-86AA-1F652CF4B4AD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E755063D-B3C3-4EA3-86AA-1F652CF4B4AD}.Debug.ActiveCfg = Debug|.NET
+		{E755063D-B3C3-4EA3-86AA-1F652CF4B4AD}.Debug.Build.0 = Debug|.NET
+		{E755063D-B3C3-4EA3-86AA-1F652CF4B4AD}.Release.ActiveCfg = Release|.NET
+		{E755063D-B3C3-4EA3-86AA-1F652CF4B4AD}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

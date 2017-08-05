@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Systemzeit setzen", "Systemzeit setzen.csproj", "{A72C837C-FF92-467A-8E71-FB5780BAD599}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A72C837C-FF92-467A-8E71-FB5780BAD599}.Debug.ActiveCfg = Debug|.NET
+		{A72C837C-FF92-467A-8E71-FB5780BAD599}.Debug.Build.0 = Debug|.NET
+		{A72C837C-FF92-467A-8E71-FB5780BAD599}.Release.ActiveCfg = Release|.NET
+		{A72C837C-FF92-467A-8E71-FB5780BAD599}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,21 @@
+using System;
+using System.Xml;
+using System.Xml.Xsl;
+
+...
+
+/* Methode zum Transformieren eines XML-Dokuments 
+ * mit einem XSLT-Dokument */
+public static void TransformXmlFile(string xmlSourceFileName,
+   string xslFileName, string xmlDestFileName)
+{
+   // Instanz der Klasse XslTransform erzeugen
+   XslTransform xslTransform = new XslTransform();
+    
+   // XSL-Datei laden
+   xslTransform.Load(xslFileName);
+    
+   // XML-Datei transformieren
+   xslTransform.Transform(xmlSourceFileName, xmlDestFileName);
+}
+

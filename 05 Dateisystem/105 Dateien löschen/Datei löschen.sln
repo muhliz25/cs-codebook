@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datei löschen", "Datei löschen.csproj", "{8F450845-0427-4D2C-BC8A-20B3E2BE7544}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8F450845-0427-4D2C-BC8A-20B3E2BE7544}.Debug.ActiveCfg = Debug|.NET
+		{8F450845-0427-4D2C-BC8A-20B3E2BE7544}.Debug.Build.0 = Debug|.NET
+		{8F450845-0427-4D2C-BC8A-20B3E2BE7544}.Release.ActiveCfg = Release|.NET
+		{8F450845-0427-4D2C-BC8A-20B3E2BE7544}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

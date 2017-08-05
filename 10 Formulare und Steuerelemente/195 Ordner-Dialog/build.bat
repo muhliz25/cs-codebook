@@ -1,0 +1,1 @@
+csc /target:exe /out:Ordner-Dialog.exe Start.cs FolderDialog.cs

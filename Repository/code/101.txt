@@ -1,0 +1,47 @@
+using System;
+using System.Text;
+using System.IO;
+using System.Runtime.InteropServices;
+
+...
+
+/* Deklaration der API-Funktion GetWindowsDirectory */
+[DllImport("kernel32.dll", SetLastError=true)]
+private static extern uint GetWindowsDirectory(StringBuilder lpBuffer,
+   uint uSize);
+
+/* Methode zur Suche einer Datei in den Systempfaden */
+public static string FindFileInSystemPaths(string fileName)
+{
+   string path = null;
+
+   // Im Windows-Systemordner suchen
+   path = Path.Combine(Environment.SystemDirectory, fileName);
+   if (File.Exists(path))
+      return path;
+
+   // Im Windows-Ordner suchen
+   const int MAX_PATH = 160;
+   string windowsDirectoryName = null;
+   StringBuilder buffer = new StringBuilder(MAX_PATH + 1);
+   if (GetWindowsDirectory(buffer, 260) > 0)
+   {
+      windowsDirectoryName = buffer.ToString();
+      path = Path.Combine(windowsDirectoryName, fileName);
+      if (File.Exists(path))
+         return path;
+   }
+
+   // In den Ordnern suchen, die in der Umgebungsvariablen Path
+   // eingestellt sind
+   string[] systemPaths = Environment.GetEnvironmentVariable(
+      "path").Split(new char[] {';'});
+   for (int i = 0; i < systemPaths.Length; i++)
+   {
+      path = Path.Combine(systemPaths[i].Trim(), fileName);
+      if (File.Exists(path))
+         return path;
+   }
+
+   return null;
+}

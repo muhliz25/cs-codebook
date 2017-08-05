@@ -1,0 +1,8 @@
+using System;
+using System.Configuration;
+
+...
+
+string server = ConfigurationSettings.AppSettings["Server"];
+string userId = ConfigurationSettings.AppSettings["UserId"];
+string password = ConfigurationSettings.AppSettings["password"];

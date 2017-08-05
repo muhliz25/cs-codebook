@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMI verwenden", "WMI verwenden.csproj", "{553AF661-0688-403E-8FC4-1084FA0CD6DA}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{553AF661-0688-403E-8FC4-1084FA0CD6DA}.Debug.ActiveCfg = Debug|.NET
+		{553AF661-0688-403E-8FC4-1084FA0CD6DA}.Debug.Build.0 = Debug|.NET
+		{553AF661-0688-403E-8FC4-1084FA0CD6DA}.Release.ActiveCfg = Release|.NET
+		{553AF661-0688-403E-8FC4-1084FA0CD6DA}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

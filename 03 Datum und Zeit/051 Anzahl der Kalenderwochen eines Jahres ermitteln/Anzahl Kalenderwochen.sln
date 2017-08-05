@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anzahl Kalenderwochen", "Anzahl Kalenderwochen.csproj", "{0477EE18-9D0A-4F8D-B9EB-A279A57660BE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0477EE18-9D0A-4F8D-B9EB-A279A57660BE}.Debug.ActiveCfg = Debug|.NET
+		{0477EE18-9D0A-4F8D-B9EB-A279A57660BE}.Debug.Build.0 = Debug|.NET
+		{0477EE18-9D0A-4F8D-B9EB-A279A57660BE}.Release.ActiveCfg = Release|.NET
+		{0477EE18-9D0A-4F8D-B9EB-A279A57660BE}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,107 @@
+001.txt
+1 (Ganz-)Zahlen hexadezimal darstellen
+
+002.txt
+2 Hexadezimale Zahlen in dezimale Zahlen konvertieren
+
+003.txt
+3 Ganzzahlen dual darstellen
+
+004.txt
+4 Dualzahlen in Ganzzahlen konvertieren
+
+005.txt
+5 Zahlen in verschiedenen Notationen darstellen
+
+006.txt
+6 Zahlen kaufmännisch runden
+
+007.txt
+7 Umstellen der aktuellen Kultur
+
+008.txt
+8 Zahlen in verschiedenen Länderformaten darstellen
+
+009.txt
+9 Einen Bytewert in ein besser lesbares Format umwandeln
+
+010.txt
+10 Überprüfen, ob ein String eine gültige Zahl speichert
+
+011.txt
+11 Überprüfen, ob ein String ein gültiges Datum speichert 
+
+012.txt
+12 Zufallszahlen erzeugen
+
+013.txt
+13 High- und Low-Word lesen
+
+014.txt
+14 High- und Low-Word setzen
+
+015.txt
+15 Beep ausgeben
+
+016.txt
+16 Strings ohne Berücksichtigung der Groß-/ Kleinschreibung vergleichen
+
+017.txt
+17 Teilstrings flexibel ersetzen
+
+018.txt
+18 Mehrere (Leer-)Zeichen in ein (Leer-)Zeichen konvertieren
+
+019.txt
+19 Erstes Zeichen aller Wörter im String groß- und die restlichen Zeichen kleinschreiben
+
+020.txt
+20 Anzahl der Wörter in einem String ermitteln
+
+021.txt
+21 Alle Wörter eines Strings extrahieren
+
+022.txt
+22 String auf die ersten Wörter bis zu einer Maximallänge kürzen
+
+023.txt
+23 Teilstring nur dann ersetzen, wenn dieser am Anfang eines Strings gespeichert ist
+
+024.txt
+24 Linken und rechten Teilstring extrahieren
+
+025.txt
+25 (Ganz-)Zahlen aus einem String extrahieren
+
+026.txt
+26 Überprüfen, ob ein String mit einer Ganzzahl beginnt
+
+027.txt
+27 Zufalls-String berechnen
+
+028.txt
+28 Konstantennamen einer Aufzählung als String auslesen
+
+029.txt
+29 Strings in Aufzählungswerte konvertieren
+
+030.txt
+30 String in Byte-Array umwandeln
+
+031.txt
+31 Byte-Array in String lesen
+
+032.txt
+32 Arrays eigener Objekte sortieren
+
+033.txt
+33 StringCollection (und andere Auflistungen) sortieren
+
+034.txt
+34 Arrays, ArrayList- und andere Auflistungen durchsuchen
+
+035.txt
+35 Typisierte Auflistungen erzeugen 
+
+036.txt
+36 Das Programm für eine definierte Zeit anhalten

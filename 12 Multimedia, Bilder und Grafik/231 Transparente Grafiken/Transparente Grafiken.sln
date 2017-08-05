@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transparente Grafiken", "Transparente Grafiken.csproj", "{080EE637-75B2-4E62-85F0-883E6337F3CE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{080EE637-75B2-4E62-85F0-883E6337F3CE}.Debug.ActiveCfg = Debug|.NET
+		{080EE637-75B2-4E62-85F0-883E6337F3CE}.Debug.Build.0 = Debug|.NET
+		{080EE637-75B2-4E62-85F0-883E6337F3CE}.Release.ActiveCfg = Release|.NET
+		{080EE637-75B2-4E62-85F0-883E6337F3CE}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

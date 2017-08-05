@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papierkorb", "Papierkorb.csproj", "{B98984FE-2F0C-4E6C-AE20-D87DD581AA66}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B98984FE-2F0C-4E6C-AE20-D87DD581AA66}.Debug.ActiveCfg = Debug|.NET
+		{B98984FE-2F0C-4E6C-AE20-D87DD581AA66}.Debug.Build.0 = Debug|.NET
+		{B98984FE-2F0C-4E6C-AE20-D87DD581AA66}.Release.ActiveCfg = Release|.NET
+		{B98984FE-2F0C-4E6C-AE20-D87DD581AA66}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

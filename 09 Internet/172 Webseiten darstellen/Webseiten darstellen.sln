@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webseiten darstellen", "Webseiten darstellen.csproj", "{11C5F486-3706-4910-B95C-0BACCCFADBDF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{11C5F486-3706-4910-B95C-0BACCCFADBDF}.Debug.ActiveCfg = Debug|.NET
+		{11C5F486-3706-4910-B95C-0BACCCFADBDF}.Debug.Build.0 = Debug|.NET
+		{11C5F486-3706-4910-B95C-0BACCCFADBDF}.Release.ActiveCfg = Release|.NET
+		{11C5F486-3706-4910-B95C-0BACCCFADBDF}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,49 @@
+using System;
+using System.Management;
+using System.Collections.Specialized; 
+using Microsoft.Win32;
+
+namespace Addison_Wesley.Codebook.System
+{
+	public class SystemUtils
+	{
+		/* Methode zum Auflisten der installierten Software */
+		public static StringCollection EnumInstalledPrograms()
+		{
+			// StringCollection für die Rückgabe erzeugen
+			StringCollection installedPrograms = new StringCollection();
+
+			// RegistryKey-Instanz für den Schlüssel HKEY_LOCAL_MACHINE\Software\
+			// Microsoft\Windows\CurrentVersion\Uninstall erzeugen
+			string keyPath = @"Software\Microsoft\Windows\CurrentVersion\Uninstall";
+			RegistryKey regKey = Registry.LocalMachine.OpenSubKey(keyPath);
+			if (regKey != null)
+			{
+				// Alle Unterschlüssel durchgehen
+				string[] subKeyNames = regKey.GetSubKeyNames();
+				for (int i = 0; i < subKeyNames.Length; i++)
+				{
+					// Unterschlüssel öffnen und den Wert DisplayName oder 
+					// QuietDisplayName auslesen
+					RegistryKey subKey = regKey.OpenSubKey(subKeyNames[i]);
+					string programName = (string)subKey.GetValue("DisplayName");
+					if (programName == null)
+						programName = (string)subKey.GetValue("QuietDisplayName");
+
+					// Wenn ein Programmname ermittelt werden konnte, diesen an die 
+					// String-Auflistung anfügen
+					if (programName != null)
+						installedPrograms.Add(programName);
+				}
+			}
+			else
+			{
+				// Schlüssel nicht gefunden: Ausnahme generieren
+				throw new Exception("Registry-Schlüssel " + 
+					Registry.LocalMachine.Name + "\\" + keyPath + " nicht gefunden");
+			}
+
+			return installedPrograms;
+		}
+	}
+}

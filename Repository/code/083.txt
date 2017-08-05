@@ -1,0 +1,6 @@
+using System;
+
+...
+
+// Ermitteln des Ordners für temporäre Dateien
+string tempFolder = System.IO.Path.GetTempPath(); 

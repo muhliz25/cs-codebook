@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benutzerexistenz prüfen", "Benutzerexistenz prüfen.csproj", "{5AF1FEC7-5CDC-4833-AD64-04B973070751}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{5AF1FEC7-5CDC-4833-AD64-04B973070751}.Debug.ActiveCfg = Debug|.NET
+		{5AF1FEC7-5CDC-4833-AD64-04B973070751}.Debug.Build.0 = Debug|.NET
+		{5AF1FEC7-5CDC-4833-AD64-04B973070751}.Release.ActiveCfg = Release|.NET
+		{5AF1FEC7-5CDC-4833-AD64-04B973070751}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

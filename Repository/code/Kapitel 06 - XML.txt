@@ -1,0 +1,44 @@
+132.txt
+132 XML-Dateien über ein XmlTextReader-Objekt lesen
+
+133.txt
+133 XML-Dateien beim Einlesen gegen ein Schema (oder DTD) prüfen
+
+134.txt
+134 XML-Dokumente auf Gültigkeit überprüfen
+
+135.txt
+135 XML-Dateien über das DOM lesen
+
+136.txt
+136 XML-Dateien validierend über das DOM lesen
+
+137_1.txt
+137 Gezielt über XPath auf Elemente in einem XML-Dokument zugreifen (ohne Namensraum)
+
+137_2.txt
+137 Gezielt über XPath auf Elemente in einem XML-Dokument zugreifen (mit Namensraum)
+
+138.txt
+138 XML-Dokumente über ein DataSet-Objekt lesen
+
+139.txt
+139 XML-Dateien mit einem XmlTextWriter erzeugen
+
+140.txt
+140 XML-Dateien über ein XmlDocument-Objekt erzeugen und ändern
+
+141.txt
+141 XML-Dateien über ein DataSet-Objekt erzeugen
+
+142.txt
+142 XML-Dateien über ein DataSet ändern
+
+143.txt
+143 Binäre Daten in einer XML-Datei speichern
+
+144.txt
+144 Base64-codierte Bilder (binäre Daten) aus XML-Dateien auslesen
+
+145.txt
+145 XML-Dokumente über XSL-Dokumente transformieren

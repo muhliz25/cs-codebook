@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordner kopieren", "Ordner kopieren.csproj", "{4702D899-DA52-452A-845B-1E0A24417B18}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{4702D899-DA52-452A-845B-1E0A24417B18}.Debug.ActiveCfg = Debug|.NET
+		{4702D899-DA52-452A-845B-1E0A24417B18}.Debug.Build.0 = Debug|.NET
+		{4702D899-DA52-452A-845B-1E0A24417B18}.Release.ActiveCfg = Release|.NET
+		{4702D899-DA52-452A-845B-1E0A24417B18}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

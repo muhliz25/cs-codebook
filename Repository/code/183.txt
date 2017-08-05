@@ -1,0 +1,14 @@
+/* Transparente Steuerelemente erhalten Sie, indem Sie der 
+ * Eigenschaft BackColor des Steuerelements die Farbe 
+ * Color.Transparent zuweisen. Für halbtransparente 
+ * Steuerelemente weisen Sie dieser Eigenschaft eine Farbe 
+ * mit einem Alpha-Blend-Wert kleiner 255 zu: */
+
+private void StartForm_Load(object sender, System.EventArgs e)
+{
+   this.demoLabel1.BackColor = Color.Transparent;
+   this.demoLabel2.BackColor = Color.FromArgb(100, 255, 0, 0);
+}
+
+
+

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anzahl Wörter in einem String", "Anzahl Wörter in einem String.csproj", "{A2E1CC04-A508-4F3D-9988-72EBF531F98C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A2E1CC04-A508-4F3D-9988-72EBF531F98C}.Debug.ActiveCfg = Debug|.NET
+		{A2E1CC04-A508-4F3D-9988-72EBF531F98C}.Debug.Build.0 = Debug|.NET
+		{A2E1CC04-A508-4F3D-9988-72EBF531F98C}.Release.ActiveCfg = Release|.NET
+		{A2E1CC04-A508-4F3D-9988-72EBF531F98C}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

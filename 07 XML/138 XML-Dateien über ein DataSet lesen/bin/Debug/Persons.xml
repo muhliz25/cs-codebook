@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persons 
+  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xsi:noNamespaceSchemaLocation="Persons.xsd">
+
+  <person id="1000">
+    <firstname>Zaphod</firstname>
+    <lastname>Beeblebrox</lastname>
+    <vehicleId>1</vehicleId>
+  </person>
+
+  <person id="1001">
+    <firstname>Tricia</firstname>
+    <lastname>McMillan</lastname>
+    <vehicleId>2</vehicleId>
+  </person>
+
+  <vehicle id="1">
+    <type>Spaceship</type>
+  </vehicle>
+
+  <vehicle id="2">
+    <type>Car</type>
+  </vehicle>
+</persons>

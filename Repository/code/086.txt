@@ -1,0 +1,10 @@
+using System;
+
+...
+
+// Namen der logischen Laufwerke des Systems ermitteln
+string[] driveNames = Environment.GetLogicalDrives();
+
+// Alle logischen Laufwerke durchgehen
+for (int i = 0; i < driveNames.Length; i++)
+   Console.WriteLine(driveNames[i]);

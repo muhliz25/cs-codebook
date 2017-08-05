@@ -1,0 +1,32 @@
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+...
+
+private void StartForm_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+{
+   Graphics g = e.Graphics;
+
+   // Ermitteln der Breite und der Höhe des auszugebenden Textes
+   string text = "   Test1::::Test2.Test3   ";
+   Font font = new Font("Tahoma", 20, FontStyle.Bold);
+   StringFormat sf = StringFormat.GenericDefault;
+   sf.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+   SizeF textSize = g.MeasureString(text, font, -1, sf);
+
+   // Text mittig und etwas nach oben versetzt ausgeben
+   float x = (this.ClientRectangle.Width - textSize.Width) / 2;
+   float y = (this.ClientRectangle.Height - textSize.Height) / 2;
+   y -= textSize.Height / 2;
+   g.DrawString(text, font, new SolidBrush(Color.Black), x, y);
+
+   // Noch einmal (und genauer) mit einem typografischen StringFormat-Objekt
+   sf = StringFormat.GenericTypographic;
+   sf.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+   textSize = g.MeasureString(text, font, -1, sf);
+   x = (this.ClientRectangle.Width - textSize.Width) / 2;
+   y = ((this.ClientRectangle.Height - textSize.Height) / 2);
+   y += textSize.Height / 2;
+   g.DrawString(text, font, new SolidBrush(Color.Black), x, y, sf);
+}

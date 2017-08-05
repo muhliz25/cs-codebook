@@ -1,0 +1,28 @@
+using System;
+using System.Windows.Forms;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
+
+...
+
+/* Methode zum Lesen eines Bildes aus der Zwischenablage */
+public static Bitmap GetBitmapFromClipboard()
+{
+   // Die Zwischenablagedaten auslesen und überprüfen
+   IDataObject clipboardData = Clipboard.GetDataObject();
+   if (clipboardData != null)
+   {
+      // Überprüfen, ob ein Bitmap gespeichert ist
+      if (clipboardData.GetDataPresent(typeof(Bitmap)))
+      {
+         return (Bitmap)clipboardData.GetData(typeof(Bitmap));
+      }
+   }
+    
+   // null zurückgeben, falls kein Bitmap in der Zwischenablage
+   // gespeichert ist
+   return null;
+}
+
+

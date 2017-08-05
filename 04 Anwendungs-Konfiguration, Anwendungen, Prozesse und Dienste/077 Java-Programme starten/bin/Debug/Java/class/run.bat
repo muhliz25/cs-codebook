@@ -1,0 +1,2 @@
+javaw hello
+pause

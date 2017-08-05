@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formulare ohne Titelleiste", "Formulare ohne Titelleiste.csproj", "{BD4B225E-6BB7-45F9-819D-EFFD655BA8CE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BD4B225E-6BB7-45F9-819D-EFFD655BA8CE}.Debug.ActiveCfg = Debug|.NET
+		{BD4B225E-6BB7-45F9-819D-EFFD655BA8CE}.Debug.Build.0 = Debug|.NET
+		{BD4B225E-6BB7-45F9-819D-EFFD655BA8CE}.Release.ActiveCfg = Release|.NET
+		{BD4B225E-6BB7-45F9-819D-EFFD655BA8CE}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

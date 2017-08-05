@@ -1,0 +1,22 @@
+using System;
+using System.Windows.Forms;
+
+...
+
+/* Methode zum Vertauschen zweier TreeView-Knoten */
+public static void SwapTreeViewNodes(TreeNodeCollection nodes, int index1, int index2)
+{
+   if (index1 != index2)
+   {
+      int i1 = Math.Min(index1, index2);
+      int i2 = Math.Max(index1, index2);
+      TreeNode node1 = nodes[i1];
+      TreeNode node2 = nodes[i2];
+      nodes.RemoveAt(i1);
+      nodes.RemoveAt(i2-1);
+      nodes.Insert(i1, node2);
+      nodes.Insert(i2, node1);
+   }
+}
+
+

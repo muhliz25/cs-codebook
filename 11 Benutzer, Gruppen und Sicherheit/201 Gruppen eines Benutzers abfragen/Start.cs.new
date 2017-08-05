@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Specialized;
+using Addison_Wesley.Codebook.System;
+
+namespace Benutzer_Gruppen
+{
+	class Start
+	{
+		[STAThread]
+		static void Main(string[] args)
+		{
+			string domainName = "Arbeitsgruppe"; 
+			string machineName = "Zaphod";
+			string userName = "Administrator";
+			string bindUser = null;
+			string bindPassword = null;
+
+			try
+			{
+				StringCollection groups = UserUtils.EnumUserGroups(
+					domainName, machineName, userName, bindUser, bindPassword);
+				Console.WriteLine("Gruppen des Benutzers '" + userName + "':");
+				for (int i = 0; i < groups.Count; i++)
+				{
+					Console.WriteLine(groups[i]);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			Console.WriteLine("Taste ...");
+			Console.ReadLine();
+		}
+	}
+}

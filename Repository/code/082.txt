@@ -1,0 +1,6 @@
+using System;
+
+...
+
+// Neuen Dateinamen für eine temporäre Datei ermitteln
+string tempFileName = System.IO.Path.GetTempFileName();

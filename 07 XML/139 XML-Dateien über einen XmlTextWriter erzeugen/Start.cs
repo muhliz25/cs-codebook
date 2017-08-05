@@ -1,0 +1,97 @@
+using System;
+using System.IO;
+using System.Xml;
+using System.Text;
+using System.Windows.Forms;
+
+namespace XML_Dateien_erzeugen
+{
+	class Start
+	{
+		[STAThread]
+		static void Main(string[] args)
+		{
+			// Der Dateiname der XML-Datei
+			string xmlFileName = Path.Combine(Application.StartupPath, "persons.xml");
+
+			// Überprüfen, ob die Datei existiert
+			if (File.Exists(xmlFileName))
+			{
+				if (MessageBox.Show("Die Datei '" + xmlFileName +
+					"' existiert bereits.\r\n\r\nWollen Sie diese " +
+					"Datei überschreiben?", Application.ProductName,
+					MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+					DialogResult.No)
+					return;
+			}
+
+			// XmlTextWriter für eine UTF-8-Codierung erzeugen
+			XmlTextWriter xmlTextWriter = null;
+			try
+			{
+				xmlTextWriter = new XmlTextWriter(xmlFileName, Encoding.UTF8);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Fehler beim Öffnen der XML-Datei: " + ex.Message,
+					Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			// Formatierung so einstellen, dass einzelne um drei Leerzeichen eingerückte Zeilen
+			// erzeugt werden
+			xmlTextWriter.Formatting = Formatting.Indented; 
+			xmlTextWriter.Indentation = 3;
+			xmlTextWriter.IndentChar = ' ';
+
+			// Dokument-Beginn mit standalone-Attribut schreiben
+			xmlTextWriter.WriteStartDocument(true);
+
+			// Startelement mit Namensraum schreiben
+			xmlTextWriter.WriteStartElement("persons", 
+				"http://www.addison-wesley.de/codebook/csharp");
+
+			// Kommentar schreiben
+			xmlTextWriter.WriteComment("Beispiel zum Erzeugen von XML-Dateien");
+
+			// Element für eine Personen erzeugen
+			xmlTextWriter.WriteStartElement("person");
+
+			// Attribut id schreiben
+			xmlTextWriter.WriteAttributeString("id", "1001");
+
+			// Unterelemente mit String-Daten erzeugen
+			xmlTextWriter.WriteElementString("firstname", "Zaphod");
+			xmlTextWriter.WriteElementString("lastname", "Beeblebrox");
+			xmlTextWriter.WriteElementString("type", "Alien");
+
+			// person-Element abschließen
+			xmlTextWriter.WriteEndElement();
+
+			// Element für eine weitere Personen erzeugen
+			xmlTextWriter.WriteStartElement("person");
+
+			// Attribut id schreiben
+			xmlTextWriter.WriteAttributeString("id", "1002");
+
+			// Unterelemente mit String-Daten erzeugen
+			xmlTextWriter.WriteElementString("firstname", "Tricia");
+			xmlTextWriter.WriteElementString("lastname", "McMillan");
+			xmlTextWriter.WriteElementString("type", "Earthling");
+
+			// person-Element abschließen
+			xmlTextWriter.WriteEndElement();
+
+			// Dokument abschließen
+			xmlTextWriter.WriteEndElement();
+			xmlTextWriter.WriteEndDocument();
+
+			// XmlTextWriter schließen
+			xmlTextWriter.Close();
+
+			Console.WriteLine("Fertig");
+			Console.WriteLine("Beenden mit Return");
+			Console.ReadLine();
+		}
+	}
+}

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formulare über den Clientbereich verschieben", "Formulare über den Clientbereich verschieben.csproj", "{DB2701C7-0BF0-4ED1-BEF9-3B4ECBA3B253}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DB2701C7-0BF0-4ED1-BEF9-3B4ECBA3B253}.Debug.ActiveCfg = Debug|.NET
+		{DB2701C7-0BF0-4ED1-BEF9-3B4ECBA3B253}.Debug.Build.0 = Debug|.NET
+		{DB2701C7-0BF0-4ED1-BEF9-3B4ECBA3B253}.Release.ActiveCfg = Release|.NET
+		{DB2701C7-0BF0-4ED1-BEF9-3B4ECBA3B253}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

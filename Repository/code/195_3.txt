@@ -1,0 +1,18 @@
+using System;
+using System.Windows.Forms;
+
+/* Variante 3 für das .NET-Framework 1.1 über die Klasse FolderBrowserDialog */
+
+FolderBrowserDialog fbd = new FolderBrowserDialog();
+fbd.SelectedPath = "C:\\Programme";
+// fbd.RootFolder = Environment.SpecialFolder.Personal;
+fbd.ShowNewFolderButton = false;
+fbd.Description = "Wählen Sie einen Ordner aus:";
+if (fbd.ShowDialog() == DialogResult.OK)
+{
+   Console.WriteLine(fbd.SelectedPath);
+}
+
+
+
+

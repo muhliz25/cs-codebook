@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bilder zuschneiden", "Bilder zuschneiden.csproj", "{B308A246-28CC-451D-9434-1538AD163B64}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B308A246-28CC-451D-9434-1538AD163B64}.Debug.ActiveCfg = Debug|.NET
+		{B308A246-28CC-451D-9434-1538AD163B64}.Debug.Build.0 = Debug|.NET
+		{B308A246-28CC-451D-9434-1538AD163B64}.Release.ActiveCfg = Release|.NET
+		{B308A246-28CC-451D-9434-1538AD163B64}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

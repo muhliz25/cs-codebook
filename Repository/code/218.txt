@@ -1,0 +1,19 @@
+using System;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
+
+...
+
+/* Methode zum Umwandeln eines Byte-Array in ein Bitmap-Objekt */
+public static Bitmap Byte2Btmap(byte[] imageBytes)
+{
+   // MemoryStream erzeugen, das Bild in diesen schreiben und
+   // den Stream zurückgeben
+   MemoryStream imageStream = new MemoryStream(imageBytes);
+   Bitmap bitmap = new Bitmap(imageStream);
+   imageStream.Close();
+   return bitmap;
+}
+
+

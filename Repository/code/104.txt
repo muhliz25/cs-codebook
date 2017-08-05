@@ -1,0 +1,20 @@
+using System;
+using System.IO;
+
+...
+
+string sourceFileName = @"C:\autoexec.bat.copy";
+string destFileName = @"C:\Temp\autoexec.bat.copy";
+
+try
+{
+   // Datei verschieben
+   File.Move(sourceFileName, destFileName);
+
+   Console.WriteLine("Datei erfolgreich verschoben");
+
+}
+catch (IOException ex)
+{
+   Console.WriteLine("Fehler beim Verschieben der Datei: " + ex.Message);
+}

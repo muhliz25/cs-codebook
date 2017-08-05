@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows-Ordner ermitteln", "Windows-Ordner ermitteln.csproj", "{7F13D07D-DC88-44E2-91CF-1AD55A36F79B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{7F13D07D-DC88-44E2-91CF-1AD55A36F79B}.Debug.ActiveCfg = Debug|.NET
+		{7F13D07D-DC88-44E2-91CF-1AD55A36F79B}.Debug.Build.0 = Debug|.NET
+		{7F13D07D-DC88-44E2-91CF-1AD55A36F79B}.Release.ActiveCfg = Release|.NET
+		{7F13D07D-DC88-44E2-91CF-1AD55A36F79B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

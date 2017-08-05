@@ -1,0 +1,44 @@
+using System;
+using System.Windows.Forms;
+using System.IO;
+using System.Web.Mail;
+
+...
+
+// Nachricht erzeugen und initialisieren
+MailMessage message = new MailMessage();
+message.From = "jürgen@galaxy.com";
+message.To = "zaphod@galaxy.com";
+message.Cc = "ford@galaxy.com";
+message.Bcc = "trillian@galaxy.com";
+message.Subject = "Party";
+message.Body = "Hallo <b>Zaphod</b>, Lust auf eine Party im " +
+   "<i>Restaurant am Ende der Galaxis</i>?";
+
+// Mail-Format und Priorität festlegen
+message.BodyFormat = MailFormat.Html;
+message.Priority = MailPriority.High;
+
+// Datei anhängen
+string fileName = Path.Combine(Application.StartupPath, "dontpanic.gif");
+message.Attachments.Add(new MailAttachment(fileName));
+
+// SMTP-Server festlegen
+SmtpMail.SmtpServer = "mailto.t-online.de";
+
+// Mail senden
+try
+{
+   SmtpMail.Send(message);
+}
+catch (Exception ex)
+{
+   // Abfragen der Ausnahme und den beiden inneren Ausnahmen, da
+   // die eigentliche Fehlermeldung sich meist in der zweiten inneren 
+   // Ausnahme versteckt
+   Console.WriteLine(ex.Message);
+   if (ex.InnerException != null)
+      Console.WriteLine(ex.InnerException.Message);
+   if (ex.InnerException.InnerException != null)
+      Console.WriteLine(ex.InnerException.InnerException.Message);
+}

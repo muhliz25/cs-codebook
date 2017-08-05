@@ -1,0 +1,43 @@
+using System;
+using System.IO;
+using System.Windows.Forms;
+using Microsoft.DirectX.AudioVideoPlayback;
+
+/* Dieses Rezept benötigt die Installation des Microsoft-DirectX-9-SDK und die
+ * Referenzierung der Assembly Microsoft.DirectX.AudioVideoPlayback.dll */
+
+...
+
+// Video laden
+string fileName = Path.Combine(Application.StartupPath, "Tuborg.mpeg");
+Video video = new Video(fileName, false);
+
+// Video aus dem Internet laden
+// Video video = Video.FromUrl(@"http://www.grc.nasa.gov/WWW/PAO/images/mpeg/pionlnch.mpg", false); 
+
+// PictureBox als Owner für das Abspielen zuweisen
+// video.Owner = this.pictureBox;
+
+// Abspielen pausieren
+video.Pause();
+
+// Vollbildmodus einschalten
+video.Fullscreen = true;
+
+// Weiter abspielen
+video.Play();
+
+// Lautstärke über die dem Video-Objekt zugeordnete Audio-Instanz einstellen
+// (die volle Lautstärke entspricht dem Wert Null)
+video.Audio.Volume = -500;
+
+// Position (in Sekunden) abfragen
+double position = video.CurrentPosition;
+
+// Zu einer neuen Position relativ von der aktuellen aus wechseln
+// (funktionierte in meinen Tests leider nicht: Es wurde immer
+// absolut vom Anfang aus positioniert)
+video.SeekCurrentPosition(10, SeekPositionFlags.RelativePositioning);
+
+// Abspielen stoppen
+video.Stop();

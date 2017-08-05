@@ -1,0 +1,17 @@
+using System;
+
+namespace Addison_Wesley.Codebook.DateAndTime
+{
+	public class DateUtils
+	{
+		/* Methode zur Ermittlung eines Datums im ISO-Format */
+		public static string DateTime2ISO(DateTime date,
+			bool includeTime)
+		{
+			if (includeTime)
+				return String.Format("{0:yyyy-MM-ddThh:mm:ss}", date);
+			else
+				return String.Format("{0:yyyy-MM-dd}", date);
+		}
+	}
+}

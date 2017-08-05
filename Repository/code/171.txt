@@ -1,0 +1,14 @@
+using System;
+using System.Diagnostics;
+
+...
+
+// Standard-Browser öffnen
+Process.Start("http://www.google.de");
+
+// Internet Explorer öffnen
+Process process = new Process ();
+process.StartInfo.FileName = "iexplore.exe";
+process.StartInfo.Arguments = "http://www.addison-wesley.de";
+process.Start();
+

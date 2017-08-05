@@ -1,0 +1,7 @@
+using System;
+
+...
+
+string currentUserName = System.Environment.UserName;
+
+

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordner vergleichen", "Ordner vergleichen.csproj", "{3C2D6686-51E0-4106-8D2F-CC3A2DF0343D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{3C2D6686-51E0-4106-8D2F-CC3A2DF0343D}.Debug.ActiveCfg = Debug|.NET
+		{3C2D6686-51E0-4106-8D2F-CC3A2DF0343D}.Debug.Build.0 = Debug|.NET
+		{3C2D6686-51E0-4106-8D2F-CC3A2DF0343D}.Release.ActiveCfg = Release|.NET
+		{3C2D6686-51E0-4106-8D2F-CC3A2DF0343D}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

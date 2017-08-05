@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eigene IP-Adressen", "Eigene IP-Adressen.csproj", "{4C1D7847-24C5-4B23-B97C-19B5D129E0B3}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{4C1D7847-24C5-4B23-B97C-19B5D129E0B3}.Debug.ActiveCfg = Debug|.NET
+		{4C1D7847-24C5-4B23-B97C-19B5D129E0B3}.Debug.Build.0 = Debug|.NET
+		{4C1D7847-24C5-4B23-B97C-19B5D129E0B3}.Release.ActiveCfg = Release|.NET
+		{4C1D7847-24C5-4B23-B97C-19B5D129E0B3}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

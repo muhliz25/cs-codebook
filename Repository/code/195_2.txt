@@ -1,0 +1,20 @@
+using System;
+using System.Windows.Forms;
+using System.Windows.Forms.Design;
+using CP.Windows.Forms;
+
+/* Variante 2 über die API-Funktion SHBrowseForFolder 
+ * Quelle: www.codeproject.com/cs/miscctrl/folderbrowser.asp  
+ * Dieses Rezept benötigt die Einbindung der Dateien "FolderBrowser.cs" 
+ * und "UnManaged.cs" der Komponente FolderBrowser, die Sie auf der 
+ * Buch-CD finden */
+
+ShellFolderBrowser folderBrowser = new ShellFolderBrowser();
+
+folderBrowser.BrowseFlags = BrowseFlags.ReturnOnlyFSDirs;
+// folderBrowser.EnableOkButton();
+folderBrowser.Title = "Suchen Sie den Ordner:";
+if (folderBrowser.ShowDialog()) 
+   Console.WriteLine(folderBrowser.FolderPath);
+else
+   Console.WriteLine("Abbruch");

@@ -1,0 +1,19 @@
+using System;
+using System.IO;
+using System.Windows.Forms;
+
+...
+
+/* Ordner erzeugen */
+string folderName = @"C:\Test\Test\Test";
+try
+{
+   Directory.CreateDirectory(folderName);
+}
+catch (Exception ex)
+{
+   MessageBox.Show(
+      "Fehler beim Erzeugen des Ordners '" + folderName + "': " +
+      ex.Message, Application.ProductName, MessageBoxButtons.OK,
+      MessageBoxIcon.Error);
+}

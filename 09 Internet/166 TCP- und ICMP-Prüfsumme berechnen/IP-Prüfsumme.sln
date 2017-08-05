@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IP-Prüfsumme", "IP-Prüfsumme.csproj", "{CE2D2788-90A1-4ABD-BE33-8873AE329898}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{CE2D2788-90A1-4ABD-BE33-8873AE329898}.Debug.ActiveCfg = Debug|.NET
+		{CE2D2788-90A1-4ABD-BE33-8873AE329898}.Debug.Build.0 = Debug|.NET
+		{CE2D2788-90A1-4ABD-BE33-8873AE329898}.Release.ActiveCfg = Release|.NET
+		{CE2D2788-90A1-4ABD-BE33-8873AE329898}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dateien umbenennen", "Dateien umbenennen.csproj", "{E9C9C4B0-1D9F-4991-B561-FB0925A3C253}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E9C9C4B0-1D9F-4991-B561-FB0925A3C253}.Debug.ActiveCfg = Debug|.NET
+		{E9C9C4B0-1D9F-4991-B561-FB0925A3C253}.Debug.Build.0 = Debug|.NET
+		{E9C9C4B0-1D9F-4991-B561-FB0925A3C253}.Release.ActiveCfg = Release|.NET
+		{E9C9C4B0-1D9F-4991-B561-FB0925A3C253}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,119 @@
+078.txt
+78 Dateiname einer Windows-Anwendung ermitteln
+
+079.txt
+79 Dateiname einer Klassenbibliothek ermitteln
+
+080.txt
+80 Ordner einer Windowsanwendung ermitteln
+
+081.txt
+81 Ordner einer Klassenbibliothek ermitteln
+
+082.txt
+82 Dateiname für eine temporäre Datei erzeugen
+
+083.txt
+83 Ordner für temporäre Dateien ermitteln
+
+084.txt
+84 Windows-(Spezial-)Ordner auslesen
+
+085.txt
+85 Dateiname mit anderer Endung ermitteln
+
+086.txt
+86 Die logischen Laufwerke des Systems ermitteln
+
+087.txt
+87 Den Typ der Laufwerke eines Systems ermitteln
+
+088.txt
+88 Alle Laufwerke eines bestimmten Typs ermitteln
+
+089.txt
+89 Größe und freien Speicherplatz eines Laufwerks ermitteln
+
+090.txt
+90 Überprüfen, ob ein Ordner existiert
+
+091.txt
+91 Ordner erzeugen
+
+092.txt
+92 Ordner mit .NET-Features kopieren
+
+093.txt
+93 Ordner mit Fortschrittsdialog, Abbruchmöglichkeit und Überschreib-Nachfrage über SHFileOperation kopieren
+
+094.txt
+94 Ordner mit .NET-Features ohne Abbruch bei einer Ausnahme kopieren
+
+095.txt
+95 Ordner umbenennen 
+
+096.txt
+96 Ordner verschieben
+
+097.txt
+97 Ordner löschen
+
+098.txt
+98 Ordnergröße ermitteln
+
+099.txt
+99 Ordnergröße aller direkten Unterordner ermitteln
+
+100.txt
+100 Überprüfen, ob eine Datei existiert
+
+101.txt
+101 Programmdateien in den Systempfaden suchen
+
+102.txt
+102 Dateien kopieren
+
+103.txt
+103 Dateien umbenennen
+
+104.txt
+104 Dateien verschieben
+
+105.txt
+105 Dateien löschen
+
+106.txt
+106 Dateien vergleichen
+
+107.txt
+107 Ordner vergleichen
+
+108.txt
+108 Die Größe einer Datei ermitteln
+
+109.txt
+109 Dateiattribute auslesen
+
+110.txt
+110 Die Version einer Datei auslesen
+
+111.txt
+111 Den kurzen (8.3-)Dateinamen einer Datei auslesen
+
+112.txt
+112 Alle Dateien eines Ordners auflisten
+
+113.txt
+113 Dateien suchen
+
+114.txt
+114 Dateien und Ordner mit Fortschrittsdialog, Abbruchmöglichkeit und Überschreib-Nachfrage umbenennen oder verschieben
+
+115.txt
+115 Dateien und Ordner in den Papierkorb verschieben
+
+116.txt
+116 Größe des Papierkorbs und Anzahl der Dateien im Papierkorb ermitteln
+
+117.txt
+117 Verknüpfungen anlegen

@@ -1,0 +1,60 @@
+/*
+Parameter an Threads übergeben Sie, indem Sie eine Klasse implementieren, 
+die die Parameter als Eigenschaften besitzt. Eine Methode der Klasse wird
+als die im Thread auszuführende Methode implementiert. Vor dem Erzeugen
+des Thread erzeugen Sie eine Instanz dieser Klasse und initialisieren Sie
+die Instanz. Die Thread-Methode übergeben Sie dann an den ThreadStart-Delegate. 
+Der Trick ist, dass die Methode  auf alle Eigenschaften des Objekts zugreifen kann.
+
+Beispiel:
+*/
+
+using System.Threading;
+
+...
+
+/* Klasse für den Thread */
+private class PrimeNumberCalculator
+{
+   public long MinValue;
+   public long MaxValue;
+   public Control ResultControl;
+
+   /* Methode für den Thread */
+   public void Calc()
+   {
+      // Berechnen aller Primzahlen von MinValue bis MaxValue
+      for (long i = this.MinValue; i <= this.MaxValue; i++)
+      {
+         bool isPrimeNumber = true;
+         for (long j = 2; j < i; j++)
+         {
+            if (i % j == 0)
+            {
+               isPrimeNumber = false;
+               break;
+            }
+            if (isPrimeNumber)
+            {
+               lock (this.ResultControl)
+               {
+                  this.ResultControl.Text = i.ToString();
+               }
+            }
+         }
+      }
+   }
+}
+
+...
+
+// Instanz der PrimeNumberCalculator-Klasse erzeugen und initialisieren
+PrimeNumberCalculator pnc = new PrimeNumberCalculator();
+pnc.MinValue = Convert.ToInt64(this.minValueTextBox.Text);
+pnc.MaxValue = Convert.ToInt64(this.maxValueTextBox.Text);
+pnc.ResultControl = this.infoLabel;
+
+// Thread mit der Calc-Methode des PrimeNumberCalculator-Objekts starten
+Thread thread = new Thread(new ThreadStart(pnc.Calc));
+thread.IsBackground = true;
+thread.Start();

@@ -1,0 +1,68 @@
+using System;
+using System.Threading;
+using System.Diagnostics;
+
+...
+
+public class PerformanceTracer
+{
+   /* Private Eigenschaften für die PerformanceCounter */
+   private PerformanceCounter ramCounter;
+   private PerformanceCounter cpuCounter;
+
+   /* Private Eigenschaft zur Übergabe des Abfrageintervalls der CPU-Auslastung 
+    * an den Thread */
+   private int cpuUsageReadInterval;
+
+   /* Private Eigenschaft für den Thread */
+   private Thread cpuUsageThread = null;
+
+   /* Konstruktor */
+   public PerformanceTracer()
+   {
+      this.ramCounter = new PerformanceCounter("Process", "Working Set");
+      this.ramCounter.InstanceName = Process.GetCurrentProcess().ProcessName;
+      this.cpuCounter = new PerformanceCounter("Process", "% Processor Time");
+      this.cpuCounter.InstanceName = Process.GetCurrentProcess().ProcessName;
+   }
+
+   /* Methode zum Tracen der Speicherauslastung */
+   public void TraceRamUsage(string info)
+   {
+      Trace.WriteLine(String.Format("Speicherauslastung bei {0}: " +
+         "{1:0.00} KB ", info, this.ramCounter.NextValue() / 1024));
+   }
+
+   /* Methode für den Thread zum Tracen der CPU-Auslastung */
+   private void TraceCPUUsage()
+   {
+      do
+      {
+         lock(typeof(Trace))
+         {
+            Trace.WriteLine("CPU-Auslastung " + 
+               DateTime.Now.ToLongTimeString() + ": " + 
+               this.cpuCounter.NextValue() + "%");
+         }
+
+         Thread.Sleep(this.cpuUsageReadInterval);
+
+      } while (true);
+   }
+
+   /* Methode zum Starten des Thread, der die CPU-Auslastung verfolgt */
+   public void StartCPUUsageTraceThread(int readInterval)
+   {
+      this.cpuUsageReadInterval = readInterval;
+
+      this.cpuUsageThread = new Thread(new ThreadStart(this.TraceCPUUsage));
+      cpuUsageThread.Start();
+   }
+
+   /* Methode zum Stoppen des Thread, der die CPU-Auslastung verfolgt */
+   public void StopCPUUsageTraceThread()
+   {
+      this.cpuUsageThread.Abort();
+   }
+}
+

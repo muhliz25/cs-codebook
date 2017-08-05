@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binäre XML-Daten", "Binäre XML-Daten.csproj", "{03D5B8EF-8A1D-433F-9AD4-B188161517C9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{03D5B8EF-8A1D-433F-9AD4-B188161517C9}.Debug.ActiveCfg = Debug|.NET
+		{03D5B8EF-8A1D-433F-9AD4-B188161517C9}.Debug.Build.0 = Debug|.NET
+		{03D5B8EF-8A1D-433F-9AD4-B188161517C9}.Release.ActiveCfg = Release|.NET
+		{03D5B8EF-8A1D-433F-9AD4-B188161517C9}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

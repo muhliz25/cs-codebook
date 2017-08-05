@@ -1,0 +1,36 @@
+using System;
+
+namespace Addison_Wesley.Codebook.Basics
+{
+	public class StringUtils
+	{
+		/* Methode zum Kürzen eines Strings unter Berücksichtigung der Wörter */
+		public static string AbbreviateString(string source, int maxCharCount)
+		{
+			string result = "";
+
+			// String an Leerzeichen splitten
+			string[] words = source.Split(' ');
+   
+			// Die Sonderfälle abhandeln, dass der gesamte String kürzer oder das erste
+			// Wort schon zu lang ist
+			if (source.Length <= maxCharCount)
+				return source;
+			if (words.Length > 0 && words[0].Length > maxCharCount)
+				return words[0].Substring(0, maxCharCount - 4) + " ...";
+
+			// Die Wörter durchgehen und in das Ergebnis schreiben, bis die Maximallänge
+			// erreicht ist
+			for (int i = 0; i < words.Length; i++)
+			{
+				if (result.Length + words[i].Length + 5 > maxCharCount)
+					return result + " ...";
+				else
+					result += ' ' + words[i];
+			}
+   
+			return source;
+		}
+
+	}
+}

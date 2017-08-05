@@ -1,0 +1,2 @@
+Zu Erstellung eines Formulars ohne Titelleiste setzen Sie die Eigenschaft 
+ControlBox auf false und löschen Sie den Inhalt der Eigenschaft Text.

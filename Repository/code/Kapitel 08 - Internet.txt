@@ -1,0 +1,29 @@
+164.txt
+164 Status der Internetverbindung abfragen
+
+165.txt
+165 Pingen: Ermitteln, ob eine Internetverbindung besteht
+
+166.txt
+166 TCP- und ICMP-Prüfsumme berechnen
+
+167.txt
+167 Internetverbindung öffnen und schließen
+
+168.txt
+168 Die IP-Adressen des Computers herausfinden
+
+169.txt
+169 Mails über einen SMTP-Server versenden
+
+170.txt
+170 E-Mails über MAPI/Outlook versenden
+
+171.txt
+171 Browser starten
+
+172.txt
+172 Webseiten (HTML-Dokumente) in der Anwendung darstellen
+
+173.txt
+173 Dateien downloaden

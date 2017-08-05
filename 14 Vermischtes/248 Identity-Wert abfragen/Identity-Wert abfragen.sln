@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity-Wert abfragen", "Identity-Wert abfragen.csproj", "{DDC0093F-70CD-49E9-95C0-92D7EABA2A42}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DDC0093F-70CD-49E9-95C0-92D7EABA2A42}.Debug.ActiveCfg = Debug|.NET
+		{DDC0093F-70CD-49E9-95C0-92D7EABA2A42}.Debug.Build.0 = Debug|.NET
+		{DDC0093F-70CD-49E9-95C0-92D7EABA2A42}.Release.ActiveCfg = Release|.NET
+		{DDC0093F-70CD-49E9-95C0-92D7EABA2A42}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

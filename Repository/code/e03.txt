@@ -1,0 +1,3 @@
+Die frühe COM-Bindung erreichen Sie, indem Sie eine COM-Komponente 
+in Visual Studio.NET referenzieren und deren Klassen wie normale
+.NET-Klassen verwenden

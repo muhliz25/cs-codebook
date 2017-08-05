@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "High- und Low-Word setzen", "High- und Low-Word setzen.csproj", "{F0E01D57-0A3C-4509-A560-1057039A3AD6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F0E01D57-0A3C-4509-A560-1057039A3AD6}.Debug.ActiveCfg = Debug|.NET
+		{F0E01D57-0A3C-4509-A560-1057039A3AD6}.Debug.Build.0 = Debug|.NET
+		{F0E01D57-0A3C-4509-A560-1057039A3AD6}.Release.ActiveCfg = Release|.NET
+		{F0E01D57-0A3C-4509-A560-1057039A3AD6}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

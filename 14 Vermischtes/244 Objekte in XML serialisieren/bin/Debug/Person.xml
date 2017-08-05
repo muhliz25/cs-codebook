@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Person xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <BirthDate>1900-01-01T00:00:00.0000000+01:00</BirthDate>
+  <FirstName>Zaphod</FirstName>
+  <LastName>Beeblebrox</LastName>
+</Person>

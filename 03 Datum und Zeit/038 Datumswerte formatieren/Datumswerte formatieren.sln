@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datumswerte formatieren", "Datumswerte formatieren.csproj", "{BF78BD57-C604-49E1-88AD-3D466A976E0D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BF78BD57-C604-49E1-88AD-3D466A976E0D}.Debug.ActiveCfg = Debug|.NET
+		{BF78BD57-C604-49E1-88AD-3D466A976E0D}.Debug.Build.0 = Debug|.NET
+		{BF78BD57-C604-49E1-88AD-3D466A976E0D}.Release.ActiveCfg = Release|.NET
+		{BF78BD57-C604-49E1-88AD-3D466A976E0D}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

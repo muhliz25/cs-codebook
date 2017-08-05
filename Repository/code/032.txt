@@ -1,0 +1,56 @@
+using System;
+using System.Collections;
+
+...
+
+/* Klasse, die die IComparable-Schnittstelle für ein 
+ * korrektes Sortieren implementiert */
+public class Person: IComparable
+{
+   public string FirstName;
+   public string LastName;
+   public Person(string firstName, string lastName)
+   {
+      this.FirstName = firstName;
+      this.LastName = lastName;
+   }
+
+   /* Implementierung der CompareTo-Methode */
+   public int CompareTo(object o)
+   {
+      Person otherPerson = (Person)o;
+      string firstName1 = this.FirstName.ToLower();
+      string firstName2 = otherPerson.FirstName.ToLower();
+      string lastName1 = this.LastName.ToLower();
+      string lastName2 = otherPerson.LastName.ToLower();
+
+      if (lastName1 == lastName2 && firstName1 == firstName2)
+         // Beide Instanzen sind gleich
+         return 0;
+      else if (lastName1.CompareTo(lastName2) < 0 || 
+         (lastName1 == lastName2 &&
+         firstName1.CompareTo(firstName2) < 0))
+         // Diese Instanz ist kleiner als die andere
+         return -1;
+      else 
+         // Diese Instanz ist kleiner als die andere
+         return 1;
+   }
+}
+
+...
+
+// Array mit eigenen Person-Objekten sortieren
+Person[] persons = new Person[4];
+persons[0] = new Person("Arthur", "Miller");
+persons[1] = new Person("John", "Dent");
+persons[2] = new Person("Arthur", "Dent");
+persons[3] = new Person("Tricia", "McMillan");
+Array.Sort(persons);
+for (int i = 0; i < persons.Length; i++)
+   Console.WriteLine(persons[i].FirstName + " " + persons[i].LastName);
+
+
+
+
+

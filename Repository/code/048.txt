@@ -1,0 +1,12 @@
+using System;
+
+...
+
+// Aktuelles Datum ermitteln
+DateTime now = DateTime.Now;
+
+// Ermitteln, ob es sich um ein Schaltjahr handelt
+if (DateTime.IsLeapYear(now.Year))
+   Console.WriteLine("Schaltjahr");
+else
+   Console.WriteLine("Kein Schaltjahr");

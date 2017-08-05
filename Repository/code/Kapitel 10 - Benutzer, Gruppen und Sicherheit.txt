@@ -1,0 +1,50 @@
+197.txt
+197 Informationen zu den Benutzern eines Computers oder einer Domäne auflisten
+
+198.txt
+198 Überprüfen, ob ein Benutzerkonto existiert
+
+199.txt
+199 Benutzergruppen eines Computers oder einer Domäne auflisten
+
+200.txt
+200 Benutzer ermitteln, die einer Gruppe angehören
+
+201.txt
+201 Gruppen eines Benutzers abfragen
+
+202.txt
+202 Eigenschaften eines Benutzers auslesen
+
+203.txt
+203 Gruppe anlegen
+
+204.txt
+204 Benutzer anlegen
+
+205.txt
+205 Eigenschaften eines Benutzers ändern
+
+206.txt
+206 Benutzer einer Gruppe zuweisen
+
+207.txt
+207 Benutzer aus einer Gruppe entfernen
+
+208.txt
+208 Benutzer löschen
+
+209.txt
+209 Gruppe löschen
+
+210.txt
+210 Den Namen des aktuellen Benutzers auslesen
+
+211.txt
+211 Ein Programm unter einem spezifischen Benutzerkonto ausführen
+
+212.txt
+212 Daten symmetrisch ver- und entschlüsseln
+
+213.txt
+213 Daten mit Hashing-Verfahren verschlüsseln

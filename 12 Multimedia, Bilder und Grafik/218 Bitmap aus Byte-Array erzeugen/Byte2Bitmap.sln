@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byte2Bitmap", "Byte2Bitmap.csproj", "{179A737F-D064-4828-9C99-4B3A7FB2C9C1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{179A737F-D064-4828-9C99-4B3A7FB2C9C1}.Debug.ActiveCfg = Debug|.NET
+		{179A737F-D064-4828-9C99-4B3A7FB2C9C1}.Debug.Build.0 = Debug|.NET
+		{179A737F-D064-4828-9C99-4B3A7FB2C9C1}.Release.ActiveCfg = Release|.NET
+		{179A737F-D064-4828-9C99-4B3A7FB2C9C1}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

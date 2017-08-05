@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zahlen aus String lesen", "Zahlen aus String lesen.csproj", "{9DC0F582-DFEA-459A-8576-1A1C965F1730}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{9DC0F582-DFEA-459A-8576-1A1C965F1730}.Debug.ActiveCfg = Debug|.NET
+		{9DC0F582-DFEA-459A-8576-1A1C965F1730}.Debug.Build.0 = Debug|.NET
+		{9DC0F582-DFEA-459A-8576-1A1C965F1730}.Release.ActiveCfg = Release|.NET
+		{9DC0F582-DFEA-459A-8576-1A1C965F1730}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

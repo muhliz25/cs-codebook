@@ -1,0 +1,32 @@
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
+
+namespace Addison_Wesley.Codebook.Images
+{
+	public class ImageUtils
+	{
+		/* Methode zum Zuschneiden eines Bildes */
+		public static Bitmap CropImage(Image image, int x, int y, int width, int height)
+		{
+			// Neues Bitmap-Objekt mit den gegebenen Ausmaßen und dafür ein
+			// Graphics-Objekt erzeugen
+			Bitmap croppedBitmap = new Bitmap(width, height);
+			Graphics g =  Graphics.FromImage(croppedBitmap);
+
+			// Die Zeichenqualität einstellen
+			g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+			g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+			g.SmoothingMode = SmoothingMode.HighQuality;
+
+			// Den Ausschnitt des Quellbilds auf das Ziel-Bild kopieren
+			Rectangle destRect = new Rectangle(0, 0, width, height);
+			g.DrawImage(image, destRect, x, y, width, height, GraphicsUnit.Pixel);
+			g.Dispose();
+
+			// Ergebnis zurückgeben
+			return croppedBitmap;
+		}
+	}
+}

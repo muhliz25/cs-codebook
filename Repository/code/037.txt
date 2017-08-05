@@ -1,0 +1,6 @@
+using System;
+
+...
+
+// Aktuelles Datum ermitteln 
+DateTime now = DateTime.Now;

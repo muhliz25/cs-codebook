@@ -1,0 +1,38 @@
+e01.txt
+PInvoke
+
+e02.txt
+Windows-API-Fehlerauswertung
+
+e03.txt
+Frühe COM-Bindung
+
+e04.txt
+Späte COM-Bindung
+
+e05.txt
+Überprüfen, ob WMI installiert ist
+
+e06.txt
+WMI verwenden
+
+e07.txt
+WMI-Objekt-Auflistungen
+
+e08.txt
+WMI-Abfragen
+
+e09.txt
+Entfernte Objekte über WMI abfragen
+
+e10.txt
+WMI-Datumswerte konvertieren
+
+e11.txt
+WMI-Methoden aufrufen
+
+e12.txt
+Auf ADSI-Objekte zugreifen
+
+e13.txt
+ADSI-Container durchgehen

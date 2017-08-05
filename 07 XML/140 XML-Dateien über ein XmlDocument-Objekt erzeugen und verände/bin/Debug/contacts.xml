@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<cbch:contacts xmlns:cbch="uuid:7ACED865-0622-48f7-B138-45FED1BB4B27">
+  <contact id="1000">
+    <firstname>Zaphod</firstname>
+    <lastname>Beeblebrox</lastname>
+    <phone>042-42</phone>
+  </contact>
+  <contact id="1002">
+    <firstname>Tricia</firstname>
+    <lastname>McMillan</lastname>
+    <phone>01234-12347</phone>
+  </contact>
+</cbch:contacts>

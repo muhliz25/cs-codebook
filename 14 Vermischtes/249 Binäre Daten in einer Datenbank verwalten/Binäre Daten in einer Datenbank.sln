@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binäre Daten in einer Datenbank", "Binäre Daten in einer Datenbank.csproj", "{FB4487C5-3EB1-466A-BE38-93E58D5293CA}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{FB4487C5-3EB1-466A-BE38-93E58D5293CA}.Debug.ActiveCfg = Debug|.NET
+		{FB4487C5-3EB1-466A-BE38-93E58D5293CA}.Debug.Build.0 = Debug|.NET
+		{FB4487C5-3EB1-466A-BE38-93E58D5293CA}.Release.ActiveCfg = Release|.NET
+		{FB4487C5-3EB1-466A-BE38-93E58D5293CA}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

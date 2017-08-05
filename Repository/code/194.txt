@@ -1,0 +1,35 @@
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.IO;
+
+/* Dieses Rezept demonstriert Drag & Drop von Dateien und Ordner vom Explorer 
+ * in eine ListBox. Es benötigt ein Formular mit einer ListBox "fileList" und
+ * die Zuweisung der Ereignisse DragEnter und DragDrop */
+
+...
+
+private void fileList_DragEnter(object sender, DragEventArgs e)
+{
+   // Überprüfen, ob Dateien oder Ordner gezogen werden
+   if (e.Data.GetDataPresent(DataFormats.FileDrop))
+      e.Effect = DragDropEffects.Copy;
+   else
+      e.Effect = DragDropEffects.None;
+}
+
+private void fileList_DragDrop(object sender, DragEventArgs e)
+{
+   // Dateien aus den gezogenen Daten auslesen
+   string[] filesNames = (string[])e.Data.GetData(DataFormats.FileDrop,
+      false);
+   foreach (string fileName in filesNames)
+   {
+      // FileInfo-Objekt erzeugen
+      FileInfo fi = new FileInfo(fileName);
+      if (fi.Exists)
+         // Wenn es sich nicht um einen Ordner handelt: FileInfo-Objekt der
+         // Liste anfügen
+         this.fileList.Items.Add(fi);
+   } 
+}

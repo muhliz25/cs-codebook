@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transparente Steuerelemente", "Transparente Steuerelemente.csproj", "{5D8A76B0-1824-4ABB-A59F-61A1300C5F4B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{5D8A76B0-1824-4ABB-A59F-61A1300C5F4B}.Debug.ActiveCfg = Debug|.NET
+		{5D8A76B0-1824-4ABB-A59F-61A1300C5F4B}.Debug.Build.0 = Debug|.NET
+		{5D8A76B0-1824-4ABB-A59F-61A1300C5F4B}.Release.ActiveCfg = Release|.NET
+		{5D8A76B0-1824-4ABB-A59F-61A1300C5F4B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

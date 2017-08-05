@@ -1,0 +1,65 @@
+037.txt
+37 Aktuelles Datum und aktuelle Uhrzeit ermitteln
+
+038.txt
+38 Datumswerte formatieren
+
+039.txt
+39 Datumswerte in verschiedenen Länderformaten ausgeben
+
+040.txt
+40 ISO-Datum ermitteln
+
+041.txt
+41 Datumswerte vergleichen
+
+042.txt
+42 Die Differenz zwischen zwei Datumswerten in Tagen und deren Teilen berechnen
+
+043.txt
+43 Die Differenz zwischen zwei Datumswerten in höheren Datumseinheiten berechnen
+
+044.txt
+44 Ein Alter in Jahren berechnen
+
+045.txt
+45 Datumswerte addieren und subtrahieren
+
+046.txt
+46 Die Anzahl der Tage eines Monats berechnen
+
+047.txt
+47 Die Anzahl der Tage eines Jahres berechnen
+
+048.txt
+48 Ermitteln, ob ein Jahr ein Schaltjahr ist
+
+049.txt
+49 Ermitteln der ISO-Kalenderwoche
+
+050.txt
+50 Ermitteln, mit welchem Datum eine Kalenderwoche beginnt
+
+051.txt
+51 Anzahl der Kalenderwochen eines Jahres bestimmen
+
+052.txt
+52 Systemdatum und -zeit setzen
+
+053.txt
+53 Atomuhr-Datum inklusive Uhrzeit von einem NIST-Server abfragen
+
+054.txt
+54 Datum auf Gültigkeit überprüfen
+
+055.txt
+55 Datum normalisieren
+
+056.txt
+56 Deutsche Feiertage und andere besondere Tage berechnen
+
+057.txt
+57 Ermitteln, ob ein bestimmter Tag ein Feiertag ist
+
+058.txt
+58 Zeit genau messen

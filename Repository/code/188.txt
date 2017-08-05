@@ -1,0 +1,4 @@
+Zusätzliche Daten in einer ListBox oder ComboBox erhalten Sie, indem Sie eine
+Klasse mit entsprechenden Eigenschaften implementieren. Eine ToString-Methode
+gibt den Text zurück, der in der ListBox oder ComboBox angezeigt werden soll.
+Instanzen dieser Klasse werden dann in der Liste gespeichert.

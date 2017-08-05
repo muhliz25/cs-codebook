@@ -1,0 +1,8 @@
+using System;
+
+...
+
+int i = 0xFAFBFC;
+
+// Zahl hexadezimal formatieren
+string hexNumber = String.Format("{0:X}", i);

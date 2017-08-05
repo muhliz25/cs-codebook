@@ -1,0 +1,55 @@
+using System;
+using System.DirectoryServices;
+using System.Collections;
+using System.Collections.Specialized;
+
+// Import der COM-Typbibliothek ActiveDS. Benötigt eine COM-Referenz
+// auf die Datei acticeds.tlb im Windows-Systemverzeichnis
+using ActiveDs; 
+
+namespace Addison_Wesley.Codebook.System
+{
+	public class UserUtils
+	{
+		/* Methode zum Ermitteln aller Benutzer einer Gruppe */
+		public static StringCollection EnumGroupMembers(string domainName, 
+			string machineName, string groupName, string bindUser, string bindPassword)
+		{
+			// StringCollection für die ermittelten Benutzernamen erzeugen
+			StringCollection users = new StringCollection();
+
+			// DirectoryEntry-Objekt für die Gruppe holen
+			if (domainName == null && machineName == null)
+				machineName = Environment.MachineName;
+			string adsiPath = "WinNT://" + 
+				(domainName != null ? domainName + "/" : "") +
+				(machineName != null ? machineName + "/" : "") +
+				groupName + ",group";
+			DirectoryEntry groupEntry = new DirectoryEntry(adsiPath, bindUser,
+				bindPassword);
+
+			try
+			{
+				// Member dieser Gruppe einlesen
+				IADsMembers adsMembers = (IADsMembers)groupEntry.Invoke("Members");
+
+				// Member so filtern, dass nur User-Objekte übrig bleiben
+				adsMembers.Filter = new object[] {"user"};
+
+				// Benutzer durchgehen
+				foreach (IADsUser adsUser in adsMembers)
+				{
+					users.Add(adsUser.Name);
+				}
+			}
+			finally 
+			{
+				// ADSI-Objekt freigeben
+				groupEntry.Dispose();
+			}
+
+			// Die ermittelten Benutzer zurückgeben
+			return users;
+		}
+	}
+}

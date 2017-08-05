@@ -1,0 +1,41 @@
+118.txt
+118 Textdateien lesen
+
+119.txt
+119 Textdateien schreiben
+
+120.txt
+120 Texte an Textdateien anfügen
+
+121.txt
+121 Textdateien ändern
+
+122.txt
+122 Binäre Dateien lesen
+
+123.txt
+123 Binäre Dateien schreiben
+
+124.txt
+124 Binäre Dateien Base64-codieren
+
+125.txt
+125 Base64-codierte Strings in Dateien umwandeln
+
+126.txt
+126 (ZIP-)Archive erzeugen
+
+127.txt
+127 (ZIP-)Archive aus einem Ordner erzeugen
+
+128.txt
+128 (ZIP-)Archive aus beliebigen Daten erzeugen
+
+129.txt
+129 Dateiinformationen aus  (ZIP-)Archiven auslesen
+
+130.txt
+130 (ZIP-)Archive entpacken
+
+131.txt
+131 Den Inhalt von (ZIP-)Archiven lesen

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalenderwoche", "Kalenderwoche.csproj", "{5E4465E7-C0C4-407C-96DA-0C7CD054B7DE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{5E4465E7-C0C4-407C-96DA-0C7CD054B7DE}.Debug.ActiveCfg = Debug|.NET
+		{5E4465E7-C0C4-407C-96DA-0C7CD054B7DE}.Debug.Build.0 = Debug|.NET
+		{5E4465E7-C0C4-407C-96DA-0C7CD054B7DE}.Release.ActiveCfg = Release|.NET
+		{5E4465E7-C0C4-407C-96DA-0C7CD054B7DE}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

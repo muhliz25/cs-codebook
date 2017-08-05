@@ -1,0 +1,225 @@
+using System;
+using System.IO;
+using System.Xml;
+using System.Collections;
+
+namespace Addison_Wesley.Codebook.Configuration
+{
+	/* Klasse zur Speicherung einer Einstellung */
+	public class Setting
+	{
+		public string Name;         // der Name der Einstellung
+		public string Value;        // der Wert der Einstellung
+		public string DefaultValue; // der Defaultwert für das Lesen
+		public bool WasInFile;      // Info darüber, ob die Einstellung in der 
+		// Config-Datei gefunden wurde
+     
+		/* Konstruktor */
+		public Setting(string name, string defaultValue)
+		{
+			this.Name = name;
+			this.DefaultValue = defaultValue;
+		}
+	}
+
+	/* Klasse zur Speicherung von Einstellungen */
+	public class Settings: DictionaryBase
+	{
+		/* Implementierung des Indizierers */
+		public Setting this[string name]
+		{
+			set {this.Dictionary[name] = value;}
+			get {return (Setting)this.Dictionary[name];}
+		}
+
+		/* Implementierung der Add-Methode */
+		public void Add(string settingName, string defaultValue)
+		{
+			this.Dictionary.Add(settingName, 
+				new Setting(settingName, defaultValue));
+		}
+
+		/* Implementierung der Remove-Methode */
+		public void Remove(string name)
+		{
+			this.Dictionary.Remove(name);
+		}
+
+		/* Implementierung der Values-Eigenschaft zum Durchgehen mit foreach */
+		public ICollection Values
+		{
+			get {return Dictionary.Values;}
+		}
+
+		/* Implementierung der Keys-Eigenschaft zum Durchgehen mit foreach */
+		public ICollection Keys
+		{
+			get {return Dictionary.Keys;}
+		}
+	}
+
+	/* Klasse zur Speicherung einer Einstellungs-Sektion */
+	public class Section
+	{
+		public string Name;       // Der Name der Sektion
+		public Settings Settings; // Die Einstellungen der Sektions
+
+		/* Konstruktor */
+		public Section(string sectionName)
+		{
+			this.Name = sectionName;
+			this.Settings = new Settings();
+		}
+	}
+
+	/* Auflistungs-Klasse zur Speicherung von Einstellungs-Sektionen */
+	public class Sections: DictionaryBase
+	{
+		/* Implementierung des Indizierers */
+		public Section this[string name]
+		{
+			set {this.Dictionary[name] = value;}
+			get {return (Section)this.Dictionary[name];}
+		}
+
+		/* Implementierung der Add-Methode */
+		public void Add(string name)
+		{
+			this.Dictionary.Add(name, new Section(name));
+		}
+
+		/* Implementierung der Remove-Methode */
+		public void Remove(string name)
+		{
+			this.Dictionary.Remove(name);
+		}   
+
+		/* Implementierung der Values-Eigenschaft zum Durchgehen mit foreach */
+		public ICollection Values
+		{
+			get {return Dictionary.Values;}
+		}
+
+		/* Implementierung der Keys-Eigenschaft zum Durchgehen mit foreach */
+		public ICollection Keys
+		{
+			get {return Dictionary.Keys;}
+		}
+	}
+    
+	/* Klasse zur Verwaltung von Konfigurationsdaten */
+	public class Config
+	{
+		/* Eigenschaften */
+		private string fileName;
+		public Sections Sections;
+
+		/* Konstruktor */
+		public Config(string fileName)
+		{
+			this.fileName = fileName;
+			this.Sections = new Sections();
+		}
+
+		/* Methode zum Lesen der Konfigurationsdatei */
+		public bool Load()
+		{
+			// Variable für den Rückgabewert
+			bool returnValue = true;
+
+			// XmlDocument-Objekt für die Einstellungs-Datei erzeugen
+			XmlDocument xmlDoc = new XmlDocument();
+
+			// Datei laden
+			try
+			{
+				xmlDoc.Load(this.fileName);
+			}
+			catch (IOException ex1)
+			{
+				throw new IOException("Fehler beim Laden der Konfigurationsdatei '" +
+					this.fileName + "': " + ex1.Message);
+
+			}
+			catch (XmlException ex2)
+			{
+				throw new XmlException("Fehler beim Laden der Konfigurationsdatei '" +
+					this.fileName + "': " + ex2.Message, ex2);
+			}
+
+			// Alle Sektionen durchgehen und die Einstellungen einlesen
+			foreach (Section section in this.Sections.Values)
+			{
+				// Alle Einstellungen der Sektion durchlaufen
+				foreach (Setting setting in section.Settings.Values)
+				{
+					// Einstellung im XML-Dokument lokalisieren
+					XmlNode settingNode = xmlDoc.SelectSingleNode(
+						"/config/" + section.Name + "/" + setting.Name);
+					if (settingNode != null)
+					{
+						// Einstellung gefunden
+						setting.Value = settingNode.InnerText;
+						setting.WasInFile = true;
+					}
+					else
+					{
+						// Einstellung nicht gefunden
+						setting.Value = setting.DefaultValue;
+						setting.WasInFile = false;
+						returnValue = false;
+					}
+				}
+			}
+      
+			// Ergebnis zurückmelden
+			return returnValue; 
+		}
+
+		/* Methode zum Speichern der Konfigurationsdatei */
+		public void Save()
+		{
+			// XmlDocument-Objekt für die Einstellungs-Datei erzeugen
+			XmlDocument xmlDoc = new XmlDocument();
+
+			// Skelett der XML-Datei erzeugen
+			xmlDoc.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\" " +
+				"standalone=\"yes\"?><config></config>");
+
+			// Alle Sektionen durchgehen und die Einstellungen schreiben
+			foreach (Section section in this.Sections.Values)
+			{
+				// Element für die Sektion erzeugen und anfügen
+				XmlElement sectionElement = xmlDoc.CreateElement(section.Name);
+				xmlDoc.DocumentElement.AppendChild(sectionElement);
+
+				// Alle Einstellungen der Sektion durchlaufen
+				foreach (Setting setting in section.Settings.Values)
+				{
+					// Einstellungs-Element erzeugen und anfügen
+					XmlElement settingElement =
+						xmlDoc.CreateElement(setting.Name);
+					settingElement.InnerText = setting.Value;
+					sectionElement.AppendChild(settingElement);
+				}
+			}
+
+			// Datei speichern
+			try
+			{
+				xmlDoc.Save(this.fileName);
+			}
+			catch (IOException ex1)
+			{
+				throw new IOException("Fehler beim Speichern der " +
+					"Konfigurationsdatei '" + this.fileName + "': " + ex1.Message);
+
+			}
+			catch (XmlException ex2)
+			{
+				throw new XmlException("Fehler beim Speichern der " +
+					" Konfigurationsdatei '" + this.fileName + "': " + ex2.Message, ex2);
+			}
+		}
+	}
+}

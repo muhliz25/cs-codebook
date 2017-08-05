@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zahlen länderspezifisch formatieren", "Zahlen länderspezifisch formatieren.csproj", "{18DBE3F6-559F-4676-9879-F1E0BC71483E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{18DBE3F6-559F-4676-9879-F1E0BC71483E}.Debug.ActiveCfg = Debug|.NET
+		{18DBE3F6-559F-4676-9879-F1E0BC71483E}.Debug.Build.0 = Debug|.NET
+		{18DBE3F6-559F-4676-9879-F1E0BC71483E}.Release.ActiveCfg = Release|.NET
+		{18DBE3F6-559F-4676-9879-F1E0BC71483E}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

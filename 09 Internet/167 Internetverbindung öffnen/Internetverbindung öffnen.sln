@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Internetverbindung öffnen", "Internetverbindung öffnen.csproj", "{A822F51E-D667-4DF9-AFE7-96148326C521}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A822F51E-D667-4DF9-AFE7-96148326C521}.Debug.ActiveCfg = Debug|.NET
+		{A822F51E-D667-4DF9-AFE7-96148326C521}.Debug.Build.0 = Debug|.NET
+		{A822F51E-D667-4DF9-AFE7-96148326C521}.Release.ActiveCfg = Release|.NET
+		{A822F51E-D667-4DF9-AFE7-96148326C521}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

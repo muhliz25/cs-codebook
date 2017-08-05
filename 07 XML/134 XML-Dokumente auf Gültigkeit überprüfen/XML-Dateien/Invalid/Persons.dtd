@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT persons (person)+>
+<!ELEMENT person (firstname, lastname, type)>
+<!ATTLIST person id CDATA #REQUIRED>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+
+
+
+

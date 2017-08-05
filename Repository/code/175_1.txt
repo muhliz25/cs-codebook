@@ -1,0 +1,22 @@
+/* Überschreiben der Methode WndProc um die Nachricht WM_NCHITTEST
+ * abzufangen und zu simulieren, dass der Anwender auf der Titelleiste
+ * geklickt hat */
+protected override void WndProc(ref Message m)
+{
+   const int WM_NCHITTEST = 0x0084;
+   const int HTCAPTION = 2;
+
+   // Abfangen der Nachricht WM_NCHITTEST
+   if (m.Msg == WM_NCHITTEST)
+   {
+      if (this.ClientRectangle.Contains(this.PointToClient(Cursor.Position)))
+      {
+         // Wenn der Cursor sich im Clientbereich des Formulars befindet:
+         // Simulieren, dass der Cursor sich auf der Titelleiste befindet
+         m.Result = (IntPtr)HTCAPTION;
+         return;
+      }
+   } 
+
+   base.WndProc(ref m);
+}

@@ -1,0 +1,49 @@
+using System;
+using System.Collections;
+using System.Windows.Forms;
+
+/* Dieses Rezept demonstriert, wie Sie ein ListView-Steuerelement sortieren.
+ * Das Rezept basiert auf einem Formular mit einem ListView-Steuerelement 
+ * "bookList" */
+
+...
+
+// Klasse, die IComparer implementiert und die das 
+// Sortieren übernimmt
+public class ColumnComparer: IComparer
+{
+   /* Eigenschaft für die aktuelle Spalte */
+   public int CurrentColumn = 0;
+
+   /* Implementieren der Compare-Methode */
+   public int Compare(object x, object y)
+   {
+      ListViewItem firstItem = (ListViewItem)x;
+      ListViewItem secondItem = (ListViewItem)y;
+
+      return string.Compare(
+         firstItem.SubItems[CurrentColumn].Text,
+         secondItem.SubItems[CurrentColumn].Text);
+   }
+}
+
+// Eigenschaft für den Spaltenvergleicher
+private ColumnComparer columnComparer = new ColumnComparer();
+
+private void StartForm_Load(object sender, System.EventArgs e)
+{
+   // Füllen des ListView-Steuerelements
+
+   ...
+
+   // Comparer zuweisen
+   this.columnComparer.CurrentColumn = 2; // Sortieren nach ISBN
+   this.bookList.ListViewItemSorter = this.columnComparer;
+}
+
+private void bookList_ColumnClick(object sender, ColumnClickEventArgs e)
+{
+   // Umsortieren der Liste beim Klick auf eine Spalte
+   this.columnComparer.CurrentColumn = e.Column;
+   this.bookList.Sort();
+}

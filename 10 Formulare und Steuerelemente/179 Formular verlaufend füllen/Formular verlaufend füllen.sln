@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formular verlaufend füllen", "Formular verlaufend füllen.csproj", "{CEE76A67-CDFB-4EDE-95E6-ADA0E13F2E7D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{CEE76A67-CDFB-4EDE-95E6-ADA0E13F2E7D}.Debug.ActiveCfg = Debug|.NET
+		{CEE76A67-CDFB-4EDE-95E6-ADA0E13F2E7D}.Debug.Build.0 = Debug|.NET
+		{CEE76A67-CDFB-4EDE-95E6-ADA0E13F2E7D}.Release.ActiveCfg = Release|.NET
+		{CEE76A67-CDFB-4EDE-95E6-ADA0E13F2E7D}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

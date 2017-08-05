@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordner löschen", "Ordner löschen.csproj", "{FDFA74B7-55C0-471C-B34B-21C26BFAEF13}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{FDFA74B7-55C0-471C-B34B-21C26BFAEF13}.Debug.ActiveCfg = Debug|.NET
+		{FDFA74B7-55C0-471C-B34B-21C26BFAEF13}.Debug.Build.0 = Debug|.NET
+		{FDFA74B7-55C0-471C-B34B-21C26BFAEF13}.Release.ActiveCfg = Release|.NET
+		{FDFA74B7-55C0-471C-B34B-21C26BFAEF13}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes"?>
+<per:persons xmlns:per="http://www.addison-wesley.de/codebook/persons">
+  <xs:schema id="persons" targetNamespace="http://www.addison-wesley.de/codebook/persons" xmlns:mstns="http://www.addison-wesley.de/codebook/persons" xmlns="http://www.addison-wesley.de/codebook/persons" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+    <xs:element name="persons" msdata:IsDataSet="true" msdata:Locale="de-DE" msdata:Prefix="per">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="person">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="id" type="xs:int" minOccurs="0" />
+                <xs:element name="firstname" type="xs:string" minOccurs="0" />
+                <xs:element name="lastname" type="xs:string" minOccurs="0" />
+                <xs:element name="type" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <person xmlns="http://www.addison-wesley.de/codebook/persons">
+    <id>1000</id>
+    <firstname>Zaphod</firstname>
+    <lastname>Beeblebrox</lastname>
+    <type>Alien</type>
+  </person>
+  <person xmlns="http://www.addison-wesley.de/codebook/persons">
+    <id>1001</id>
+    <firstname>Ford</firstname>
+    <lastname>Prefect</lastname>
+    <type>Traveller</type>
+  </person>
+  <person xmlns="http://www.addison-wesley.de/codebook/persons">
+    <id>1002</id>
+    <firstname>Tricia</firstname>
+    <lastname>McMillan</lastname>
+    <type>Earthling</type>
+  </person>
+  <person xmlns="http://www.addison-wesley.de/codebook/persons">
+    <id>1004</id>
+    <firstname>Marvin</firstname>
+    <lastname />
+    <type>Robot</type>
+  </person>
+</per:persons>

@@ -1,0 +1,20 @@
+using System;
+using System.Diagnostics;
+
+...
+
+public static void Test()
+{
+   // Den Namen und die Klasse der aufrufenden Methode ermitteln
+   StackTrace stackTrace = new StackTrace();
+   string callerMethodName = stackTrace.GetFrame(1).GetMethod().Name;
+   string callerClassName = stackTrace.GetFrame(1).GetMethod().ReflectedType.Name;
+
+   Console.WriteLine("Aufrufende Methode: {0}", callerMethodName);
+   Console.WriteLine("Aufrufende Klasse: {0}", callerClassName);
+}
+
+
+
+
+

@@ -1,0 +1,80 @@
+using System;
+using System.Xml;
+using System.IO;
+using System.Collections;
+using System.Windows.Forms;
+
+...
+
+/* Klasse zur Speicherung der Daten einer Person */
+class Person
+{
+   public string Id;
+   public string FirstName;
+   public string LastName;
+   public string Type;
+}
+
+...
+
+// Der Dateiname
+string xmlFileName = Path.Combine(Application.StartupPath, "Persons.xml");
+
+// XmlDocument-Instanz erzeugen
+XmlDocument xmlDoc = new XmlDocument();
+
+// Auflistung für die Personen erzeugen
+ArrayList persons = new ArrayList();
+
+// XML-Datei laden
+try
+{
+   xmlDoc.Load(xmlFileName);
+}
+catch (Exception ex)
+{
+   MessageBox.Show("Fehler beim Einlesen der XML-Datei '" + xmlFileName + 
+      "': " + ex.Message, Application.ProductName, MessageBoxButtons.OK,
+      MessageBoxIcon.Error);
+   return;
+}
+
+// Alle person-Elemente einlesen und durchgehen
+XmlNodeList personNodeList = xmlDoc.GetElementsByTagName("person");
+for (int i = 0; i < personNodeList.Count; i++)
+{
+   // Neue Person erzeugen und in der Auflistung ablegen
+   Person person = new Person();
+   persons.Add(person);
+
+   // Das Attribut id einlesen
+   XmlAttribute xmlAttribute = personNodeList[i].Attributes["id"];
+   if (xmlAttribute != null)
+      person.Id = xmlAttribute.InnerText; 
+
+   // firstname-Element suchen und speichern
+   XmlNode xmlNode = personNodeList[i].SelectSingleNode("firstname");
+   if (xmlNode != null)
+      person.FirstName = xmlNode.InnerText;
+
+   // lastname-Element suchen und speichern
+   xmlNode = personNodeList[i].SelectSingleNode("lastname");
+   if (xmlNode != null)
+      person.LastName = xmlNode.InnerText;
+
+   // type-Element suchen und speichern
+   xmlNode = personNodeList[i].SelectSingleNode("type");
+   if (xmlNode != null)
+      person.Type = xmlNode.InnerText;
+}
+
+// Alle eingelesenen Personen durchgehen und an der Konsole ausgeben
+foreach (Person p in persons)
+{
+   Console.WriteLine("Person {0}", p.Id);
+   Console.WriteLine("Vorname: {0}", p.FirstName);
+   Console.WriteLine("Nachname: {0}", p.LastName);
+   Console.WriteLine("Typ: {0}", p.Type);
+   Console.WriteLine();
+}
+

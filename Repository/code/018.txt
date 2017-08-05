@@ -1,0 +1,27 @@
+using System;
+
+...
+
+/* Methode zum Konvertieren mehrfacher Leerzeichen in ein Leerzeichen */
+public static string ToSingleSpace(string source)
+{
+   while (source.IndexOf("  ") > -1)
+   {
+      source = source.Replace("  ", " ");
+   }
+
+   return source;
+}
+
+/* Methode zur Konvertierung mehrfacher beliebiger Zeichen in ein Zeichen */
+public static string ToSingleChar(string source, char c)
+{
+   string find = new string(c, 2);
+   string replace = new string(c, 1);
+   while (source.IndexOf(find) > -1)
+   {
+      source = source.Replace(find, replace);
+   }
+
+   return source;
+}

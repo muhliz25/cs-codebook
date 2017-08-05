@@ -1,0 +1,19 @@
+using System;
+using System.IO;
+
+...
+
+string sourceFileName = @"C:\autoexec.bat.copy";
+string destFileName = @"C:\autoexec.bat.bak";
+
+try
+{
+   // Datei umbenennen
+   File.Move(sourceFileName, destFileName);
+
+   Console.WriteLine("Datei erfolgreich umbenannt");
+}
+catch (IOException ex)
+{
+   Console.WriteLine("Fehler beim Umbenennen der Datei: " + ex.Message);
+}

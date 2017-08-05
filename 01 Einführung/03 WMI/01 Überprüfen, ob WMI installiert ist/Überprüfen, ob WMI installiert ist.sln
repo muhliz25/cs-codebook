@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Überprüfen, ob WMI installiert ist", "Überprüfen, ob WMI installiert ist.csproj", "{318AD346-77F3-4955-8A1E-B2A47B03678C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{318AD346-77F3-4955-8A1E-B2A47B03678C}.Debug.ActiveCfg = Debug|.NET
+		{318AD346-77F3-4955-8A1E-B2A47B03678C}.Debug.Build.0 = Debug|.NET
+		{318AD346-77F3-4955-8A1E-B2A47B03678C}.Release.ActiveCfg = Release|.NET
+		{318AD346-77F3-4955-8A1E-B2A47B03678C}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

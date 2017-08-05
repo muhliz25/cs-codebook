@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "High- und Low-Word lesen", "High- und Low-Word lesen.csproj", "{CCC987AF-62E7-49E9-8B61-4C0EF2128E72}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{CCC987AF-62E7-49E9-8B61-4C0EF2128E72}.Debug.ActiveCfg = Debug|.NET
+		{CCC987AF-62E7-49E9-8B61-4C0EF2128E72}.Debug.Build.0 = Debug|.NET
+		{CCC987AF-62E7-49E9-8B61-4C0EF2128E72}.Release.ActiveCfg = Release|.NET
+		{CCC987AF-62E7-49E9-8B61-4C0EF2128E72}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

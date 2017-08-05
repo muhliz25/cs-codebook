@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XML-Dateien erzeugen", "XML-Dateien erzeugen.csproj", "{F979144C-3983-4F68-BFB0-FC96BF822347}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F979144C-3983-4F68-BFB0-FC96BF822347}.Debug.ActiveCfg = Debug|.NET
+		{F979144C-3983-4F68-BFB0-FC96BF822347}.Debug.Build.0 = Debug|.NET
+		{F979144C-3983-4F68-BFB0-FC96BF822347}.Release.ActiveCfg = Release|.NET
+		{F979144C-3983-4F68-BFB0-FC96BF822347}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

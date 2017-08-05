@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stringvergleich", "Stringvergleich.csproj", "{5F005A3A-E1F0-4D03-9916-76F998C36884}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{5F005A3A-E1F0-4D03-9916-76F998C36884}.Debug.ActiveCfg = Debug|.NET
+		{5F005A3A-E1F0-4D03-9916-76F998C36884}.Debug.Build.0 = Debug|.NET
+		{5F005A3A-E1F0-4D03-9916-76F998C36884}.Release.ActiveCfg = Release|.NET
+		{5F005A3A-E1F0-4D03-9916-76F998C36884}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

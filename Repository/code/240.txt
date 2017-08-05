@@ -1,0 +1,102 @@
+using System;
+using System.Windows.Forms;
+
+/* Dieses Rezept benötigt eine Referenz auf die COM-Componente 
+ * "Microsoft Outlook x.x Object Library" */
+
+...
+
+/* Methode zum rekursiven Durchgehen der Outlook-Kontakte-Ordner */
+public static void ReadFolderItems(Outlook.MAPIFolder folder)
+{
+   // Zunächst alle Elemente auslesen
+   Console.WriteLine();
+   Console.WriteLine(folder.FullFolderPath);
+   for (int i = 1; i <= folder.Items.Count; i++)
+   {
+      Outlook.ContactItem contact = folder.Items.Item(i) as Outlook.ContactItem;
+      if (contact != null)
+         Console.WriteLine(contact.CompanyAndFullName);
+   }
+
+   // Dann alle Unterordner durchgehen, die selbst wieder Kontakte-Ordner sind
+   for (int i = 1; i <= folder.Folders.Count; i++)
+   {
+      Outlook.MAPIFolder subFolder = folder.Folders.Item(i);
+      if (subFolder.DefaultItemType == Outlook.OlItemType.olContactItem)
+      {
+         // Methode rekursiv aufrufen
+         ReadFolderItems(subFolder);
+      }
+   }
+}
+
+...
+
+
+/* Outlook-Instanz erzeugen und eine Referenz auf die Sitzung holen */
+Outlook.Application outlook = new Outlook.Application();
+Outlook.NameSpace session = outlook.Session;
+string profileName = "Outlook";
+string password = null;
+bool showDialog = true;
+bool newSession = false;
+session.Logon(profileName, password, showDialog, newSession);
+
+// Default-Kontakte-Ordner holen und alle Kontakte auslesen
+Outlook.MAPIFolder folder = session.GetDefaultFolder(Outlook.OlDefaultFolders.olFolderContacts);
+Console.WriteLine("{0} Kontakte im Ordner {1}", folder.Items.Count, folder.Name);
+for (int i = 1; i <= folder.Items.Count; i++)
+{
+   Outlook.ContactItem contact = folder.Items.Item(i) as Outlook.ContactItem;
+   if (contact != null)
+   {
+      Console.WriteLine("{0} {1} {2} {3}, {4} {5}", contact.CompanyName, contact.FirstName, 
+         contact.MiddleName, contact.LastName, contact.HomeAddressPostalCode,
+         contact.HomeAddressCity);
+   }
+}
+
+// Den Ordner "Persönliche Ordner/Kontakte/Handy-Kontakte" explizit 
+// referenzieren und auslesen
+string folderName1 = "Persönliche Ordner";
+string folderName2 = "Kontakte";
+string folderName3 = "Handy-Kontakte";
+
+try
+{
+   folder = (Outlook.MAPIFolder)session.Folders.Item(folderName1);
+   folder = folder.Folders.Item(folderName2);
+   folder = folder.Folders.Item(folderName3);
+
+   Console.WriteLine();
+   Console.WriteLine("{0} Kontakte im Ordner {1}", folder.Items.Count,
+      folder.Name);   
+   for (int i = 1; i <= folder.Items.Count; i++)
+   {
+      Outlook.ContactItem contact = folder.Items.Item(i) as
+         Outlook.ContactItem;
+      if (contact != null)
+      {
+         Console.WriteLine("{0}", contact.CompanyAndFullName);
+      }
+   }
+
+}
+catch (Exception ex)
+{
+   MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK,
+      MessageBoxIcon.Error);
+   outlook.Quit();
+   return;
+}
+
+// Alle Kontakte-Ordner rekursiv durchgehen
+string rootFolderName = "Persönliche Ordner";
+ReadFolderItems((Outlook.MAPIFolder)session.Folders.Item(rootFolderName));
+
+
+// Outlook-Instanz freigeben
+outlook.Quit();
+
+

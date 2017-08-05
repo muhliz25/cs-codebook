@@ -1,0 +1,10 @@
+using System;
+
+...
+
+// Alle Werte einer Aufzählung als String auslesen
+string[] enumNames = Enum.GetNames(typeof(DayOfWeek));
+
+// Einen bestimmten Wert auslesen
+string name = Enum.GetName(typeof(DayOfWeek), 0);
+

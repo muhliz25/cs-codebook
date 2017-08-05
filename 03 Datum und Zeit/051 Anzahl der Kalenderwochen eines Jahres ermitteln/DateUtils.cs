@@ -1,0 +1,70 @@
+using System;
+using System.Globalization;
+
+namespace Addison_Wesley.Codebook.DateAndTime
+{
+	public class DateUtils
+	{
+		/* Klasse für die Rückgabe der Kalenderwoche */
+		public class CalendarWeek
+		{
+			public int Year;
+			public int Week;
+			public CalendarWeek(int year,int week)
+			{
+				this.Year = year;
+				this.Week = week;
+			}
+		}
+
+		/* Methode zur Ermittung der Kalenderwoche eines Datums */
+		/* Methode zur Berechnung der Kalenderwoche nach dem C++-Algorithmus von 
+		 * Ekkehard Hess aus einem Beitrag vom 29.7.1999 in der Newsgroup 
+		 * borland.public.cppbuilder.language (freigegeben zur allgemeinen 
+		 * Verwendung) */
+		public static CalendarWeek GetCalendarWeek2(DateTime date)
+		{
+			double a = Math.Floor((14 - (date.Month)) / 12);
+			double y = date.Year + 4800 - a;
+			double m = (date.Month) + (12 * a) - 3;
+      
+			double jd = date.Day + Math.Floor(((153 * m) + 2) / 5) +
+				(365 * y) + Math.Floor(y / 4) - Math.Floor(y / 100) +
+				Math.Floor(y / 400) - 32045;
+         
+			double d4 = (jd + 31741 - (jd % 7)) % 146097 % 36524 %
+				1461;
+			double L = Math.Floor(d4 / 1460);
+			double d1 = ((d4 - L) % 365) + L;
+
+			// Kalenderwoche ermitteln
+			int calendarWeek = (int) Math.Floor(d1 / 7) + 1;
+
+			// Das Jahr der Kalenderwoche ermitteln
+			int year = date.Year;
+			if (calendarWeek == 1 && date.Month == 12)
+				year++;
+			if (calendarWeek >= 52 && date.Month == 1)
+				year--;
+
+			// Die ermittelte Kalenderwoche zurückgeben
+			return new CalendarWeek(year, calendarWeek);
+		}
+      
+		/* Methode zur Ermittlung der Anzahl der Kalenderwochen eines Jahres */
+		public static int GetCalendarWeekCount(int year)
+		{
+			// Kalenderwoche des 31.12. des Jahres ermitteln
+			System.DateTime baseDate = new System.DateTime(year, 12, 31);
+			CalendarWeek calendarWeek = GetCalendarWeek2(baseDate);
+
+			// Wenn dieser Tag in die Woche 1 des neuen Jahres fällt, die Kalenderwoche 
+			// des um eine Woche reduzierten Datums ermitteln
+			if (calendarWeek.Week == 1)
+				return GetCalendarWeek2(baseDate.AddDays(-7)).Week;
+
+			// Ergebnis zurückgeben
+			return calendarWeek.Week; 
+		}
+	}
+}

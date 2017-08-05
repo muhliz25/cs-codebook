@@ -1,0 +1,43 @@
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Reflection;
+
+/* Dieses Rezept zeichnet im Load-Ereignis eines 
+ * Formulars einen verlaufenden Hintergrund */
+
+...
+
+private void ShapedForm_Load(object sender, System.EventArgs e)
+{
+   // Neue Region über ein GraphicsPath-Objekt definieren 
+
+   /* Erste Variante (die auch bei komplexen Formen funktioniert: */
+   GraphicsPath path = new GraphicsPath(); 
+
+   // Obere Linie mit Kreis-Halbbogen
+   path.AddLine(0, 40, 85, 40);
+   path.AddArc(65, 5, 180, 180, 218, 104);
+   path.AddLine(225, 40, 300, 40);
+
+   // Untere Linie mit Kreis-Halbbogen
+   path.AddLine(0, 140, 78, 140);
+   path.AddArc(65, 5, 180, 180, 30, 120);
+   path.AddLine(232, 140, 300, 140);
+
+   // Linke und rechte Linie
+   path.AddLine(0, 40, 0, 140);
+   path.AddLine(300, 40, 300, 140);
+   
+
+   /* Zweite, für das Beispiel vereinfachte Variante */
+
+   /*
+   GraphicsPath path = new GraphicsPath(FillMode.Winding);
+
+   path.AddRectangle(new Rectangle(0, 40, 300, 100));
+   path.AddEllipse(65, 5, 180, 180);
+   */
+
+   // Region dem Formular zuweisen
+   this.Region = new Region(path);
+}

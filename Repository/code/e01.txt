@@ -1,0 +1,93 @@
+using System;
+using System.Text;
+using System.Runtime.InteropServices;
+
+...
+
+/* Deklaration der API-Funktion GetDiskFreeSpaceEx so, dass
+ * Strings automatisch je nach Zielsystem als ASCII- oder
+ * Unicode-Zeichenketten übergeben werden. Das ohne 
+ * MarshalAs-Attribut deklarierte String-Argument lpDirectoryName
+ * wird als BStr übergeben, der ebenfalls automatisch
+ * ASCII- oder Unicode-Zeichen verwaltet. Ein ASCII-BStr ist
+ * mit einem LPStr kompatibel, ein Unicode-BStr mit einem
+ * LPWStr, deswegen funktioniert der Aufruf problemlos. Der im
+ * Original als BOOL deklarierte Rückgabewert wird als int
+ * deklariert, da der API-Typ Bool ein vier Byte großer
+ * Typ ist  */ 
+[DllImport ("Kernel32.dll", SetLastError=true, CharSet=CharSet.Auto)]
+public static extern int GetDiskFreeSpaceEx(
+   string lpDirectoryName, ref ulong lpFreeBytesAvailable,
+   ref ulong lpTotalNumberOfBytes, ref ulong lpTotalNumberOfFreeBytes);
+
+/* Deklaration der API-Funktion GetWindowsDirectory, 
+ * die einen String zurückgibt */
+[DllImport ("Kernel32.dll", SetLastError=true, CharSet=CharSet.Auto)]
+public static extern uint GetWindowsDirectory(
+   StringBuilder lpBuffer, uint uSize);
+
+/* Deklaration der API-Funktion GetUserName, die einen String 
+ * und einen uint-Wert By-Reference zurückgibt */
+[DllImport ("Advapi32.dll", SetLastError=true)]
+public static extern int GetUserName(
+   StringBuilder lpBuffer, ref uint nSize);
+
+/* Deklaration der Struktur OSVERSIONINFO */
+[StructLayout(LayoutKind.Sequential, CharSet=CharSet.Ansi)]
+   public struct OSVERSIONINFO
+{
+   public int dwOSVersionInfoSize; 
+   public int dwMajorVersion; 
+   public int dwMinorVersion; 
+   public int dwBuildNumber; 
+   public int dwPlatformId; 
+   [MarshalAs(UnmanagedType.ByValTStr, SizeConst=128)]
+   public string szCSDVersion;
+}
+
+/* Deklaration der Funktion GetVersionEx */
+[DllImport("Kernel32.Dll")] 
+public static extern int GetVersionEx(ref OSVERSIONINFO lpVersionInfo);
+
+...
+
+// Aufruf der Funktion GetDiskFreeSpaceEx
+ulong bytesFree = 0, bytesTotal = 0, totalBytesFree = 0;
+GetDiskFreeSpaceEx("C:", ref bytesFree, ref bytesTotal, ref totalBytesFree);
+Console.WriteLine("Free: {0}", bytesFree);
+Console.WriteLine("Total: {0}", bytesTotal);
+Console.WriteLine("Total Free: {0}", totalBytesFree);
+
+// Aufruf der Funktion GetWindowsDirectory
+StringBuilder buffer = new StringBuilder(261);
+if (GetWindowsDirectory(buffer, 261) > 0)
+   Console.WriteLine("Windows-Ordner: {0}", buffer.ToString());
+else
+   Console.WriteLine("Fehler bei der Ermittlung des Windows-Ordners");
+
+// Aufruf der Funktion GetUserName, die einen String und
+// einen uint-Wert zurückgibt
+StringBuilder userName = new StringBuilder(1024);
+uint size = 1024;
+if (GetUserName(userName, ref size) != 0)
+   Console.WriteLine("Aktueller Benutzer: {0}", userName.ToString());
+else
+   Console.WriteLine("Fehler beim Aufruf von GetUserName");
+
+// Aufruf der Funktion GetVersionEx, die eine Struktur vom
+// Typ OSVERSIONINFO erwartet
+OSVERSIONINFO vi = new OSVERSIONINFO();
+vi.dwOSVersionInfoSize = Marshal.SizeOf(typeof(OSVERSIONINFO));
+if (GetVersionEx(ref vi) != 0)
+{
+   Console.WriteLine("Windows-Version: {0}.{1}.{2}",
+      vi.dwMajorVersion, vi.dwMinorVersion, vi.dwBuildNumber);
+   Console.WriteLine("Service-Pack: {0}", vi.szCSDVersion);
+}
+else
+   Console.WriteLine("Fehler beim Aufruf von GetVersionEx");
+
+      Console.WriteLine("Beenden mit Return");
+      Console.ReadLine();
+   }
+}

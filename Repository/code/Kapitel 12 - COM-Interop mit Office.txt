@@ -1,0 +1,17 @@
+235.txt
+235 Laufende COM-Komponenten-Instanzen referenzieren
+
+236.txt
+236 Word-Dokumente öffnen
+
+237.txt
+237 Word-Dokumente basierend auf einer Dokumentenvorlage erzeugen, füllen, ausdrucken und speichern
+
+238.txt
+238 Excel-Arbeitsmappen erzeugen
+
+239.txt
+239 Daten in Excel-Arbeitsmappen erweitern
+
+240.txt
+240 Kontakte aus Outlook auslesen

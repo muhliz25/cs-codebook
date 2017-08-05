@@ -1,0 +1,96 @@
+using System;
+using System.IO;
+using System.Windows.Forms; 
+using System.Reflection;
+
+namespace Excel_Arbeitsmappen_erzeugen
+{
+	class Start
+	{
+		[STAThread]
+		static void Main(string[] args)
+		{
+			// Excel-Instanz erzeugen und sichtbar schalten
+			Excel.Application excel = new Excel.ApplicationClass();
+			excel.Visible = true;
+
+			// Arbeitsmappe ohne Vorlage erzeugen 
+			object missing = Missing.Value;
+			excel.Workbooks.Add(missing);
+
+			// Das aktive Workbook referenzieren
+			Excel.Workbook workbook = excel.ActiveWorkbook; 
+
+			// Arbeitsblatt erzeugen
+			if (workbook.Worksheets.Count == 0)
+				workbook.Worksheets.Add(missing, missing, missing, missing);
+
+			// Das erste Arbeitsblatt referenzieren und umbenennen
+			Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets[1];
+			worksheet.Name = "Einkommensberechnung";
+
+			// Die Zelle A1 referenzieren, beschreiben und die Schriftart definieren
+			Excel.Range range = worksheet.get_Range("A1", missing);
+			range.set_Value(missing, "Einkommens-Berechnung");
+			// Alternative range.Value2 = "Einkommens-Berechnung";
+			range.Font.Size = 16;
+			range.Font.Bold = true;
+
+			// A2 bis A5 beschreiben
+			worksheet.get_Range("A2", missing).Value2 = "2000";
+			worksheet.get_Range("A3", missing).Value2 = "2001";
+			worksheet.get_Range("A4", missing).Value2 = "2002";
+			worksheet.get_Range("A5", missing).Value2 = "2003";
+
+			// B2 bis B5 in einer Schleife beschreiben
+			double[] sales = {120000, 118000, 130000, 150000};
+			for (int i = 0; i < 4; i++)
+			{
+				int row = i + 2;
+				int col = 2;
+				worksheet.Cells[row, col] = sales[i];
+			}
+
+			// Eine Formel in die Zelle B6 schreiben und die Zelle fett formatieren
+			worksheet.get_Range("B6", missing).FormulaLocal = "=SUMME(B2:B5)";
+			// Alternative: Z1S1-Bezugssystem:
+			// worksheet.get_Range("B6", missing).FormulaR1C1Local = "=SUMME(Z(-4)S:Z(-1)S)";
+			worksheet.get_Range("B6", missing).Font.Bold = true;
+
+			// Das Arbeitsblatt ausdrucken
+			object copies = 1;
+			worksheet.PrintOut(missing, missing, copies, missing, missing, missing, missing, missing);
+
+			// Dateiname definieren
+			string fileName = Path.Combine(Application.StartupPath, "Einkommensberechnung.xls");
+
+			// Abfragen, ob die Datei bereits existiert
+			bool writeFile = true;
+			if (File.Exists(fileName))
+			{
+				if (MessageBox.Show("Die Datei '" + fileName + "' existiert bereits.\r\n\r\n" +
+					"Wollen Sie diese Datei überschreiben?", Application.ProductName,
+					MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
+				{
+					// Datei löschen
+					File.Delete(fileName);
+					writeFile = true;
+				}
+			}
+			if (writeFile)
+			{
+				// Die Arbeitsmappe im Excel-95/97-Format speichern
+				object fileFormat = Excel.XlFileFormat.xlExcel9795; 
+				workbook.SaveAs(fileName, fileFormat, missing, missing, missing, missing,
+					Excel.XlSaveAsAccessMode.xlNoChange, missing, missing, missing, missing,
+					missing);
+			}
+
+			// Excel beenden
+			excel.Quit();
+
+			Console.WriteLine("Beenden mit Return");
+			Console.ReadLine();
+		}
+	}
+}

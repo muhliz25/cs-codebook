@@ -1,0 +1,53 @@
+146.txt
+146 Den Namen des Computers ermitteln
+
+147.txt
+147 Systempfade herausfinden
+
+148.txt
+148 Windows-Version auslesen
+
+149.txt
+149 Windows-Hauptversion ermitteln
+
+150.txt
+150 Die Prozessorgeschwindigkeit ermitteln
+
+151.txt
+151 Informationen über den Arbeitsspeicher auslesen
+
+152.txt
+152 Die Version des aktuellen Service-Packs ermitteln
+
+153.txt
+153 Installierte Programme auflisten
+
+154.txt
+154 Informationen zu den parallelen Schnittstellen des Systems auslesen
+
+155.txt
+155 Informationen zu den seriellen Schnittstellen des Systems auslesen
+
+156.txt
+156 Ermitteln der Soundkarten des Systems
+
+157.txt
+157 Windows herunterfahren und neu starten
+
+158.txt
+158 Die verfügbaren Leistungsindikatoren auslesen
+
+159.txt
+159 Den Arbeitsspeicher überwachen
+
+160.txt
+160 Speicherauslastung und CPU-Belastung des aktuellen Prozesses überwachen
+
+161.txt
+161 Speicherauslastung und CPU-Belastung des aktuellen Prozesses in ein Trace-Protokoll schreiben
+
+162.txt
+162 Eigene Leistungsindikatoren implementieren
+
+163.txt
+163 Monitor abschalten, in den Energiesparmodus schalten und wieder einschalten

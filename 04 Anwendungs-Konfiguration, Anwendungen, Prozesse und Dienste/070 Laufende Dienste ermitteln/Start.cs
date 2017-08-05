@@ -1,0 +1,99 @@
+using System;
+using System.ServiceProcess;
+using System.Windows.Forms;
+
+namespace Laufende_Dienste_ermitteln
+{
+	class Start
+	{
+		[STAThread]
+		static void Main(string[] args)
+		{
+			string machineName = "."; // . = lokaler Rechner
+
+			// Dienste ermitteln
+			ServiceController[] services = null;
+			try
+			{
+				services = ServiceController.GetServices(machineName);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Fehler beim Auslesen der Dienste " +
+					"auf dem Computer " + machineName + ": " + 
+					ex.Message, Application.ProductName, 
+					MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			// Alle Dienste durchgehen und die wichtigsten
+			// Informationen ausgeben
+			for (int i = 0; i < services.Length; i++)
+			{
+				Console.WriteLine();
+   
+				// Dienstname
+				Console.WriteLine("Dienstname: {0}", services[i].ServiceName);
+   
+				// Anzeigename
+				Console.WriteLine("Anzeigename: {0}", services[i].DisplayName);
+   
+				// Status
+				Console.Write("Status: ");
+				switch (services[i].Status)
+				{
+					case ServiceControllerStatus.Running:
+						Console.WriteLine("Wird ausgeführt");      
+						break;
+					case ServiceControllerStatus.Stopped:
+						Console.WriteLine("Gestoppt");      
+						break;
+					case ServiceControllerStatus.Paused:
+						Console.WriteLine("Angehalten");      
+						break;
+					case ServiceControllerStatus.StartPending:
+						Console.WriteLine("Wird gestartet");      
+						break;
+					case ServiceControllerStatus.ContinuePending:
+						Console.WriteLine("Wird wieder gestartet");      
+						break;
+					case ServiceControllerStatus.PausePending:
+						Console.WriteLine("Wird angehalten");      
+						break;
+					case ServiceControllerStatus.StopPending: 
+						Console.WriteLine("Wird beendet");      
+						break;
+				}
+   
+				// Dienst-Typ
+				Console.Write("Diensttyp: ");
+				switch (services[i].ServiceType)
+				{
+					case ServiceType.Adapter:
+						Console.WriteLine("Adapter");
+						break;
+					case ServiceType.FileSystemDriver:
+						Console.WriteLine("Dateisystem-Treiber");
+						break;
+					case ServiceType.InteractiveProcess:
+						Console.WriteLine("Interaktiver Prozess");
+						break;
+					case ServiceType.KernelDriver:
+						Console.WriteLine("Kernel-Treiber");
+						break;
+					case ServiceType.RecognizerDriver:
+						Console.WriteLine("Dateisystem-Ermittlungs-Treiber");
+						break;
+					case ServiceType.Win32OwnProcess:
+						Console.WriteLine("Win32-Anwendung in eigenem Prozess");
+						break;
+					case ServiceType.Win32ShareProcess:
+						Console.WriteLine("Win32-Anwendung in " +
+							"gemeinsamen Prozess");
+						break;
+				}
+			}
+			Console.ReadLine();
+		}
+	}
+}

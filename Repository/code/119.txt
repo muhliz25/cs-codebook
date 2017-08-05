@@ -1,0 +1,41 @@
+using System;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
+using System.Reflection;
+
+...
+
+// Dateiname ermitteln
+string fileName = Path.Combine(Application.StartupPath, "fish.txt");
+
+// Überprüfen, ob die Datei bereits existiert
+if (File.Exists(fileName))
+{
+   // Den Anwender fragen, ob er die Datei überschreiben will
+   if (MessageBox.Show("Die Datei '" + fileName + "' existiert bereits.\r\n\r\n" +
+      "Wollen Sie diese Datei überschreiben?", Application.ProductName, 
+      MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+      return;
+}
+
+// StreamWriter-Instanz für die Datei erzeugen
+StreamWriter sw = null;
+try
+{
+   sw = new StreamWriter(fileName, false, Encoding.GetEncoding("windows-1252"));
+}
+catch (Exception ex)
+{
+   MessageBox.Show("Fehler beim Öffnen der Datei '" + fileName + "': " + 
+      ex.Message, Application.ProductName, MessageBoxButtons.OK, 
+      MessageBoxIcon.Error);
+   return;
+}
+
+// Datei zeilenweise schreiben
+sw.WriteLine("Macht's gut");
+sw.WriteLine("und Danke für den Fisch");
+
+// StreamWriter schließen
+sw.Close();

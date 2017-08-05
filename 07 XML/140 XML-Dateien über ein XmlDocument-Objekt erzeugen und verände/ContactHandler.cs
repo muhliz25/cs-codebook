@@ -1,0 +1,233 @@
+using System;
+using System.Text;
+using System.Xml;
+
+namespace Addison_Wesley.Codebook.Files
+{
+	public class ContactHandler
+	{
+		/* Eigenschaften für das Xml-Dokument */
+		private XmlDocument xmlDoc;
+		private string xmlFileName;
+
+		/* Konstante Eigenschaften für den Namensraum und das 
+		 * Namensraum-Präfix der Kontakt-Elemente */
+		private const string xmlNamespace = 
+			"uuid:7ACED865-0622-48f7-B138-45FED1BB4B27";
+		private string xmlNamespacePrefix = "cbch";
+
+		/* Konstruktor */
+		public ContactHandler(string xmlFileName, bool createNew, Encoding encoding)
+		{
+			// Dateiname für das Speichern ablegen
+			this.xmlFileName = xmlFileName;
+    
+			// XML-Dokument erzeugen bzw. einlesen 
+			this.xmlDoc = new XmlDocument(); 
+			if (createNew)
+			{
+				// Wurzelknoten mit Namensraumdeklaration erzeugen und anfügen
+				XmlNode rootNode = this.xmlDoc.CreateElement(
+					xmlNamespacePrefix, "contacts", xmlNamespace);
+				this.xmlDoc.AppendChild(rootNode);
+
+				// XML-Deklaration erzeugen und vor dem Wurzelknoten anfügen
+				string encodingName;
+				if (encoding != null)
+					encodingName = encoding.WebName;
+				else
+					encodingName = "utf-8";
+				XmlDeclaration xmlDeclaration = this.xmlDoc.CreateXmlDeclaration(
+					"1.0", encodingName, "yes");
+				this.xmlDoc.InsertBefore(xmlDeclaration, rootNode);
+			}
+			else
+			{
+				// XML-Dokument einlesen
+				xmlDoc.Load(xmlFileName);
+			}
+		}
+
+		/* Private Methode zum Suchen von contact-Elementen nach einer Id */
+		private XmlNodeList FindContact(int id)
+		{
+			XmlNamespaceManager nsManager = new XmlNamespaceManager(
+				this.xmlDoc.NameTable);
+			nsManager.AddNamespace(xmlNamespacePrefix, xmlNamespace);
+			string xpathQuery = "/" + xmlNamespacePrefix + 
+				":contacts/contact[attribute::id='" + id + "']";
+			return xmlDoc.SelectNodes(xpathQuery, nsManager);
+		}
+
+		/* Methode zum Hinzufügen eines Kontakts */
+		public void AddContact(int id, string firstName, string lastName, 
+			string phone)
+		{
+			// Zunächst überprüfen, ob bereits ein Element mit der übergebenen Id
+			// existiert
+			XmlNodeList contactNodes = this.FindContact(id);
+			if (contactNodes.Count > 0)
+			{
+				// Ausnahme werfen
+				throw new XmlException("Kontakt mit der Id '" + id + 
+					"' existiert bereits", null);
+			}
+       
+			// Element-Knoten für den Kontakt erzeugen
+			XmlNode contactNode = this.xmlDoc.CreateElement("contact");
+
+			// Das Attribut id erzeugen und an den Knoten übergeben
+			XmlAttribute idAttribute = this.xmlDoc.CreateAttribute("id");
+			idAttribute.Value = id.ToString();
+			contactNode.Attributes.Append(idAttribute);
+
+			// Unterknoten für die Kontakteigenschaften erzeugen und dem 
+			// Kontaktknoten anfügen
+			XmlNode firstNameNode = this.xmlDoc.CreateElement("firstname");
+			firstNameNode.InnerText = firstName;
+			contactNode.AppendChild(firstNameNode);
+
+			XmlNode lastNameNode = this.xmlDoc.CreateElement("lastname");
+			lastNameNode.InnerText = lastName;
+			contactNode.AppendChild(lastNameNode);
+
+			XmlNode phoneNode = this.xmlDoc.CreateElement("phone");
+			phoneNode.InnerText = phone;
+			contactNode.AppendChild(phoneNode);
+
+			// Kontakt-Knoten dem Dokument-Element anfügen
+			xmlDoc.DocumentElement.AppendChild(contactNode);
+		}
+ 
+
+		/* Methode zum Ändern eines Kontakts */
+		public void ChangeContact(int id, string firstName, string lastName,
+			string phone)
+		{
+			// Knoten mit der übergebenen Id suchen
+			XmlNodeList contactNodes = this.FindContact(id);
+      
+			// Überprüfen, ob genau ein Knoten gefunden wurde 
+			if (contactNodes.Count == 1)
+			{
+				// Knoten verändern
+				XmlNode contactNode = contactNodes[0];
+
+				// Unterknoten firstname suchen und dessen Text anpassen
+				XmlNode firstNameNode = contactNode.SelectSingleNode("firstname");
+				if (firstNameNode == null)
+				{
+					// firstname-Element nicht gefunden, also neu anlegen
+					firstNameNode = this.xmlDoc.CreateElement("firstname");
+					this.xmlDoc.AppendChild(firstNameNode);
+				}
+				firstNameNode.InnerText = firstName;
+
+				// Unterknoten lastname suchen und ändern
+				XmlNode lastNameNode = contactNode.SelectSingleNode("lastname");
+				if (lastNameNode == null)
+				{
+					lastNameNode = this.xmlDoc.CreateElement("lastname");
+					this.xmlDoc.AppendChild(lastNameNode);
+				}
+				lastNameNode.InnerText = lastName;
+
+				// Unterknoten phone suchen und ändern
+				XmlNode phoneNode = contactNode.SelectSingleNode("phone");
+				if (phoneNode == null)
+				{
+					// phone-Element nicht gefunden, also neu anlegen
+					phoneNode = this.xmlDoc.CreateElement("phone");
+					this.xmlDoc.AppendChild(phoneNode);
+				}
+				phoneNode.InnerText = phone;
+			}
+			else
+			{
+				// Kein oder mehrere Knoten gefunden: Ausnahme werfen
+				if (contactNodes.Count == 0)
+					throw new XmlException("Kontakt mit der Id '" + id + 
+						"' nicht gefunden", null);
+				else
+					throw new XmlException("Es wurden mehr als ein (" +
+						contactNodes.Count + ") Kontakt mit der Id '" + 
+						id + "' gefunden", null);
+			}
+		}
+ 
+		/* Methode zum Löschen eines Kontakts */
+		public void RemoveContact(int id)
+		{
+			// Knoten mit der übergebenen Id suchen
+			XmlNodeList contactNodes = this.FindContact(id);
+			
+			// Überprüfen, ob genau ein Element gefunden wurde
+			if (contactNodes.Count == 1)
+			{
+				// Element löschen
+				this.xmlDoc.DocumentElement.RemoveChild(contactNodes[0]);
+			}
+			else
+			{
+				// Kein oder mehrere Knoten gefunden: Ausnahme werfen
+				if (contactNodes.Count == 0)
+					throw new XmlException("Kontakt mit der Id '" + id + 
+						"' nicht gefunden", null);
+				else
+					throw new XmlException("Es wurden mehr als ein (" +
+						contactNodes.Count + ") Kontakt mit der Id '" + 
+						id + "' gefunden", null);
+			}
+		}
+
+		/* Methode zum Lesen eines Kontakts */
+		public void ReadContact(int id, out string firstName, out string lastName,
+			out string phone)
+		{
+			// Knoten mit der übergebenen Id suchen
+			XmlNodeList contactNodes = this.FindContact(id);
+
+			// Überprüfen, ob genau ein Element gefunden wurde
+			if (contactNodes.Count == 1)
+			{
+				// Unterelemente referenzieren und die Daten zurückgeben
+				XmlNode firstNameNode = contactNodes[0].SelectSingleNode("firstname");
+				if (firstNameNode != null)
+					firstName = firstNameNode.InnerText;
+				else
+					firstName = null;
+
+				XmlNode lastNameNode = contactNodes[0].SelectSingleNode("lastname");
+				if (lastNameNode != null)
+					lastName = lastNameNode.InnerText;
+				else
+					lastName = null;
+
+				XmlNode phoneNode = contactNodes[0].SelectSingleNode("phone");
+				if (phoneNode != null)
+					phone = phoneNode.InnerText;
+				else
+					phone = null;
+			}
+			else
+			{
+				// Kein oder mehrere Knoten gefunden: Ausnahme werfen
+				if (contactNodes.Count == 0)
+					throw new XmlException("Kontakt mit der Id '" + id + 
+						"' nicht gefunden", null);
+				else
+					throw new XmlException("Es wurden mehr als ein (" + 
+						contactNodes.Count + ") Kontakt mit der Id '" + 
+						id + "' gefunden", null);
+			}
+		}
+ 
+		/* Methode zum Speichern */
+		public void Save()
+		{
+			xmlDoc.Save(xmlFileName);
+		}
+
+
+	}
+}

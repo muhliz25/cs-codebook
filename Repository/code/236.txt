@@ -1,0 +1,24 @@
+using System;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
+
+/* Dieses Rezept benötigt eine Referenz auf die COM-Componente 
+ * "Microsoft Word x.x Object Library" */
+
+...
+
+// Word-Instanz erzeugen und sichtbar schalten
+Word.Application word = new Word.ApplicationClass();
+word.Visible = true;
+
+// Variable für den Wert Missing.Value für nicht belegte optionale Argumente 
+object missing = Missing.Value;
+
+// Dokument öffnen
+object fileName = Path.Combine(Application.StartupPath, "Hitchhiker.doc");
+word.Documents.Open(ref fileName, ref missing, ref missing, ref missing,
+   ref missing, ref missing, ref missing, ref missing, ref missing, 
+   ref missing, ref missing, ref missing, ref missing, ref missing, 
+   ref missing);
+

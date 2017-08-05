@@ -1,0 +1,21 @@
+using System;
+
+namespace Addison_Wesley.Codebook.Basics
+{
+	public class NumberUtils
+	{
+		/* Methode zum Konvertieren einer Byte-Angabe in einen besser lesbaren
+		 * Wert in Byte, KB, MB oder GB */
+		public static string ByteToReadableFormat(long byteValue, string format)
+		{
+			if (byteValue < 1024)
+				return byteValue + " Byte";
+			if (byteValue < 1048576) // 1048576 = 1024 * 1024
+				return String.Format("{0:" + format  + "} KB", byteValue /  1024F);
+			if (byteValue < 1073741824) // 1073741824 = 1024 * 1024 * 1024
+				return String.Format("{0:" + format  + "} MB", byteValue / 1048576F);
+			else
+				return String.Format("{0:" + format  + "} GB", byteValue / 1073741824F);
+		}
+	}
+}

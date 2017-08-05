@@ -1,0 +1,65 @@
+214.txt
+214 Wave-Dateien über das Windows-API abspielen
+
+215.txt
+215 Multimedia-Dateien (Wave, MP3, Midi, AVI, MPEG etc.) über MCI abspielen
+
+216.txt
+216 Multimedia-Dateien (Wave, MP3, Midi, AVI, MPEG etc.) über DirectX abspielen
+
+217.txt
+217 Bild in Byte-Array umwandeln
+
+218.txt
+218 Byte-Array in Bitmap umwandeln
+
+219.txt
+219 Bitmap aus der Zwischenablage auslesen
+
+220.txt
+220 Screenshot des Bildschirms und eines Formulars erstellen
+
+221.txt
+221 Bilder skalieren
+
+222.txt
+222 Thumbnails aus Bildern erzeugen
+
+223.txt
+223 Bilder konvertieren
+
+224.txt
+224 (JPEG-)Bilder mit definierter Qualität speichern
+
+225.txt
+225 Bilder drehen und spiegeln
+
+226.txt
+226 Bildausschnitte auslesen
+
+227_1.txt
+227 Farbinformationen von Bildern gezielt verändern (1)
+
+227_2.txt
+227 Farbinformationen von Bildern gezielt verändern (2)
+
+228.txt
+228 Ein Negativ eines Bildes erzeugen
+
+229.txt
+229 Die einzelnen Pixel eines Bildes bearbeiten
+
+230.txt
+230 Farb-Bilder in Graustufen-Bilder umwandeln
+
+231.txt
+231 Transparente Bilder und Grafiken erzeugen
+
+232.txt
+232 Bilder mit Schatten zeichnen
+
+233.txt
+233 Schräg zeichnen
+
+234.txt
+234 Die Breite und Höhe eines auszugebenden Textes bestimmen

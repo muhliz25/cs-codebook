@@ -1,0 +1,20 @@
+using System;
+using System.IO;
+
+...
+
+string sourceFolderName = @"C:\DemoFolder";   
+string destFolderName = @"C:\Temp\DemoFolder";
+
+try
+{
+   // Ordner verschieben
+   Directory.Move(sourceFolderName, destFolderName);
+
+   Console.WriteLine("Ordner erfolgreich verschoben");
+}
+catch (IOException ex)
+{
+   Console.WriteLine("Fehler beim Verschieben des Ordners: " +
+      ex.Message);
+}

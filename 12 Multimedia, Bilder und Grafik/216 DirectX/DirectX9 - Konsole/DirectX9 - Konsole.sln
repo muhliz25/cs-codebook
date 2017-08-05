@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectX9 - Konsole", "DirectX9 - Konsole.csproj", "{7E290A56-EB80-4038-9C52-C50915B50FD6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{7E290A56-EB80-4038-9C52-C50915B50FD6}.Debug.ActiveCfg = Debug|.NET
+		{7E290A56-EB80-4038-9C52-C50915B50FD6}.Debug.Build.0 = Debug|.NET
+		{7E290A56-EB80-4038-9C52-C50915B50FD6}.Release.ActiveCfg = Release|.NET
+		{7E290A56-EB80-4038-9C52-C50915B50FD6}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

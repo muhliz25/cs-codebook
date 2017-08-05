@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Textdateien ändern", "Textdateien ändern.csproj", "{E2CE8C54-A8EC-4076-8828-8C7F8D1950C3}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E2CE8C54-A8EC-4076-8828-8C7F8D1950C3}.Debug.ActiveCfg = Debug|.NET
+		{E2CE8C54-A8EC-4076-8828-8C7F8D1950C3}.Debug.Build.0 = Debug|.NET
+		{E2CE8C54-A8EC-4076-8828-8C7F8D1950C3}.Release.ActiveCfg = Release|.NET
+		{E2CE8C54-A8EC-4076-8828-8C7F8D1950C3}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

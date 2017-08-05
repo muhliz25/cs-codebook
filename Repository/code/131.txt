@@ -1,0 +1,65 @@
+using System;
+using System.IO;
+using System.Text;
+using System.Drawing;
+using System.Windows.Forms;
+using ICSharpCode.SharpZipLib.Zip;
+
+/* Dieses Rezept benötigt die Referenzierung der Assembly 
+ * ICSharpCode.SharpZipLib.Zip.dll, die Sie auf der Buch-CD finden.
+ * Das Rezept arbeitet daneben mit einer TextBox "zipTextBox" und einem
+ * PictureBox-Steuerelement "zipPictureBox"  */
+
+...
+
+// Dateiname der Zip-Datei
+string zipFileName = Path.Combine(Application.StartupPath, "demo.zip");
+
+// Zip-Datei öffnen
+ZipInputStream zipInputStream = new ZipInputStream(
+   new FileStream(zipFileName, FileMode.Open, FileAccess.Read));
+
+// Alle Dateien durchgehen
+ZipEntry zipEntry;
+while ((zipEntry = zipInputStream.GetNextEntry()) != null)
+{
+   // Daten in einer Schleife (blockweise) einlesen (die Read-Methode
+   // liefert leider nicht immer alle restlichen Daten im Stream,
+   // deswegen muss in einer Schleife eingelesen werden)
+   byte[] data = new byte[zipEntry.Size];
+   int dataIndex = 0;
+   byte[] buffer = new byte[1024];
+   int count = 0;
+   do
+   {
+      // Daten lesen
+      count = zipInputStream.Read(buffer, 0, buffer.Length);
+
+      // Das eingelesene Array an das data-Array hinten anhängen
+      Array.Copy(buffer, 0, data, dataIndex, count);
+
+        // Start-Index für das data-Array hochzählen
+      dataIndex += count;
+   } while (count > 0);
+   
+   // Überprüfen, ob es sich um eine Textdatei handelt
+   FileInfo fi = new FileInfo(zipEntry.Name);
+   if (fi.Extension == ".txt")
+   {
+      // Daten in einen Text konvertieren
+      string text = Encoding.ASCII.GetString(data); 
+      this.zipTextBox.Text  = text;
+   }
+
+   // Überprüfen, ob es sich um eine Bitmap-Grafik handelt
+   if (fi.Extension == ".jpg" || fi.Extension == ".jpeg" 
+      || fi.Extension == ".gif" || fi.Extension == ".bmp")
+   {
+      // Daten in eine Bitmap-Grafik umwandeln
+      Bitmap bitmap = new Bitmap(new MemoryStream(data));  
+      this.zipPictureBox.Image = bitmap; 
+   }
+}
+
+// ZipInputStream schließen
+zipInputStream.Close();

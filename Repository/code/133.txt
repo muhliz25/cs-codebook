@@ -1,0 +1,87 @@
+using System;
+using System.IO;
+using System.Xml;
+using System.Xml.Schema;
+using System.Windows.Forms;
+
+...
+
+// Der Dateiname der XML- und der Schema-Datei
+string xmlFileName = Path.Combine(Application.StartupPath, "Persons.xml");
+string xmlSchemaFileName = Path.Combine(Application.StartupPath, 
+   "Persons.xsd");
+
+// XmlValidatingReader mit einem neuen XmlReader als Basis erzeugen
+XmlValidatingReader xmlValidator = new XmlValidatingReader(
+   new XmlTextReader(xmlFileName));
+
+// Validier-Typ auf "Schema" festlegen
+xmlValidator.ValidationType = ValidationType.Schema;
+
+// Schema ohne Ziel-Namensraum hinzufügen
+try
+{
+   xmlValidator.Schemas.Add(null, xmlSchemaFileName);
+}
+catch (Exception ex)
+{
+   Console.WriteLine(ex.Message);
+}
+
+// Merker für die Gültigkeit des Dokuments initialisieren
+bool isValid = true;
+try
+{
+   // Daten einlesen
+   while (xmlValidator.Read())
+   {
+      // Überprüfen, ob der aktuelle Knoten ein Element ist 
+      if (xmlValidator.NodeType == XmlNodeType.Element)
+      {
+         // Überprüfen, um welches Element es sich handelt, und 
+         // die eingelesenen Daten entsprechend ausgeben
+         if (xmlValidator.Name == "person")
+         {
+            Console.WriteLine();
+            Console.WriteLine("Person {0}",
+               xmlValidator.GetAttribute("id"));
+         }
+         else if (xmlValidator.Name == "firstname")
+         {
+            if (xmlValidator.MoveToContent() != XmlNodeType.None)
+               Console.WriteLine("Vorname: {0}",
+                  xmlValidator.ReadString());
+         }
+         else if (xmlValidator.Name == "lastname")
+         {
+            if (xmlValidator.MoveToContent() != XmlNodeType.None)
+               Console.WriteLine("Nachname: {0}",
+                  xmlValidator.ReadString());
+         }
+         else if (xmlValidator.Name == "type")
+         {
+            if (xmlValidator.MoveToContent() != XmlNodeType.None)
+               Console.WriteLine("Typ: {0}",
+                  xmlValidator.ReadString());
+         }
+      }
+   }
+}
+catch (Exception ex)
+{
+   // Fehler beim Lesen: Fehler ausgeben und Merker für die Gültigkeit des
+   // Dokuments zurücksetzen 
+   Console.WriteLine(ex.Message);
+   isValid = false;
+}
+
+// XmlValidatingReader schließen
+xmlValidator.Close();
+
+// Ausgeben, ob die Datei gültig ist
+Console.WriteLine();
+if (isValid) 
+   Console.WriteLine("Die XML-Datei ist gültig");
+else
+   Console.WriteLine("Die XML-Datei ist nicht gültig");
+

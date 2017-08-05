@@ -1,0 +1,26 @@
+241.txt
+241 Informationen über den Aufrufer in einer Methode oder einem Konstruktor ermitteln
+
+242.txt
+242 Parameter an Threads übergeben und Ergebnisse auslesen
+
+243.txt
+243 Objekte binär serialisieren
+
+244.txt
+244 Objekte nach XML serialisieren und von XML deserialisieren
+
+245.txt
+245 Font- und andere Objekte in einen String serialiseren
+
+246.txt
+246 Die Anzahl der Datensätze ermitteln, die eine Abfrage in einer Datenbank ergibt
+
+247.txt
+247 Datenbanken erzeugen
+
+248.txt
+248 Abfragen der automatisch vergebenen Id eines neuen Datensatzes
+
+249.txt
+249 Bilder und andere binäre Daten in einer Datenbank verwalten

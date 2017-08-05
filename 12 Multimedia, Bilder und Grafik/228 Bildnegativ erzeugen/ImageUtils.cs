@@ -1,0 +1,37 @@
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+
+namespace Addison_Wesley.Codebook.Images
+{
+	public class ImageUtils
+	{
+		/* Methode zur Erzeugung eines Bildnegativs */
+		public static Bitmap CreateNegative1(Image image)
+		{
+			// Neues Bitmap mit den Ausmaßen des originalen erzeugen
+			Bitmap bitmap = new Bitmap(image.Width, image.Height);
+
+			// ColorMatrix für die Transformation der Farben erzeugen
+			ColorMatrix colorMatrix = new ColorMatrix(new float[][] {
+																		new float[] {-1, 0, 0, 0, 0},
+																		new float[] {0, -1, 0, 0, 0},
+																		new float[] {0, 0, -1, 0, 0},
+																		new float[] {0, 0, 0, 1, 0},
+																		new float[] {0, 0, 0, 0, 1}
+																	});
+
+			// Grafik auf dem Bitmap-Objekt ausgeben und dabei ein neues
+			// ImageAttributes-Objekt mit der ColorMatrix übergeben 
+			ImageAttributes imageAttributes = new ImageAttributes();
+			imageAttributes.SetColorMatrix(colorMatrix);
+			Graphics g = Graphics.FromImage(bitmap);
+			g.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height),
+				0, 0, image.Width, image.Height, GraphicsUnit.Pixel,
+				imageAttributes);
+			g.Dispose();
+
+			return bitmap;
+		}
+	}
+}

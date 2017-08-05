@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPath-Abfrage", "XPath-Abfrage.csproj", "{143C1CB5-3292-4CCF-A350-DEA02CDE64BA}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{143C1CB5-3292-4CCF-A350-DEA02CDE64BA}.Debug.ActiveCfg = Debug|.NET
+		{143C1CB5-3292-4CCF-A350-DEA02CDE64BA}.Debug.Build.0 = Debug|.NET
+		{143C1CB5-3292-4CCF-A350-DEA02CDE64BA}.Release.ActiveCfg = Release|.NET
+		{143C1CB5-3292-4CCF-A350-DEA02CDE64BA}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

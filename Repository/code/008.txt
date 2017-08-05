@@ -1,0 +1,14 @@
+using System;
+using System.Globalization;
+
+...
+
+double number = 1234.5678;
+
+// CultureInfo-Objekt für die englische Kultur erzeugen
+CultureInfo englishCulture = CultureInfo.CreateSpecificCulture("en-US");
+
+// Zahl in das US-englische Format formatieren
+string formattedNumber = number.ToString("#,#0.00", englishCulture);
+
+Console.WriteLine(formattedNumber);

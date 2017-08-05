@@ -1,0 +1,14 @@
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Windows.Forms;
+
+...
+
+// JPEG-Datei in Bitmap einlesen
+string fileName = Path.Combine(Application.StartupPath, "Les Crosets.jpg");
+Bitmap bitmap = new Bitmap(fileName);
+
+// Als Bitmap abspeichern
+fileName = Path.Combine(Application.StartupPath, "Les Crosets.bmp");
+bitmap.Save(fileName, ImageFormat.Bmp);

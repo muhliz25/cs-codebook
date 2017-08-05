@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<persons xmlns="http://www.addison-wesley.de/codebook/csharp">
+   <!--Beispiel zum Erzeugen von XML-Dateien-->
+   <person id="1001">
+      <firstname>Zaphod</firstname>
+      <lastname>Beeblebrox</lastname>
+      <type>Alien</type>
+   </person>
+   <person id="1002">
+      <firstname>Tricia</firstname>
+      <lastname>McMillan</lastname>
+      <type>Earthling</type>
+   </person>
+</persons>

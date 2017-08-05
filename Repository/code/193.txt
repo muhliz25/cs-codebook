@@ -1,0 +1,175 @@
+using System;
+using System.Drawing;
+using System.Windows.Forms; 
+
+...
+
+/* Klasse für eine DataGrid-Spalte mit einer ComboBox */
+public class DataGridComboBoxColumn: DataGridTextBoxColumn
+{
+   /* Eigenschaften */
+   public ComboBox ComboBox = null;
+   private bool inEditMode;
+   private CurrencyManager currencyManager = null;
+   private int currentRow;
+   private bool dontHandleSelectedItemChanged = false;
+
+   /* Delegate und Ereignis für das ComboValueChanged-Ereignis */
+   public delegate void ComboValueChanged(int changingRow, 
+      object newValue);
+   public event ComboValueChanged ComboValueChangedEvent;
+   
+   /* Konstruktor */
+   public DataGridComboBoxColumn()
+   {
+      // ComboBox erzeugen und die Ereignisbehandlungs-Methoden zuweisen
+      this.ComboBox = new ComboBox();
+      this.ComboBox.Leave += 
+         new EventHandler(this.ComboBoxLeaveHandler);
+      this.ComboBox.SelectedIndexChanged += 
+         new EventHandler(this.ComboBoxSelectedIndexChangedHandler);
+      this.ComboBox.SelectionChangeCommitted += 
+         new EventHandler(this.ComboBoxSelectionChangeCommittedHandler);
+   }
+
+   /* Überschreiben der Edit-Methode, die aufgerufen wird, wenn der 
+    * Anwender die Spalte in den Editiermodus versetzt */
+   protected override void Edit(CurrencyManager source, int rowNum,
+      System.Drawing.Rectangle bounds, bool readOnly, string instantText,
+      bool cellIsVisible)
+   {
+      base.Edit(source, rowNum, bounds, readOnly, instantText,
+         cellIsVisible);
+
+      // Merken der aktuellen Zeile und des CurrencyManager-Objekts
+      this.currentRow = rowNum;
+      this.currencyManager = source;
+    
+      // Übergeben der Eigenschaften der TextBox der Spalte an die ComboBox
+      this.ComboBox.Parent = this.TextBox.Parent;
+      this.ComboBox.Location = this.TextBox.Location;
+      this.ComboBox.Size = new Size(this.TextBox.Size.Width,
+         this.ComboBox.Size.Height);
+      // Abarbeitung des SelectedItemChanged-Ereignisses vermeiden
+      this.dontHandleSelectedItemChanged = true;
+      // Text übergeben
+      this.ComboBox.SelectedValue =  this.TextBox.Text;
+      // Abarbeitung des SelectedItemChanged-Ereignisses wieder erlauben
+      this.dontHandleSelectedItemChanged = false;
+
+      // TextBox unsichtbar, ComboBox sichtbar schalten, die ComboBox nach
+      // vorne holen und den Fokus daraus setzen
+      this.TextBox.Visible = false;
+      this.ComboBox.Visible = true;
+      this.ComboBox.BringToFront();
+      this.ComboBox.Focus();   
+   }
+
+   /* Überschreiben der Commit-Methode, die aufgerufen wird, wenn der 
+    * Anwender seine Änderungen bestätigt */
+   protected override bool Commit(CurrencyManager dataSource, int rowNum)
+   {
+      if (this.inEditMode)
+      {
+         this.inEditMode = false;
+        
+         // Den Wert der ComboBox in die TextBox schreiben
+         base.SetColumnValueAtRow(dataSource, rowNum,
+            this.ComboBox.SelectedValue);
+      }
+      return true;
+   }
+
+   /* Ereignisbehandlungs-Methoden für die ComboBox */
+   private void ComboBoxSelectionChangeCommittedHandler(object sender,
+      EventArgs e)
+   {
+      this.inEditMode = true;
+      base.ColumnStartedEditing((Control)sender);
+   }
+
+   private void ComboBoxLeaveHandler(object sender, EventArgs e)
+   {
+      if (this.inEditMode)
+         // Die Spalte auffordern, ihre TextBox neu zu zeichnen
+         base.Invalidate();
+
+      // ComboBox verstecken
+      this.ComboBox.Hide();
+   }
+
+   private void ComboBoxSelectedIndexChangedHandler(object sender,
+      EventArgs e)
+   {
+      // Wenn der Index des selektierten Eintrags sich in der ComboBox
+      // ändert: Das eigene ComboValueChanged-Ereignis aufrufen
+      if (this.dontHandleSelectedItemChanged == false)
+      {
+         if (this.ComboValueChangedEvent != null)
+            this.ComboValueChangedEvent(this.currentRow,
+               this.ComboBox.Text);    
+      }
+   }
+}
+
+...
+
+/* Beispiel-Anwendung der Klasse für die ComboBox-Spalte */
+// DataTable-Objekte für die Daten erzeugen
+DataTable personTable = new DataTable();
+personTable.Columns.Add("FirstName", typeof(string));
+personTable.Columns.Add("LastName", typeof(string));
+personTable.Columns.Add("Country", typeof(string));
+personTable.Rows.Add(new object[] {"Zaphod", "Beeblebrox", "-"});
+personTable.Rows.Add(new object[] {"Ford", "Prefect", "-"});
+personTable.Rows.Add(new object[] {"Tricia", "McMillan", "GB"});
+personTable.Rows.Add(new object[] {"Arthur", "Dent", "GB"});
+
+DataTable countryTable = new DataTable();
+countryTable.Columns.Add("Id", typeof(string));
+countryTable.Columns.Add("Country", typeof(string));
+countryTable.Rows.Add(new object[] {"DE", "Deutschland"});
+countryTable.Rows.Add(new object[] {"GB", "Großbritannien"});
+countryTable.Rows.Add(new object[] {"US", "USA"});
+countryTable.Rows.Add(new object[] {"FR", "Frankreich"});
+countryTable.Rows.Add(new object[] {"IT", "Italien"});
+countryTable.Rows.Add(new object[] {"-", "Unbekannt"});
+
+// Die Spalten des DataGrid definieren
+DataGridTableStyle tableStyle = new DataGridTableStyle();
+
+// Eine TextBox-Spalte
+DataGridTextBoxColumn col1 = new DataGridTextBoxColumn();
+col1.MappingName = "FirstName";
+col1.HeaderText = "Vorname";
+col1.Width = 100;
+tableStyle.GridColumnStyles.Add(col1);
+
+// Noch eine TextBox-Spalte
+DataGridTextBoxColumn col2 = new DataGridTextBoxColumn();
+col2.MappingName = "LastName";
+col2.HeaderText = "Nachname";
+col2.Width = 100;
+tableStyle.GridColumnStyles.Add(col2);
+
+// Eine Spalte mit der DataGridComboBoxColumn
+DataGridComboBoxColumn col3 = new DataGridComboBoxColumn();
+col3.MappingName = "Country";
+col3.HeaderText = "Land";
+col3.Width = 100;
+tableStyle.GridColumnStyles.Add(col3);
+
+// Festlegen der bevorzugten Zeilenhöhe auf die Höhe der ComboBox
+tableStyle.PreferredRowHeight = col3.ComboBox.Height;
+
+// Füllen der ComboBox
+col3.ComboBox.ValueMember = "Id";
+col3.ComboBox.DisplayMember = "Country";
+col3.ComboBox.DataSource = countryTable;
+
+// Tabellenstil an das DataGrid übergeben
+this.personGrid.TableStyles.Add(tableStyle);
+
+// DataTable an das DataGrid anbinden
+this.personGrid.DataSource = personTable;
+

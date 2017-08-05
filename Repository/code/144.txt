@@ -1,0 +1,20 @@
+using System;
+using System.IO;
+using System.Xml;
+using System.Drawing;
+using System.Windows.Forms;
+
+...
+
+// XML-Datei einlesen
+string xmlFileName = Path.Combine(
+   Application.StartupPath, "Persons.xml");
+XmlDocument xmlDoc = new XmlDocument();
+xmlDoc.Load(xmlFileName);
+XmlNode personNode = xmlDoc.SelectSingleNode("persons/person[attribute::id='1000']");
+XmlNode imageNode = personNode.SelectSingleNode("image");
+
+// Base64-codierten String in Bitmap umwandeln
+byte[] buffer = Convert.FromBase64String(imageNode.InnerText);
+Bitmap bitmap = new Bitmap(new MemoryStream(buffer, 0, buffer.Length));
+

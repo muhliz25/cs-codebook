@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String auf Zahl am Anfang prüfen", "String auf Zahl am Anfang prüfen.csproj", "{8AC513E7-58FE-427E-BC73-225658303E79}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8AC513E7-58FE-427E-BC73-225658303E79}.Debug.ActiveCfg = Debug|.NET
+		{8AC513E7-58FE-427E-BC73-225658303E79}.Debug.Build.0 = Debug|.NET
+		{8AC513E7-58FE-427E-BC73-225658303E79}.Release.ActiveCfg = Release|.NET
+		{8AC513E7-58FE-427E-BC73-225658303E79}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

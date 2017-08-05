@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binäre Dateien schreiben", "Binäre Dateien schreiben.csproj", "{0E7D6662-F632-490F-A8F6-3B7D54B39F97}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0E7D6662-F632-490F-A8F6-3B7D54B39F97}.Debug.ActiveCfg = Debug|.NET
+		{0E7D6662-F632-490F-A8F6-3B7D54B39F97}.Debug.Build.0 = Debug|.NET
+		{0E7D6662-F632-490F-A8F6-3B7D54B39F97}.Release.ActiveCfg = Release|.NET
+		{0E7D6662-F632-490F-A8F6-3B7D54B39F97}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

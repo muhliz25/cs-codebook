@@ -1,0 +1,82 @@
+using System;
+using System.Text;
+using System.Runtime.InteropServices;
+
+namespace Addison_Wesley.Codebook.Internet
+{
+	public class InternetUtils
+	{
+		/* Deklaration der benötigten API-Funktionen  */
+		[DllImport("wininet.dll", SetLastError=true)]
+		public static extern int InternetAutodial(int dwFlags,
+			IntPtr hwndParent);
+
+		[DllImport("wininet.dll", SetLastError=true)]
+		public static extern int InternetAutodialHangup(int dwReserved);
+
+		[DllImport("Kernel32.dll")]
+		private static extern int FormatMessage(int dwFlags, IntPtr lpSource,
+			int dwMessageId, int dwLanguageId,
+			System.Text.StringBuilder lpBuffer, int nSize, string [] Arguments);
+
+		[DllImport("kernel32.dll")]
+		static extern IntPtr GetModuleHandle(string lpFileName);
+
+		/* Konstanten für InternetAutoDial */
+		private const int INTERNET_AUTODIAL_FORCE_ONLINE = 1;
+		private const int INTERNET_AUTODIAL_FORCE_UNATTENDED = 2;
+		private const int INTERNET_AUTODIAL_FAILIFSECURITYCHECK = 4;
+
+		/* Konstanten für FormatMessage */
+		private const int FORMAT_MESSAGE_FROM_HMODULE = 0x0800;
+
+		/* Methode zum Öffnen einer lokalen Internetverbindung */
+		public static void OpenLocalConnection(bool unattended, int hwndParent)
+		{
+			// Flags definieren
+			int flags = 0;
+			if (unattended)
+				flags = INTERNET_AUTODIAL_FORCE_UNATTENDED;
+			else
+				flags = INTERNET_AUTODIAL_FORCE_ONLINE;
+
+			// Verbindung wählen
+			if (InternetAutodial(flags, (IntPtr)hwndParent) == 0)
+			{
+				// Fehler bei der Ausführung
+				int apiError = Marshal.GetLastWin32Error();
+
+				// Den Text des Fehlers aus der Datei wininet.dll auslesen
+				// und damit eine Ausnahme werfen
+				IntPtr hModule = GetModuleHandle("wininet.dll");
+				StringBuilder message = new StringBuilder(1024);
+				if (FormatMessage(FORMAT_MESSAGE_FROM_HMODULE, hModule,
+					apiError, 0, message, 1024, null) > 0)
+					throw new Exception(message.ToString());
+				else
+					throw new Exception("API-Fehler " + apiError);
+			}
+		}
+
+		/* Methode zum Schließen einer lokalen Internetverbindung */
+		public static void CloseLocalConnection()
+		{
+			// Verbindung schließen
+			if (InternetAutodialHangup(0) == 0)
+			{
+				// Fehler bei der Ausführung
+				int apiError = Marshal.GetLastWin32Error();
+
+				// Den Text des Fehlers aus der Datei wininet.dll auslesen
+				// und damit eine Ausnahme werfen
+				IntPtr hModule = GetModuleHandle("wininet.dll");
+				StringBuilder message = new StringBuilder(1024);
+				if (FormatMessage(FORMAT_MESSAGE_FROM_HMODULE, hModule, apiError,
+					0, message, 1024, null) > 0)
+					throw new Exception(message.ToString());
+				else
+					throw new Exception("API-Fehler " + apiError);
+			}
+		}
+	}
+}

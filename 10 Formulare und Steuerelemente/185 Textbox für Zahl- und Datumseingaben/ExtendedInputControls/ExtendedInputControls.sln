@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedInputControls", "ExtendedInputControls.csproj", "{D06C6256-5135-4F65-8D54-8A11A5C0C6EF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testprojekt", "..\Testprojekt\Testprojekt.csproj", "{3EB37378-1184-47CB-9D6C-54F3E513DD8D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D06C6256-5135-4F65-8D54-8A11A5C0C6EF}.Debug.ActiveCfg = Debug|.NET
+		{D06C6256-5135-4F65-8D54-8A11A5C0C6EF}.Debug.Build.0 = Debug|.NET
+		{D06C6256-5135-4F65-8D54-8A11A5C0C6EF}.Release.ActiveCfg = Release|.NET
+		{D06C6256-5135-4F65-8D54-8A11A5C0C6EF}.Release.Build.0 = Release|.NET
+		{3EB37378-1184-47CB-9D6C-54F3E513DD8D}.Debug.ActiveCfg = Debug|.NET
+		{3EB37378-1184-47CB-9D6C-54F3E513DD8D}.Debug.Build.0 = Debug|.NET
+		{3EB37378-1184-47CB-9D6C-54F3E513DD8D}.Release.ActiveCfg = Release|.NET
+		{3EB37378-1184-47CB-9D6C-54F3E513DD8D}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

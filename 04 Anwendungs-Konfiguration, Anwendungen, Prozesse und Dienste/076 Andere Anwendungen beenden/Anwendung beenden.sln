@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anwendung beenden", "Anwendung beenden.csproj", "{C7BD3B3E-B9FB-4F27-8F56-1DBE16A936C4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C7BD3B3E-B9FB-4F27-8F56-1DBE16A936C4}.Debug.ActiveCfg = Debug|.NET
+		{C7BD3B3E-B9FB-4F27-8F56-1DBE16A936C4}.Debug.Build.0 = Debug|.NET
+		{C7BD3B3E-B9FB-4F27-8F56-1DBE16A936C4}.Release.ActiveCfg = Release|.NET
+		{C7BD3B3E-B9FB-4F27-8F56-1DBE16A936C4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,12 @@
+using System;
+using Microsoft.Win32;
+
+...
+
+public static bool WmiInstalled()
+{
+   Microsoft.Win32.RegistryKey regKey = 
+      Microsoft.Win32.Registry.LocalMachine.OpenSubKey(
+      @"Software\Microsoft\Wbem");
+   return regKey != null;
+}

@@ -1,0 +1,74 @@
+using System;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.IO;
+
+/* Dieses Rezept demonstriert an einem Beispiel, wie Sie ein DataGrid-Steuerelement
+ * mit benutzerdefinierten Spalten ausstatten. Es benötigt ein Formular mit einem
+ * DataGrid mit Namen "productsGrid" und eine Verbindung zur Northwind-Datenbank
+ * auf einem SQL-Server oder einer MSDE-Instanz */ 
+
+...
+
+private void StartForm_Load(object sender, System.EventArgs e)
+{
+   // Einlesen der Products-Tabelle der Northwind-Datenbank
+   string server = "(local)";
+   SqlConnection connection = new SqlConnection("Server=" + server +
+      ";Database=Northwind;Trusted_Connection=Yes");
+   try
+   {
+      connection.Open();
+   }
+   catch (Exception ex)
+   {
+      MessageBox.Show("Fehler beim Verbindungsaufbau zur Northwind-" + 
+         "Datenbank:" + ex.Message + "\r\nKontrollieren Sie die " +
+         "Einstellungen in der Anwendungskonfiguration",
+         Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+      Application.Exit();
+   }
+   SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT ProductId, " +
+      "ProductName, Discontinued FROM Products", connection);
+   DataSet dataSet = new DataSet();
+   dataAdapter.Fill(dataSet, "Products");
+
+   // DataGridTableStyle-Objekt erzeugen und initialisieren
+   DataGridTableStyle tableStyle = new DataGridTableStyle();
+   tableStyle.MappingName = "Products";
+
+   // Spalten des DataSet definieren
+   DataGridTextBoxColumn col1 = new ExtDataGridTextBoxColumn();
+   col1.HeaderText = "Artikel-Nr";
+   col1.MappingName = "ProductId";
+   col1.Width = 70;
+   col1.ReadOnly = true;
+   tableStyle.GridColumnStyles.Add(col1);
+
+   DataGridTextBoxColumn col2 = new ExtDataGridTextBoxColumn();
+   col2.HeaderText = "Artikelname";
+   col2.MappingName = "ProductName";
+   col2.Width = 150;
+   tableStyle.GridColumnStyles.Add(col2);
+
+   DataGridBoolColumn col3 = new DataGridBoolColumn();
+   col3.HeaderText = "Auslaufartikel";
+   col3.MappingName = "Discontinued";
+   col3.AllowNull = false; // Dreiwertigkeit unterbinden
+   col3.Width = 80;
+   tableStyle.GridColumnStyles.Add(col3);
+
+   // DataGridTableStyle-Instanz dem DataGrid zuweisen
+   this.productsGrid.TableStyles.Add(tableStyle);
+   
+   // DataSet an das DataGrid anbinden
+   this.productsGrid.DataMember = "Products";
+   this.productsGrid.DataSource = dataSet;
+}
+
+
+

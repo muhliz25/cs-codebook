@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Textdateien anfügen", "Textdateien anfügen.csproj", "{859AB69B-5BC6-42E9-A647-122FC80859EF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{859AB69B-5BC6-42E9-A647-122FC80859EF}.Debug.ActiveCfg = Debug|.NET
+		{859AB69B-5BC6-42E9-A647-122FC80859EF}.Debug.Build.0 = Debug|.NET
+		{859AB69B-5BC6-42E9-A647-122FC80859EF}.Release.ActiveCfg = Release|.NET
+		{859AB69B-5BC6-42E9-A647-122FC80859EF}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

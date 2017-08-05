@@ -1,0 +1,31 @@
+using System;
+using System.Windows.Forms;
+
+...
+
+/* Methode zum Sortieren einer TreeNodeCollection */
+public static void SortTreeViewNodes(TreeNodeCollection nodes)
+{
+   // Sortieren der Unterknoten über einen einfachen BubbleSort
+   // (bei 100 Elementen recht schnell, bei 1000 super langsam; 
+   // gilt aber auch für den Quicksort)
+   for (int i = 0; i < nodes.Count; i++)
+   {
+      for (int j = nodes.Count - 1; j > i; j--)
+      {
+         if (String.Compare(nodes[i].Text, nodes[j].Text, true) > 0)
+         {
+            // Tauschen
+            TreeNode node1 = nodes[i];
+            TreeNode node2 = nodes[j];
+            nodes.RemoveAt(i);
+            nodes.RemoveAt(j-1);
+            nodes.Insert(i, node2);
+            nodes.Insert(j, node1);
+         }
+      }
+   }
+}
+
+
+

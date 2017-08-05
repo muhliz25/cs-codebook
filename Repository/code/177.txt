@@ -1,0 +1,12 @@
+/* Andockende Formulare erreichen Sie, indem Sie ein erzeugtes Formular der Controls-
+ * Auflistung des Parent-Formulars zuweisen und die Eigenschaft Dock des Child-Formulars
+ * auf DockStyle.Left setzen */
+
+// Neues Childform erzeugen, der Controls-Auflistung
+// zuweisen und über die von Control geerbte Eigenschaft
+// DockStyle andockbar machen
+ChildForm f = new ChildForm();
+f.TopLevel = false;
+this.Controls.Add(f);
+f.Dock = DockStyle.Left;
+f.Show();

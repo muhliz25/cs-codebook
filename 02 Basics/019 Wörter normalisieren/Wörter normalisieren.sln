@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wörter normalisieren", "Wörter normalisieren.csproj", "{64869951-143A-45DC-BC92-B37305863943}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{64869951-143A-45DC-BC92-B37305863943}.Debug.ActiveCfg = Debug|.NET
+		{64869951-143A-45DC-BC92-B37305863943}.Debug.Build.0 = Debug|.NET
+		{64869951-143A-45DC-BC92-B37305863943}.Release.ActiveCfg = Release|.NET
+		{64869951-143A-45DC-BC92-B37305863943}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

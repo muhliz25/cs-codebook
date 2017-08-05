@@ -1,0 +1,89 @@
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
+...
+
+/* Methode zum Serialisieren eines Objekts in eine Datei */
+public static void SerializeToFile(object obj, string fileName)
+{
+   FileStream fileStream = null;
+   try
+   {
+      // FileStream für die Datei erzeugen
+      fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+
+      // Objekt serialisieren
+      BinaryFormatter bf = new BinaryFormatter();
+      bf.Serialize(fileStream, obj);
+   }
+   finally
+   {
+      if (fileStream != null)
+         fileStream.Close();
+   }
+}
+
+/* Methode zum Deserialisieren eines Objekts aus einer Datei */
+public static object DeserializeFromFile(string fileName)
+{
+   FileStream fileStream = null;
+   try
+   {
+      // FileStream für die Datei erzeugen
+      fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+      // Objekt deserialisieren
+      BinaryFormatter bf = new BinaryFormatter();
+      return bf.Deserialize(fileStream);
+   }
+   finally
+   {
+      if (fileStream != null)
+         fileStream.Close();
+   }
+}
+
+/* Methode zum Serialisieren eines Objekts in ein Byte-Array */
+public static byte[] SerializeToByteArray(object obj)
+{
+   MemoryStream ms = null;
+   try
+   {
+      // MemoryStream erzeugen
+      ms = new MemoryStream();
+
+      // Objekt serialisieren
+      BinaryFormatter bf = new BinaryFormatter();
+      bf.Serialize(ms, obj);
+
+      return ms.ToArray();
+   }
+   finally
+   {
+      if (ms != null)
+         ms.Close();
+   }
+}
+
+/* Methode zum Deserialisieren eines Objekts aus einem Byte-Array */
+public static object DeserializeFromByteArray(byte[] data)
+{
+   MemoryStream ms = null;
+   try
+   {
+      // MemoryStream erzeugen
+      ms = new MemoryStream(data);
+
+      // Objekt deserialisieren
+      BinaryFormatter bf = new BinaryFormatter();
+      return bf.Deserialize(ms);
+   }
+   finally
+   {
+      if (ms != null)
+         ms.Close();
+   }
+}
+
+

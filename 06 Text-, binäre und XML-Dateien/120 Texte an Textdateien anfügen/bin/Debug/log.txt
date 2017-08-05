@@ -1,0 +1,3 @@
+06.05.2003 12:50:52: Anzahl Prozesse: 43
+06.05.2003 12:51:08: Anzahl Prozesse: 45
+06.05.2003 12:52:16: Anzahl Prozesse: 46

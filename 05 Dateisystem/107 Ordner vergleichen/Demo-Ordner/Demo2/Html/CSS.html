@@ -1,0 +1,1047 @@
+<html>
+<head>
+<title>Cascading Style Sheets</title>
+<meta name="copyright" value="(c) 2002 Jürgen Bayer Informatik">
+<meta name="source" value="CSS.doc">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="StyleSheet" type="text/css" href="../../common/styles.css">
+</head>
+
+<body class="Document">
+
+<!-- Layout-Tabelle -->
+<table cellpadding="0" class="Layout" width="900" border="0">
+
+<!-- NavigationBar oben -->
+<tr>
+<td width="750" height="25px">
+<a class="RegularText" style="padding-left:5px" href="../../index.html">Home</a>
+&nbsp;&nbsp;<a class="RegularText" style="padding-left:5px" href="#Index">Index</a>
+</td>
+
+<!-- Abstand  zur Navigation Bar über eine Spalte
+     Wichtig: Spalte und NICHT Padding für den Abstand, damit das Ganze auch
+     im Mozilla etc. unter Linux funktioniert -->
+<td rowspan="3" class="Layout" width="10">
+</td>
+
+<!-- Navigation Bar rechts -->
+<td rowspan="3" class="NavBar" align="center" valign="top" width="140">
+  <div style="position:relative;top:10px;">
+    <a class="Image" href="http://www.juergen-bayer.net">
+      <img border="0" src="../../common/logo.gif">
+    </a>
+    <p class="NavBarItem">
+      <a class="RegularText" href="../../index.html">Home</a>
+    </p>
+    <p class="NavBarItem">
+      <a class="RegularText" href="../../buecher/index.html">Bücher</a>
+    </p>
+    <p class="NavBarItem">
+      <a class="RegularText" href="../index.html">Artikel</a>
+    </p>
+    <p class="NavBarItem">
+	  <a class="RegularText" href="../../referenzen/index.html">Referenz-<br>Artikel</a>
+    </p>
+  </div>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="Layout" align="center" width="750">
+<p>&nbsp;</p>
+<h1 class="Author">Jürgen Bayer</h1>
+<p>&nbsp;</p>
+<img src="../../common/doctitle.gif">
+<p>&nbsp;</p>
+
+<!-- Titel -->
+<h1 class="Title">Cascading Style Sheets</h1>
+
+<hr size="5" noShade="noShade">
+<p style="text-align:center"><a class="RegularText" href="./CSS.pdf">Druckversion dieses Artikels (PDF)</a></p>
+
+</td>
+</tr>
+
+<tr>
+<td class="Layout" width="750">
+
+<!-- Inhaltsverzeichnis -->
+<h1 class="TOC">Inhalt</h1>
+
+<a class="h1" href="#h1_6">1&nbsp;&nbsp;Einführung</a>
+<a class="h2" href="#h2_16">1.1&nbsp;&nbsp;Grundlagen</a>
+<a class="h2" href="#h2_26">1.2&nbsp;&nbsp;CSS1 und CSS2</a>
+<a class="h1" href="#h1_57">2&nbsp;&nbsp;Das Basiskonzept</a>
+<a class="h2" href="#h2_58">2.1&nbsp;&nbsp;Blockelemente, Inline-Elemente, Parent-Elemente und Child-Elemente</a>
+<a class="h2" href="#h2_65">2.2&nbsp;&nbsp;Stilvorlagen</a>
+<a class="h3" href="#h3_75">2.2.1&nbsp;&nbsp;Kaskadierender Aufbau von Stilen</a>
+<a class="h3" href="#h3_87">2.2.2&nbsp;&nbsp;Vererbung</a>
+<a class="h3" href="#h3_102">2.2.3&nbsp;&nbsp;Steuern der Vererbung in CSS2</a>
+<a class="h1" href="#h1_110">3&nbsp;&nbsp;Kommentare und Literale</a>
+<a class="h2" href="#h2_111">3.1&nbsp;&nbsp;Kommentare</a>
+<a class="h2" href="#h2_114">3.2&nbsp;&nbsp;Maßeinheiten</a>
+<a class="h2" href="#h2_220">3.3&nbsp;&nbsp;Farben</a>
+<a class="h2" href="#h2_229">3.4&nbsp;&nbsp;Zeitangaben</a>
+<a class="h2" href="#h2_231">3.5&nbsp;&nbsp;Winkel</a>
+<a class="h2" href="#h2_233">3.6&nbsp;&nbsp;Frequenzen</a>
+<a class="h2" href="#h2_235">3.7&nbsp;&nbsp;Zeichenketten</a>
+<a class="h2" href="#h2_249">3.8&nbsp;&nbsp;URLs</a>
+<a class="h1" href="#h1_253">4&nbsp;&nbsp;Selektoren</a>
+<a class="h2" href="#h2_254">4.1&nbsp;&nbsp;CSS1-Selektoren</a>
+<a class="h3" href="#h3_255">4.1.1&nbsp;&nbsp;Tagnamen</a>
+<a class="h3" href="#h3_258">4.1.2&nbsp;&nbsp;Stil-Klassen</a>
+<a class="h3" href="#h3_263">4.1.3&nbsp;&nbsp;Stilvorlagen für Elemente mit bestimmten IDs</a>
+<a class="h3" href="#h3_268">4.1.4&nbsp;&nbsp;Kombination von Tagnamen, Klassen und Ids</a>
+<a class="h3" href="#h3_276">4.1.5&nbsp;&nbsp;Kontextabhängige Selektoren</a>
+<a class="h2" href="#h2_285">4.2&nbsp;&nbsp;Erweiterte CSS2-Selektoren</a>
+<a class="h3" href="#h3_287">4.2.1&nbsp;&nbsp;Der universelle Selektor</a>
+<a class="h3" href="#h3_290">4.2.2&nbsp;&nbsp;Attribut-bedingte Selektoren</a>
+<a class="h3" href="#h3_354">4.2.3&nbsp;&nbsp;Child-Selektoren</a>
+<a class="h3" href="#h3_363">4.2.4&nbsp;&nbsp;Selektoren für angrenzende Geschwister</a>
+<a class="h2" href="#h2_373">4.3&nbsp;&nbsp;Pseudoklassen</a>
+<a class="h1" href="#h1_520">5&nbsp;&nbsp;Stilvorlagen inline, im Dokument und in separaten Dateien</a>
+<a class="h2" href="#h2_521">5.1&nbsp;&nbsp;Inline-Deklarationen</a>
+<a class="h2" href="#h2_525">5.2&nbsp;&nbsp;Eingebettete Stile</a>
+<a class="h2" href="#h2_531">5.3&nbsp;&nbsp;Eingebundene Stile</a>
+<a class="h2" href="#h2_538">5.4&nbsp;&nbsp;Stile importieren</a>
+<a class="h1" href="#h1_542">6&nbsp;&nbsp;Die wichtigsten CSS-Stile</a>
+<a class="h2" href="#h2_545">6.1&nbsp;&nbsp;Ein Tipp zuvor</a>
+<a class="h2" href="#h2_547">6.2&nbsp;&nbsp;Stile für die Schriftart</a>
+<a class="h2" href="#h2_562">6.3&nbsp;&nbsp;Eigenschaften für die Textauszeichnung</a>
+<a class="h2" href="#h2_577">6.4&nbsp;&nbsp;Farb- und Hintergrundeigenschaften</a>
+<a class="h2" href="#h2_593">6.5&nbsp;&nbsp;Eigenschaften zur Definition von Rahmen</a>
+<a class="h2" href="#h2_607">6.6&nbsp;&nbsp;Eigenschaften zur Beeinflussung des Element-Blocks</a>
+<a class="h2" href="#h2_631">6.7&nbsp;&nbsp;Stile für die Position und die Größe</a>
+<a class="h1" href="#h1_646">7&nbsp;&nbsp;Positionieren</a>
+<a class="h2" href="#h2_647">7.1&nbsp;&nbsp;Relatives und absolutes Positionieren</a>
+<a class="h2" href="#h2_672">7.2&nbsp;&nbsp;Den Fluss der Elemente steuern</a>
+<a class="h1" href="#h1_689">8&nbsp;&nbsp;Klassifizierungs-Eigenschaften</a>
+<a class="h1" href="#h1_705">9&nbsp;&nbsp;Medien</a>
+<a class="h2" href="#h2_706">9.1&nbsp;&nbsp;Unterschiedliche Formatierung für verschiedene Ausgabemedien</a>
+<a class="h2" href="#h2_813">9.2&nbsp;&nbsp;Import für bestimmte Medien</a>
+<a class="h1" href="#h1_820">10&nbsp;&nbsp;Praxistipps</a>
+<a class="h2" href="#h2_821">10.1&nbsp;&nbsp;Layer für den Netscape 4, den Netscape 6 und den Internet Explorer</a>
+<hr size="5" noShade="noShade">
+
+<!-- Inhalt -->
+<a name="h1_6"><h1>1&nbsp;&nbsp;Einführung</h1>
+<p><a name="field_0"><a name="field_1">Cascading Style Sheets (CSS), die mittlerweile zum HTML-Standard gehören, sind ein wichtiges Hilfsmittel bei der Gestaltung von HTML-Dokumenten. Erst Cascading Style Sheets ermöglichen eine optisch ansprechende und interessante Gestaltung von HTML-Dokumenten. Die Formatier- und Positionierungsfähigkeiten von CSS werden auch häufig gemeinsam mit DHTML genutzt, um Dokumente dynamisch zu verändern.</p>
+<p>Ich erläutere in diesem Artikel die grundlegende Arbeit mit CSS1 (der älteren Version) und CSS2 (der neuen Version). Ich kann aber nicht alle CSS2-Features beschreiben, was größtenteils daran liegt, dass viele dieser Features von den aktuellen Browsern noch nicht oder nur unzureichend unterstützt werden. Sie finden hier aber eine schon sehr ausführliche Beschreibung der Features. Werfen Sie einen Blick in die CSS2-Spezifikation, die Sie im Internet an der Adresse www.w3.org/tr/rec-css<a class="RegularText" href="2">2</a> finden und die die CSS2-Features sehr gut beschreibt (auf zurzeit 338 Seiten).</p>
+<p>Um eine Übersicht zu erhalten, welche eventuell interessanten Features ich in diesem Artikel nicht beschreibe, liste ich diese kurz auf:</p>
+<ul>
+<li>Steuerungsfeatures für die Ausgabe auf Medien, die Daten seitenweise ausgeben: Über diese speziellen Features können Sie den Ausdruck eines Dokuments steuern. Sie können Druckränder definieren und Seitenumbrüche in das Dokument integrieren. Leider unterstützen die aktuellen Browser diese Features noch nicht. Lediglich die Eigenschaften zum Seitenumbruch (<span class="Code">page-break-before</span>, <span class="Code">page-break-after</span>) werden vom Internet Explorer ab Version 4 unterstützt.</li>
+<li>Die Eigenschaft <span class="Code">font-stretch</span> zur Einstellung der Schriftweite. Wird von den aktuellen Browsern nicht unterstützt.</li>
+<li>Features zur Formatierung von Tabellen.</li>
+<li>Features zur Sprachausgabe.</li>
+</ul>
+<a name="h2_16"><h2>1.1&nbsp;&nbsp;Grundlagen</h2>
+<p><a name="field_2"><a name="field_3">Der Begriff »Cascading Style Sheets« bezeichnet Stilvorlagen (Style Sheets) für HTML-Elemente. Mit CSS können Sie HTML-Elemente umfangreich formatieren und positionieren. So können Sie beispielsweise das <span class="Code">h1</span>-Tag so umformatieren, dass damit deklarierte Überschriften immer in Arial, Schriftgröße 16, in blau, zentriert, mit einem Rahmen und mit rotem Hintergrund erscheinen. Der CSS-Standard, der in den Dokumenten www.w3.org/tr/rec-css1 und www.w3.org/tr/rec-css<a class="RegularText" href="2">2</a> veröffentlicht ist, definiert dazu eine Sprache, mit der Sie für einzelne HTML-Elemente oder für alle HTML-Elemente eines Typs, einer speziellen CSS-Klasse oder mit einer spezifischen Id einzelne Stile definieren können. Dazu gehören z. B. die Hintergrundfarbe, ein Hintergrundbild, die Rahmenart, die Schriftart, die Position, die äußeren Ränder, die innere Einrückung und die Sichtbarkeit von HTML-Elementen. Aber CSS bietet noch mehr, wie die Steuerung des Ausdrucks eines Dokuments über Stile für das Seitenlayout und die Textflusskontrolle, die unterschiedliche Formatierung für verschiedene Ausgabemedien und die Steuerung der Sprachausgabe von Webseiten.</p>
+<p>Ein spezielles CSS-Feature ist, dass Stile in separaten Dateien definiert werden können, die in beliebige Dokumente verlinkt werden. Damit können Sie das Layout einer ganzen Website zentral in einer oder mehreren CSS-Dateien verwalten und später bei Bedarf sehr einfach ändern. Eine andere Möglichkeit ist, Stilvorlagen über das <span class="Code">style</span>-Tag im Kopf eines Dokuments zu deklarieren. Die dritte Möglichkeit definiert Stile direkt im HTML-Starttag im <span class="Code">style</span>-Attribut. Die untergeordneten Stilvorlagen bauen dabei auf den übergeordneten auf und können bereits definierte Stilvorlagen erweitern oder auch umdefinieren. Das ist dann übrigens das kaskadierende in den Cascading Style Sheets.</p>
+<p>Eine in ein Dokument eingebettete Stilvorlage für das <span class="Code">p</span>-Tag, die diesen mit einer definierten Schrift (Times, 14 Punkte, fett), einem Rahmen, einer Hintergrundfarbe und einem inneren Rand von fünf Pixel ausstattet, sieht beispielsweise so aus:</p>
+<p><code class="Fragment">&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;meta&nbsp;http-equiv="Content-Type"&nbsp;content="text/html;<br>
+&nbsp;charset=iso-8859-1"&gt;<br>
+<br>
+&lt;style&gt;<br>
+&nbsp;p&nbsp;<br>
+&nbsp;{<br>
+&nbsp;&nbsp;font:&nbsp;bold&nbsp;14pt&nbsp;Times;&nbsp;<br>
+&nbsp;&nbsp;border:&nbsp;thin&nbsp;solid&nbsp;black;&nbsp;<br>
+&nbsp;&nbsp;background-color:&nbsp;silver;<br>
+&nbsp;&nbsp;padding:&nbsp;5&nbsp;5;<br>
+&nbsp;}<br>
+&lt;/style&gt;</code></p>
+<p>Wird das <span class="Code">p</span>-Tag im Dokument verwendet, werden diese Absätze immer mit den angegebenen Stilen formatiert ausgegeben:</p>
+<p><code class="Fragment">&lt;title&gt;Einfache&nbsp;CSS-Demo&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+<br>
+&lt;p&gt;Das&nbsp;ist&nbsp;ein&nbsp;Absatz&lt;br&gt;<br>
+&nbsp;mit&nbsp;Stil<br>
+&lt;/p&gt;<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</code></p>
+<p><p><img src="CSS_01.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 1.1: Ein HTML-Absatz mit CSS-Stilen</i></div>
+<p>Mit CSS können Sie HTML-Dokumente zunächst einmal wesentlich umfangreicher formatieren als mit HTML alleine. Gut gestaltete Websites kommen deshalb heutzutage ohne CSS gar nicht mehr aus. Features wie die dynamische Positionierung und das Verbergen und Wieder-Anzeigen von Elementen ermöglichen zudem (in Verbindung mit DHTML) die Erzeugung benutzerfreundlicher und ansprechender Websites mit Menüs und anderen dynamischen Elementen.</p>
+<a name="h2_26"><h2>1.2&nbsp;&nbsp;CSS1 und CSS2</h2>
+<p>CSS1 ist in HTML 4 standardisiert, modernere Browser sollten also mit den enthaltenen Stilen einigermaßen zurechtkommen. Der neue Standard CSS2 wird von den aktuellen Browsern nur sehr mäßig unterstützt. Besonders der Netscape 4 kennt nur wenige CSS2-Stile und stellt viele der ihm bekannten Stile fehlerhaft dar. Sie sollten also immer überprüfen, ob Ihre Dokumente auch in den gängigen Browsern so dargestellt werden, wie Sie das erreichen wollten. Dazu gehören natürlich der Internet Explorer 5 und 6, der Netscape 4 (der immer noch von vielen Benutzern eingesetzt wird, weil die neue Version 6 wenig Zuspruch findet), die neue Netscape-Version 6 (inklusive der Mozilla-Variante) und eventuell der Opera-Browser. Problematisch ist leider, dass der Internet Explorer nicht gleichzeitig in mehreren Versionen installiert werden kann (beim Netscape geht das schon).</p>
+<p><div class="Note">Auf der Seite <a class="RegularText" href="http://www.webreview.com/style/css1/charts/mastergrid.shtml">www.webreview.com/style/css1/charts/mastergrid.shtml</a> finden Sie eine Übersicht über die Unterstützung der einzelnen CSS-1-Features durch die einzelnen Browser. Die Seite <a class="RegularText" href="http://www.webreview.com/style/css2/charts/selectors.shtml">www.webreview.com/style/css2/charts/selectors.shtml</a> leistet Ähnliches für CSS2.</div></p>
+<p>Ich weise bei der Beschreibung der einzelnen Features darauf hin, wenn das Feature von einem Browsertyp nicht oder fehlerhaft interpretiert wird.</p>
+<p>CSS1 bietet die folgenden Features:</p>
+<ul>
+<li>die Deklaration von Stilvorlagen innerhalb von HTML-Tags,</li>
+<li>die Deklaration von Stilvorlagen für bestimmte HTML-Elemente (beispielsweise die einem bestimmten Tag oder einer bestimmten Klasse angehören) innerhalb eines HTML-Dokuments,</li>
+<li>die Deklaration von Stilvorlagen in separaten css-Dateien, die in beliebige Dokumente verlinkt werden können,</li>
+<li>eine Vererbung von Stilen übergeordneter HTML-Elemente an untergeordnete (was allerdings eigentlich ein altes HTML-Feature ist),</li>
+<li>einen kaskadierenden Aufbau von Stilvorlagen, bei dem untergeordnet (z. B. in HTML-Dokumenten) deklarierte Vorlagen die Deklarationen von übergeordneten (z. B. aus css-Dateien) erben und überschreiben können,</li>
+<li>Stileigenschaften für die Schriftauszeichnung, die Textformatierung, für Rahmen und Ränder, für Vorder- und Hintergrundfarben, für eine flexible Positionierung und Größeneinstellung und die Steuerung der Ausgabeart von Elementen (beispielsweise als Blockelement oder ohne HTML-konformen Zeilenumbruch).</li>
+</ul>
+<p>CSS2 erweitert CSS1 um:</p>
+<ul>
+<li>die Möglichkeit, verschiedene Ausgabemedien zu berücksichtigen,</li>
+<li>die Möglichkeit, die Vererbung von Stilen von übergeordneten HTML-Elementen zu steuern,</li>
+<li>die Möglichkeit, den Ausdruck von Dokumenten zu steuern,</li>
+<li>Features für die Verwendung von Dokumenten durch sehgestörte Menschen,</li>
+<li>zusätzliche Stile für die Internationalisierung von Dokumenten,</li>
+<li>eine spezielle Art der Positionierung, bei der das Element beim Scrollen nicht mitgescrollt wird,</li>
+<li>die Möglichkeit, das Verhalten eines Elements zu steuern, wenn der Inhalt größer ist, als der sichtbare Bereich des Elements zulässt (z. B. Rollbalken einblenden oder das Element automatisch vergrößern),</li>
+<li>die Möglichkeit, minimale und maximale Breiten und Höhen zu definieren,</li>
+<li>erweiterte Selektoren wie solche, die einen Stil nur anwenden, wenn das Element ein Child eines bestimmten anderen Elements ist,</li>
+<li>die Möglichkeit, bestimmte Textelemente automatisch vor oder hinter HTML-Elemente zu platzieren und beispielsweise eine Nummerierung zu erreichen,</li>
+<li>Schatteneffekte für Text,</li>
+<li>die Möglichkeit, Systemfarben wie beispielsweise ButtonFace (Schaltflächenoberseite) und System-Schriftarten wie beispielsweise caption (Schriftart für Beschriftungen von Schaltern, Titelleisten etc.) zu verwenden,</li>
+<li>die Möglichkeit, den Mauscursor zu beeinflussen,</li>
+<li>und um erweiterte Stile für Rahmen für eine 3D-Darstellung von Elementen.</li>
+</ul>
+<p>Natürlich hat Microsoft (und wahrscheinlich auch Netscape) den Standard wieder einmal durch eigene Stile erweitert. Diese speziellen Filterstile beschreibe ich hier nicht. Sie finden in den Beispielen zu diesem Artikel aber eine HTML-Datei, die diese Stile demonstriert.</p>
+<a name="h1_57"><h1>2&nbsp;&nbsp;Das Basiskonzept</h1>
+<a name="h2_58"><h2>2.1&nbsp;&nbsp;Blockelemente, Inline-Elemente, Parent-Elemente und Child-Elemente</h2>
+<p>Auf den folgenden Seiten verwende ich immer wieder die Begriffe »Blockelement«, »Inline-Element«, »Parent-Element« und »Child-Element«. Ich erläutere diese Begriffe hier kurz, damit Sie wissen, worum es sich dabei handelt.</p>
+<p>Ein Blockelement<a name="field_4"> ist ein HTML-Element, das eine ganze Zeile in Anspruch nimmt und das automatisch einen Zeilenumbruch erzeugt. Die Tags <span class="Code">h1</span> bis <span class="Code">h2</span>, <span class="Code">p</span> und <span class="Code">div</span> gehören beispielsweise zu den Blockelementen.</p>
+<p>Ein Inline-Element ist ein HTML-Element, das mitten in den umgebenden Elementen des Dokuments platziert wird und das keinen Zeilenumbruch erzeugt. Die Tags <span class="Code">b</span>, <span class="Code">i</span>, <span class="Code">center</span> und <span class="Code">div</span> erzeugen beispielsweise solche Elemente.</p>
+<p>Ein Parent-Element<a name="field_5"> ist ein Element, das andere Elemente enthält. Die inneren Elemente sind dann die Childs<a name="field_6"> des Parent-Elements. Wenn ein <span class="Code">div</span>-Element beispielsweise ein <span class="Code">span</span>-Element enthält,</p>
+<p><code class="Fragment">&lt;div&gt;Ich&nbsp;bin&nbsp;das&nbsp;Parent-Element.<br>
+&nbsp;&lt;span&gt;Und&nbsp;ich&nbsp;bin&nbsp;das&nbsp;Child-Element&lt;/span&gt;<br>
+&lt;/div&gt;</code></p>
+<p>so ist das <span class="Code">span</span>-Element das Child des <span class="Code">div</span>-Elements.</p>
+<a name="h2_65"><h2>2.2&nbsp;&nbsp;Stilvorlagen</h2>
+<p>Mit CSS definieren Sie normalerweise Stilvorlagen<a name="field_7"> (Style Sheets<a name="field_8">) für spezifische HTML-Tags, für Tags, die einer selbst definierten Klassen angehören, für HTML-Elemente mit einer spezifischen Id etc. (die andere Möglichkeit sind Inline-Stile, die direkt in HTML-Tags über das <span class="Code">style</span>-Attribut definiert werden). Eine einfache Stilvorlage definiert beispielsweise die Vordergrundfarbe und die Hintergrundfarbe der <span class="Code">h1</span>- und <span class="Code">h2</span>-Tags:</p>
+<p><code class="Fragment">&lt;head&gt;<br>
+&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+<br>
+&nbsp;h1&nbsp;<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;color:&nbsp;red;<br>
+&nbsp;&nbsp;&nbsp;background-color:blue;<br>
+&nbsp;}<br>
+<br>
+&nbsp;h2&nbsp;<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;color:&nbsp;blue;<br>
+&nbsp;&nbsp;&nbsp;background-color:green;<br>
+&nbsp;}<br>
+<br>
+--&gt;<br>
+&lt;/style&gt;<br>
+...</code></p>
+<p>Die Stilvorlage in diesem Beispiel wird im <span class="Code">head</span>-Bereich des Dokuments untergebracht. Das <span class="Code">style</span>-Tag leitet die Vorlage ein. Die Angabe des MIME-Typs der Vorlage (<span class="Code">text/css</span>) ist zwar für Browser nicht unbedingt notwendig, da es aber neben CSS auch weitere Sprachen wie beispielsweise JavaScript gibt (<span class="Code">text/javascript</span>), sollten Sie den Typ besser in Ihren Stilvorlagen angeben. Der HTML-Kommentar im <span class="Code">style</span>-Tag verhindert, dass Browser, die CSS nicht kennen, den Quelltext im Dokument ausgeben.</p>
+<p>Eine Stilvorlage besteht aus einer oder mehreren Regelsätzen<a name="field_9"> (Rule Sets<a name="field_10">). Eine Regel besteht aus einem Selektor<a name="field_11"> (z. B. <i>h1</i>) und einem Satz aus Deklarationen (z. B. <i>color: red;</i> <i>background-color:blue</i>), der in geschweifte Klammern eingefügt ist. Die einzelnen Deklarationen werden durch Semikola voneinander getrennt. Die letzte Deklaration eines Regelsatzes muss nicht mit einem Semikolon abgeschlossen werden (kann aber, wenn Sie das wollen). Die Syntax einer Stilvorlage hat große Ähnlichkeit mit C++, Java, C# und ähnlichen Sprachen.</p>
+<p>Ein Selektor kann der Name eines HTML-Tags sein, der Name einer eigenen CSS-Klasse, eine Id, eine Kombination aus Tagname und Klasse bzw. Id und (unter CSS2) noch einiges mehr, wie ich ab Seite 12 noch ausführlicher erläutere.</p>
+<p>Eine Deklaration besteht aus einer Eigenschaft (z. B. <i>color</i>) und einem oder mehreren Werten. Wenn mehrere Deklarationen angegeben werden, werden diese über Semikola voneinander getrennt. Wenn eine Eigenschaft mehrere Werte zulässt, was beispielsweise bei <span class="Code">font</span> der Fall ist, werden diese durch Leerzeichen voneinander getrennt angegeben:</p>
+<p><code class="Fragment">h1&nbsp;{font:&nbsp;bold&nbsp;14pt&nbsp;Times}</code></p>
+<p>Sie können auch mehrere Selektoren angeben, die dann durch Kommata voneinander getrennt werden:</p>
+<p><code class="Fragment">h1,&nbsp;h2,&nbsp;h3&nbsp;{font:&nbsp;bold&nbsp;14pt&nbsp;Times}</code></p>
+<a name="h3_75"><h3>2.2.1&nbsp;&nbsp;Kaskadierender Aufbau von Stilen</h3>
+<p>Eines der Basiskonzepte von CSS ist der kaskadierende Aufbau von Stilen (woher auch der Namen »Cascading Style Sheets« kommt). Wenn Sie beispielsweise in einem HTML-Dokument in einer Stilvorlage die Farben des <span class="Code">h1</span>-Tags umdefinieren,</p>
+<p><code class="Fragment">&lt;head&gt;<br>
+&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+<br>
+&nbsp;h1&nbsp;{color:&nbsp;red;&nbsp;background-color:blue}<br>
+<br>
+--&gt;<br>
+&lt;/style&gt;<br>
+&lt;/head&gt;</code></p>
+<p>erbt das <span class="Code">h1</span>-Tag die in der Stilvorlage definierten Eigenschaften. Die anderen Eigenschaften dieses Tag bleiben davon aber unberührt. Die Schriftart ist beispielsweise noch die, die der Browser für <span class="Code">h1</span>-Tags vorsieht.</p>
+<p>Stilvorlagen können auch aufeinander aufbauen. So kann eine Inline-Stilvorlage (die direkt im HTML-Tag untergebracht wird) beispielsweise den Rahmen um ein <span class="Code">h1</span>-Element umdefinieren:</p>
+<p><code class="Fragment">&lt;body&gt;<br>
+&lt;h1&nbsp;style="border:thin&nbsp;solid&nbsp;red"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;eine&nbsp;Überschrift&nbsp;mit&nbsp;umdefiniertem&nbsp;Stil&lt;/h1&gt;<br>
+...</code></p>
+<p>In diesem Beispiel erbt das <span class="Code">h1</span>-Element die Eigenschaften der übergeordneten Stilvorlage, die Inline-Stilvorlage definiert weitere Eigenschaften.</p>
+<p>Untergeordnete Stilvorlagen können geerbte Eigenschaften auch überschreiben:</p>
+<p><code class="Fragment">&lt;body&gt;<br>
+&lt;h1&nbsp;style="color:green"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;eine&nbsp;Überschrift&nbsp;mit&nbsp;nun&nbsp;grüner&nbsp;Farbe&lt;/h1&gt;<br>
+...</code></p>
+<p>Für diesen Fall gilt dann der in der untergeordneten Stilvorlage definierte Wert.</p>
+<p>Es kann sogar sein, dass ein Stil innerhalb einer Stilvorlage mehrfach umdefiniert wird:</p>
+<p><code class="Fragment">&lt;head&gt;<br>
+&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+<br>
+&nbsp;h1&nbsp;{color:&nbsp;red;&nbsp;background-color:blue}<br>
+<br>
+...<br>
+<br>
+&nbsp;h1&nbsp;{color:&nbsp;green;&nbsp;border:thin&nbsp;solid&nbsp;black}<br>
+<br>
+--&gt;<br>
+&lt;/style&gt;<br>
+&lt;/head&gt;<br>
+...</code></p>
+<a name="h3_87"><h3>2.2.2&nbsp;&nbsp;Vererbung</h3>
+<p>Die Vererbung<a name="field_12"> von Stilen an Child-Elemente ist ein weiteres Basiskonzept von CSS. Wenn Sie beispielsweise für das <span class="Code">div</span>-Tag eine Stilvorlage definieren,</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+&nbsp;div&nbsp;<br>
+&nbsp;{<br>
+&nbsp;&nbsp;color:&nbsp;black;&nbsp;<br>
+&nbsp;&nbsp;background-color:&nbsp;#F0F0F0;<br>
+&nbsp;&nbsp;border:2px&nbsp;solid&nbsp;#A0A0A0;<br>
+&nbsp;&nbsp;padding:2px;</code></p>
+<p><code class="Fragment">&nbsp;}<br>
+--&gt;<br>
+&lt;/style&gt;</code></p>
+<p>und in ein <span class="Code">div</span>-Element ein anderes Element schachteln,</p>
+<p><code class="Fragment">&lt;div&gt;Das&nbsp;ist&nbsp;ein&nbsp;div-Element,&nbsp;das&nbsp;ein&nbsp;&lt;span&gt;span-<br>
+Element&lt;/span&gt;&nbsp;enthält.&lt;/div&gt;</code></p>
+<p>erbt das innere Element (das Child-Element) die Werte der Eigenschaften des äußeren (des Parent-Elements), die es selbst besitzt. Falls eine eventuelle Stilvorlage für das innere Element keine Eigenschaften überschreibt, sieht das innere genauso aus wie das äußere.</p>
+<p><p><img src="CSS_02.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 2.1: Ein span-Element erbt Eigenschaftswerte eines div-Elements</i></div>
+<p>In diesem Beispiel erbt das <span class="Code">span</span>-Element die Werte der Eigenschaften <span class="Code">color</span> und <span class="Code">background-color</span>. Einige Eigenschaftswerte werden aber auch nicht vererbt. Das <span class="Code">span</span>-Element besitzt beispielsweise auch Eigenschaften für den Rahmen und den inneren Rand. Da es sich bei diesem Element aber um ein Inline-Element handelt, das fließend im Dokument ausgerichtet wird (ohne einen eigenen Absatz), verzichtet der Browser auf das Vererben von Eigenschaften, die zu einer verwirrenden Anzeige führen würden.</p>
+<p>Werden Eigenschaften für das Child-Element überschrieben, beispielsweise die Farbe, ändert sich die Formatierung des inneren Elements natürlich:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+&nbsp;div&nbsp;<br>
+&nbsp;{<br>
+&nbsp;&nbsp;color:&nbsp;black;&nbsp;<br>
+&nbsp;&nbsp;background-color:&nbsp;#F0F0F0;<br>
+&nbsp;&nbsp;border:2px&nbsp;solid&nbsp;#A0A0A0;<br>
+&nbsp;&nbsp;padding:2px;<br>
+&nbsp;}<br>
+&nbsp;span<br>
+&nbsp;{<br>
+&nbsp;&nbsp;color:blue;<br>
+&nbsp;}<br>
+--&gt;<br>
+&lt;/style&gt;<br>
+...</code></p>
+<p><p><img src="CSS_03.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 2.2: Das span-Element überschreibt die geerbte Farbe</i></div>
+<p>Viele HTML-Elemente definieren Eigenschaften aber auch im Browser. Das <span class="Code">b</span>-Tag definiert beispielsweise die Eigenschaft <span class="Code">font-weight</span> mit dem Wert <span class="Code">bold</span>. Diese Definitionen liegen in der Vererbungslinie ganz oben. Wenn eine Stilvorlage beispielsweise die <span class="Code">font-weight-Eigenschaft des b-</span>Tag überschreibt, gilt die Einstellung der Stilvorlage.</p>
+<a name="h3_102"><h3>2.2.3&nbsp;&nbsp;Steuern der Vererbung in CSS2</h3>
+<p><a name="field_13">In CSS2 können Sie die Vererbung über den Wert <span class="Code">inherit</span><a name="field_14"> steuern, den Sie in alle CSS-Eigenschaften schreiben können. Wenn Sie beispielsweise die Farbe von <span class="Code">span</span>-Elementen in einer Stilvorlage auf blau umdefiniert haben,</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+&nbsp;span&nbsp;{color:&nbsp;blue}<br>
+--&gt;<br>
+&lt;/style&gt;</code></p>
+<p><span class="Code">und ein span-Element ohne weitere Stildeklaration in einem div-Element einsetzen, das mit einer roten Farbe definiert ist,</span></p>
+<p><code class="Fragment">&lt;div&nbsp;style="color:&nbsp;red"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;Text&nbsp;direkt&nbsp;im&nbsp;div-Element.<br>
+&nbsp;&lt;span&gt;Das&nbsp;ist&nbsp;ein&nbsp;span,&nbsp;der&nbsp;die&nbsp;vom&nbsp;div&nbsp;geerbte&nbsp;Farbe&nbsp;über&nbsp;seine&nbsp;eigene<br>
+&nbsp;Stilvorlage&nbsp;neu&nbsp;definiert.&lt;/span&gt;<br>
+&lt;/div&gt;</code></p>
+<p>erbt das <span class="Code">span</span>-Element ja per Voreinstellung nicht die Farbe seines (<span class="Code">div</span>-)Parent-Elements. Sie können mit dem Wert <span class="Code">inherit</span> aber festlegen, dass der span die Farbe seines Parent-Elements explizit erbt, unabhängig davon, ob diese in einer Stildeklaration umdefiniert wurde:</p>
+<p><code class="Fragment">&lt;div&nbsp;style="color:&nbsp;red"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;Text&nbsp;direkt&nbsp;im&nbsp;div-Element.<br>
+&nbsp;&lt;span&nbsp;style="color:inherit"&gt;Das&nbsp;ist&nbsp;ein&nbsp;span,&nbsp;der&nbsp;festlegt,&nbsp;dass&nbsp;er&nbsp;die&nbsp;Farbe<br>
+&nbsp;von&nbsp;seinem&nbsp;Parent-Element&nbsp;explizit&nbsp;erben&nbsp;will.&lt;/span&gt;<br>
+&lt;/div&gt;</code></p>
+<p><div class="Note">Der Wert <span class="Code">inherit</span> wird nur vom Netscape 6 korrekt interpretiert. Der Internet Explorer (6) ignoriert diesen Wert, der Netscape 4 denkt, es wäre eine Farbe, und gibt unerwartete Ergebnisse aus (in unserem Beispiel wird der Text im <span class="Code">span</span>-Element hellgrün dargestellt).</div></p>
+<a name="h1_110"><h1>3&nbsp;&nbsp;Kommentare und Literale</h1>
+<a name="h2_111"><h2>3.1&nbsp;&nbsp;Kommentare</h2>
+<p>Kommentare innerhalb einer Stilvorlage werden wie in C++, C#, Java etc. üblich mit einem /* eingeleitet und mit */ beendet. Kommentare können mehrzeilig sein:</p>
+<p><code class="Fragment">/*&nbsp;Das&nbsp;ist&nbsp;ein<br>
+&nbsp;&nbsp;&nbsp;Kommentar&nbsp;*/</code></p>
+<a name="h2_114"><h2>3.2&nbsp;&nbsp;Maßeinheiten</h2>
+<p><a name="field_15">Wenn Sie in einem Stil eine Breite, Höhe oder andere Größenangabe machen müssen, können Sie diese absolut oder relativ über definierte Einheiten angeben. Absolute Einheiten (Tabelle 3.1) geben die Größe fest definiert an, relative Einheiten (Tabelle 3.2) beziehen sich auf die Größe anderer Dinge, wie beispielsweise der aktuellen Schriftart oder des Monitors.</p>
+<table class="Document" width="100%" cellspacing="0" cellpadding="0"><tr class="TableHeader"><th class="TableHeader" valign="top">Einheit</th><th class="TableHeader" valign="top">Beschreibung</th></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">pt</span></td><td class="TableBody" valign="top">Punkt. Ein Punkt entspricht 1/72 Inch.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">pc</span></td><td class="TableBody" valign="top">Pica. Ein Pica entspricht 12 Punkten.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">in</span></td><td class="TableBody" valign="top">Inch (oder auch Zoll). Ein Inch entspricht 2,54 cm.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">mm</span></td><td class="TableBody" valign="top">Millimeter</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">cm</span></td><td class="TableBody" valign="top">Zentimeter</td></tr></table><div class="TableSignature"><i>Tabelle 3.1: Die absoluten Maßeinheiten der Cascading Style Sheets</i></div>
+<table class="Document" width="100%" cellspacing="0" cellpadding="0"><tr class="TableHeader"><th class="TableHeader" valign="top">Einheit</th><th class="TableHeader" valign="top">Beschreibung</th></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">em</span></td><td class="TableBody" valign="top"><span class="Code">em</span> bezieht sich auf die Höhe der Schriftart, die dem Element zugewiesen ist. <span class="Code">style="width:7em"</span> bedeutet z. B.: 7-mal so breit, wie ein Zeichen hoch ist. Ändert sich bei diesem Beispiel die Schriftgröße, ändert sich auch die Breite des Elements.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">ex</span></td><td class="TableBody" valign="top"><span class="Code">ex</span> verhält sich wie <span class="Code">em</span>, nur dass hier die Höhe des kleinen x als Basis verwendet wird.<span class="Code"></span></td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">px</span></td><td class="TableBody" valign="top">Pixel (die Größe eines Pixel ist relativ zur verwendeten Auflösung und zum Ausgabegerät).</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">%</span></td><td class="TableBody" valign="top">Prozent. Eine Prozentangabe verhält sich relativ zur Größe des übergeordneten Elements, in dem das Element eingebettet ist.</td></tr></table><div class="TableSignature"><i>Tabelle 3.2: Die relativen Maßeinheiten der Cascading Style Sheets</i></div>
+<a name="h2_220"><h2>3.3&nbsp;&nbsp;Farben</h2>
+<p><a name="field_16">Farben können Sie wie in HTML über den RGB-Wert der Farbe oder den Farbnamen angeben. Wenn Sie den Farbnamen verwenden, sieht der Standard lediglich die 16 Grundfarben vor. Die Browser interpretieren aber auch die Namen der Standardfarben.</p>
+<p>Einen RGB-Wert können Sie als Hexadezimalwert angeben:</p>
+<p><code class="Fragment">p&nbsp;{color:&nbsp;#ff0000}</code></p>
+<p>Sie können auch Dezimalwerte verwenden. Dazu verwenden Sie die <span class="Code">rgb</span>-Funktion:</p>
+<p><code class="Fragment">p&nbsp;{color:&nbsp;rgb(255,0,0)}</code></p>
+<p>Mit derselben Funktion können Sie die Farbanteile auch in Prozent angeben:</p>
+<p><code class="Fragment">p&nbsp;{color:&nbsp;rgb(50%,30%,0)}</code></p>
+<p>Der Prozentwert bezieht sich auf den maximal möglichen Wert 255.</p>
+<a name="h2_229"><h2>3.4&nbsp;&nbsp;Zeitangaben</h2>
+<p>Wenn Sie einmal eine Zeit angeben müssen (z. B. für die Sprachausgabe), verwenden Sie dazu die Einheiten <span class="Code">ms</span> (Millisekunden) und <span class="Code">s</span> (Sekunden).</p>
+<a name="h2_231"><h2>3.5&nbsp;&nbsp;Winkel</h2>
+<p>Winkelangaben verwenden die Einheiten <span class="Code">deg</span> (Degrie), <span class="Code">grad</span> (Grad) und <span class="Code">rad</span> (Radian).</p>
+<a name="h2_233"><h2>3.6&nbsp;&nbsp;Frequenzen</h2>
+<p>Frequenzen werden in den Einheiten <span class="Code">Hz</span> und <span class="Code">kHz</span> angegeben.</p>
+<a name="h2_235"><h2>3.7&nbsp;&nbsp;Zeichenketten</h2>
+<p>In manchen CSS-Elementen müssen Sie Zeichenketten angeben. Dazu gehört beispielsweise das Pseudoelement <span class="Code">before</span>, das einen Text und dessen Format definiert, der immer vor ein HTML-Element geschrieben wird:</p>
+<p><code class="Fragment">p.important:before&nbsp;{content:&nbsp;"Wichtig:&nbsp;";&nbsp;color:red}</code></p>
+<p>Zeichenketten (Strings) können Sie entweder in Anführungszeichen oder Apostrophe einschließen:</p>
+<p><code class="Fragment">"Das&nbsp;ist&nbsp;ein&nbsp;String"<br>
+'Das&nbsp;ist&nbsp;auch&nbsp;ein&nbsp;String'</code></p>
+<p>Enthält die Zeichenkette ein Anführungszeichen bzw. Apostroph, müssen Sie dessen Sonderbedeutung über das Escape-Zeichen \ aufheben:</p>
+<p><code class="Fragment">"Das&nbsp;ist&nbsp;ein&nbsp;\"String\""</code></p>
+<p>Über das Escapezeichen können Sie Strings auch in mehrere Zeilen umbrechen:</p>
+<p><code class="Fragment">"Das&nbsp;ist&nbsp;ein&nbsp;\<br>
+umbrochener&nbsp;String"</code></p>
+<p>Das Escapezeichen führt dazu, dass der Zeilenumbruch im String ignoriert wird. Dieses Zeichen wird auch verwendet, um die Sonderbedeutung spezieller CSS-Zeichen im String aufzuheben (wie es beim Anführungszeichen bereits der Fall ist). Außerdem können Sie darüber ein Zeichen über dessen ISO-10646-Code hexadezimal angeben. Das Ampersand (&amp;), das auch ein CSS-Sonderzeichen ist, können Sie beispielsweise so angeben:</p>
+<p><code class="Fragment">"Drag\000026Drop"</code></p>
+<p>Wenn die Codeangabe weniger als sechs Ziffern belegt, muss ein Leerzeichen dahinter stehen:</p>
+<p><code class="Fragment">"Drag\26&nbsp;Drop"</code></p>
+<p>Das Leerzeichen wird nicht mit in den Ergebnisstring übertragen.</p>
+<a name="h2_249"><h2>3.8&nbsp;&nbsp;URLs</h2>
+<p>Für manche Stildeklarationen müssen Sie URLs angeben. Dazu verwenden Sie die <span class="Code">url</span>-Funktion:</p>
+<p><code class="Fragment">url(<i>Dateiangabe</i>)<br>
+url(<i>URL</i>)</code></p>
+<p>Dateien können Sie wieder relativ oder absolut angeben. Beachten Sie, dass eine relative Angabe sich auf den Ordner bezieht, in dem die <i>css</i>-Datei gespeichert ist, falls die Stildeklaration in einer solchen untergebracht ist. Alternativ zu Dateiangaben können Sie natürlich auch normale URLs verwenden.</p>
+<a name="h1_253"><h1>4&nbsp;&nbsp;Selektoren</h1>
+<a name="h2_254"><h2>4.1&nbsp;&nbsp;CSS1-Selektoren</h2>
+<a name="h3_255"><h3>4.1.1&nbsp;&nbsp;Tagnamen</h3>
+<p>Für die Deklaration von Stilen für alle HTML-Elemente, die mit bestimmten Tags formatiert sind, geben Sie einfach den Tagnamen als Selektor an. Das folgende Beispiel definiert für die Tags <span class="Code">h1</span>, <span class="Code">h2</span> und <span class="Code">h3</span> eine graue Hintergrundfarbe, einen Rahmen und einen inneren Rand von 5 Pixeln:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&nbsp;&lt;!--<br>
+&nbsp;h1,&nbsp;h2,&nbsp;h3&nbsp;<br>
+&nbsp;{<br>
+&nbsp;&nbsp;background-color:#F0F0F0;<br>
+&nbsp;&nbsp;border:thin&nbsp;solid;<br>
+&nbsp;&nbsp;padding:5px;<br>
+&nbsp;}<br>
+&nbsp;--&gt;<br>
+&lt;/style&gt;</code></p>
+<a name="h3_258"><h3>4.1.2&nbsp;&nbsp;Stil-Klassen</h3>
+<p>Neben der Anpassung des Stils von Tags können Sie noch Klassen von Stilen definieren. Eine Stil-Klasse ist zunächst nicht mit einem Tag verbunden. Erst wenn Sie die Stil-Klasse im <span class="Code">class</span>-Attribut<a name="field_17"> eines Tags angeben, weisen Sie dem entsprechenden HTML-Element den in dieser Klasse definierten Stil zu. Ein Selektor für eine Stil-Klasse wird in der Stilvorlage durch einen Punkt gekennzeichnet. Das folgende Beispiel erzeugt eine Stil-Klasse für Zitate und eine für Code:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&nbsp;&lt;!--<br>
+&nbsp;.cite&nbsp;{font:&nbsp;italic&nbsp;12pt&nbsp;Times;&nbsp;color:&nbsp;blue;}<br>
+&nbsp;.code&nbsp;{font:&nbsp;10pt&nbsp;Courier;&nbsp;color:&nbsp;green;}<br>
+&nbsp;--&gt;<br>
+&lt;/style&gt;</code></p>
+<p>HTML-Elemente, die dieser Klasse angehören, besitzen dann den in der Stil-Klasse definierten Stil:</p>
+<p><code class="Fragment">&lt;p&nbsp;class="cite"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;Absatz&nbsp;der&nbsp;Klasse&nbsp;'cite'.<br>
+&lt;/p&gt;<br>
+&lt;span&nbsp;class="cite"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;Span&nbsp;der&nbsp;Klasse&nbsp;'cite'.<br>
+&lt;/span&gt;<br>
+&lt;p&nbsp;class="code"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;Absatz&nbsp;der&nbsp;Klasse&nbsp;'code'.<br>
+&lt;/p&gt;</code></p>
+<a name="h3_263"><h3>4.1.3&nbsp;&nbsp;Stilvorlagen für Elemente mit bestimmten IDs</h3>
+<p>In CSS1 können Sie Stilvorlagen schließlich noch so definieren, dass diese nur auf Elemente angewandt werden, die eine bestimmte ID besitzen. Die ID geben Sie dazu mit einem Hash (#) an:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+&nbsp;#firstName&nbsp;{font:&nbsp;bold&nbsp;italic&nbsp;12pt&nbsp;Times;&nbsp;color:&nbsp;blue}<br>
+&nbsp;#lastName&nbsp;{font:&nbsp;bold&nbsp;italic&nbsp;12pt&nbsp;Times;&nbsp;color:&nbsp;green}<br>
+--&gt;&nbsp;&nbsp;&nbsp;<br>
+&lt;/style&gt;</code></p>
+<p>Alle Elemente, die diese Ids besitzen, werden dann so formatiert, wie die Stilvorlage es vorsieht:</p>
+<p><code class="Fragment">&lt;div&nbsp;id="firstName"&gt;Vorname:&nbsp;&lt;/div&gt;<br>
+&lt;div&nbsp;id="lastName"&gt;Nachname:&nbsp;&lt;/div&gt;</code></p>
+<a name="h3_268"><h3>4.1.4&nbsp;&nbsp;Kombination von Tagnamen, Klassen und Ids</h3>
+<p>Sie können Tagnamen, Klassen und Ids für Selektoren beliebig kombinieren. Wenn Sie beispielsweise einen Tagnamen mit einer Klasse kombinieren, wird die Stilvorlage nur für HTML-Elemente mit demselben Tag angewandt, die der angegebenen Klasse angehören:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&nbsp;&lt;!--<br>
+&nbsp;h1.special&nbsp;{font:&nbsp;bold&nbsp;20pt&nbsp;Arial;&nbsp;<br>
+&nbsp;&nbsp;color:black;&nbsp;background-color:&nbsp;gray;<br>
+&nbsp;&nbsp;border:5px&nbsp;solid&nbsp;black}<br>
+&nbsp;--&gt;<br>
+&lt;/style&gt;<br>
+&lt;/head&gt;<br>
+<br>
+&lt;body&gt;<br>
+&lt;h1&nbsp;class="special"&gt;<br>
+&nbsp;Überschrift&nbsp;mit&nbsp;speziellem&nbsp;Stil&nbsp;der&nbsp;Klasse&nbsp;'special'.<br>
+&lt;/h1&gt;<br>
+&lt;h1&gt;<br>
+&nbsp;Normale&nbsp;Überschrift.<br>
+&lt;/h1&gt;<br>
+...</code></p>
+<p>Genauso können Sie Stile für Elemente definieren, die einer bestimmen Stilklasse angehören und die eine bestimmte Id besitzen oder die mit einem bestimmten Tag formatiert sind und eine bestimmte Id besitzen oder die alle drei Bedingungen erfüllen. Beachten Sie dabei, dass Sie die logische Reihenfolge der Selektorteile einhalten: <i>Tagname</i>.<i>Klassenname</i>#<i>Id</i>. Das folgende Beispiel definiert eine Stilvorlage für <span class="Code">p</span>-Elemente der Klasse <i>info</i>, die die Id <i>warning</i> besitzen:</p>
+<p><code class="Fragment">p.info#warning&nbsp;{color:&nbsp;red;&nbsp;background-color:yellow}</code></p>
+<p>Ein <span class="Code">p</span>-Element der Klasse <i>info</i> mit der Id <i>warning</i> wird nun so formatiert, wie es die Stilvorlage definiert:</p>
+<p><code class="Fragment">&lt;p&nbsp;class="info"&nbsp;id="warning"&gt;<br>
+&nbsp;Absatz&nbsp;der&nbsp;Klasse&nbsp;"info"&nbsp;mit&nbsp;der&nbsp;Id&nbsp;"warning"&lt;/p&gt;</code></p>
+<p>Sie müssen bei Kombinationen beachten, dass die HTML-Tags eventuell für den Tagnamen bzw. die Klasse zuvor definierte Stile erben. Wenn für das <span class="Code">h1</span>-Tag beispielsweise zuvor irgendwo die Farbe <span class="Code">red</span> definiert wurde, erbt die Deklaration für eine Kombination dieses Tags mit einer Klasse diese Farbe. Wird die Farbe in der Deklaration nicht überschrieben, werden HTML-Elemente mit dieser Tag/Klassenkombination in roter Farbe ausgegeben.</p>
+<a name="h3_276"><h3>4.1.5&nbsp;&nbsp;Kontextabhängige Selektoren</h3>
+<p>Die Eigenschaften äußerer Elemente werden, wie Sie ja bereits wissen, an innere Elemente vererbt. Wenn Sie die geerbten Eigenschaften von inneren Elementen in Stilvorlagen umdefinieren, verwendet der Browser die neuen Definitionen. Um nun diese Eigenschaften nicht global (für das gesamte Dokument gültig) überschreiben zu müssen, können Sie festlegen, dass eine Stilvorlage nur angewendet wird, wenn das Element in ein anderes Element geschachtelt ist. Dazu geben Sie das äußere Element zuerst an, gefolgt vom inneren Element und der Stildeklaration. Das folgende Beispiel deklariert eine Stilvorlage für <span class="Code">span</span>-Elemente der Klasse <i>info</i>, die Teil eines <span class="Code">h1</span>-Elements sind:</p>
+<p><code class="Fragment">h1&nbsp;span.info&nbsp;{color:&nbsp;blue}</code></p>
+<p>Nur wenn ein <span class="Code">span</span>-Element der Klasse <i>info</i> innerhalb eines <span class="Code">h1</span>-Elements angelegt wird, wird diese Stildeklaration angewendet. Sie können auch mehrere Verschachtelungsebenen angeben:</p>
+<p><code class="Fragment">ul&nbsp;ul&nbsp;li&nbsp;{font-size:&nbsp;smaller}</code></p>
+<p>In diesem Beispiel wird die Stilvorlage nur angewendet, wenn ein <span class="Code">li</span>-Element Child eines <span class="Code">ul</span>-Elements ist, das wiederum selbst in einem <span class="Code">ul</span>-Element angelegt ist. So können Sie beispielsweise bei verschachtelten Listen erreichen, dass die inneren Listeneinträge kleiner ausgegeben werden als die äußeren:</p>
+<p><code class="Fragment">&lt;ul&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Eintrag&nbsp;in&nbsp;der&nbsp;äußeren&nbsp;Liste&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Eintrag&nbsp;in&nbsp;der&nbsp;inneren&nbsp;Liste&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Eintrag&nbsp;in&nbsp;der&nbsp;inneren&nbsp;Liste&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Eintrag&nbsp;in&nbsp;der&nbsp;äußeren&nbsp;Liste&lt;/li&gt;<br>
+&lt;/ul&gt;</code></p>
+<p><p><img src="CSS_04.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 4.1: Eine verschachtelte Liste mit kleiner definierter Schrift für die inneren Einträge</i></div>
+<a name="h2_285"><h2>4.2&nbsp;&nbsp;Erweiterte CSS2-Selektoren</h2>
+<p>CSS2 kennt natürlich alle Selektoren von CSS1, erweitert diese aber noch um zusätzliche Varianten.</p>
+<a name="h3_287"><h3>4.2.1&nbsp;&nbsp;Der universelle Selektor</h3>
+<p>CSS2 kennt den Selektor *, mit dem beliebige Elemente angesprochen werden können. Dieser Selektor wird hauptsächlich gemeinsam mit Attribut-bedingten Selektoren verwendet.</p>
+<p><div class="Note">Der universelle Selektor wird nicht vom Netscape 4 unterstützt. Der Internet Explorer unterstützt diesen Selektor erst ab der Version 5.</div></p>
+<a name="h3_290"><h3>4.2.2&nbsp;&nbsp;Attribut-bedingte Selektoren</h3>
+<p>In CSS2 können Sie Selektoren verwenden, die eine Stilvorlage nur dann anwenden, wenn das angesprochene Elemente bestimmte Attribute definiert oder in diesen bestimmte Werte speichert. Dazu geben Sie das Attribut in eckigen Klammern hinter dem eigentlichen Selektor an. Sie können einzelne Attributnamen angeben oder auch die Werte spezifizieren.</p>
+<p><div class="Note">Attribut-bedingte Selektoren werden zwar vom Netscape 6 unterstützt, aber nicht von Netscape 4 und vom Internet Explorer (6).</div></p>
+<table class="Document" width="100%" cellspacing="0" cellpadding="0"><tr class="TableHeader"><th class="TableHeader" valign="top">Selektor</th><th class="TableHeader" valign="top">Bedeutung</th></tr><tr class="TableBody"><td class="TableBody" valign="top">Element[Attribut]</td><td class="TableBody" valign="top">wendet die Stilvorlage an, wenn das Element das angegebene Attribut mit einem beliebigen Wert belegt.</td></tr><tr class="TableBody"><td class="TableBody" valign="top">Element[Attribut=Wert]</td><td class="TableBody" valign="top">wendet die Stilvorlage an, wenn das Element das angegebene Attribut mit einem bestimmten Wert belegt.</td></tr><tr class="TableBody"><td class="TableBody" valign="top">Element[Attribut~=Wert]</td><td class="TableBody" valign="top">wendet die Stilvorlage an, wenn das Element mehrere durch Leerzeichen getrennte Werte in einem Attribut erlaubt und einer davon dem angegebenen Wert entspricht.</td></tr><tr class="TableBody"><td class="TableBody" valign="top">Element[Attribut|=Wert]</td><td class="TableBody" valign="top">wendet die Stilvorlage an, wenn das Element mehrere durch einen Bindestrich getrennte Werte speichert, die mit dem angegebenen Wert beginnen.</td></tr></table><div class="TableSignature"><i>Tabelle 4.1: Attribut-bedingte Selektoren</i></div>
+<p>Sie können mehrere Attributspezifikationen hintereinander angeben. Die folgenden Beispiele sollen den Umgang mit diesen speziellen Selektoren verdeutlichen:</p>
+<p><code class="Fragment">h1[title]&nbsp;{color:&nbsp;blue}</code></p>
+<p>wird angewendet, wenn ein <span class="Code">h1</span>-Element das Attribut <span class="Code">title</span> mit irgendeinem Wert belegt.</p>
+<p><code class="Fragment">h1[title="contents"]&nbsp;{color:&nbsp;green}</code></p>
+<p>wird angewendet, wenn ein <span class="Code">h1</span>-Element das Attribut <span class="Code">title</span> mit "contents" belegt.</p>
+<p><code class="Fragment">span[class="special"][name]&nbsp;{color:&nbsp;blue}</code></p>
+<p>wird angewendet, wenn ein <span class="Code">span</span>-Element das Attribut <span class="Code">class</span> mit "special" belegt und in das Attribut <span class="Code">name</span> irgendeinen Wert schreibt.</p>
+<p><code class="Fragment">a[rel~="Internetprogrammierung"]&nbsp;{color:&nbsp;blue}</code></p>
+<p>wird angewendet, wenn im Attribut <span class="Code">rel</span> eines <span class="Code">a</span>-Tag der Wert "Internetprogrammierung" vorkommt, beispielsweise bei der folgenden Deklaration:</p>
+<p><code class="Fragment">&lt;a&nbsp;href="http://www.addison-wesley.de"<br>
+&nbsp;rel="Programmierung&nbsp;Internetprogrammierung<br>
+&nbsp;Betriebssysteme"&gt;Addison&nbsp;Wesley&lt;/a&gt;</code></p>
+<p><code class="Fragment">*[lang="de"]&nbsp;{display:&nbsp;none}</code></p>
+<p>wird für ein beliebiges Tag angewendet, wenn dieser im Attribut <span class="Code">lang</span> den Wert "de" speichert. Das Beispiel versteckt diese Elemente.</p>
+<p><code class="Fragment">*[lang|="de"]&nbsp;{display:&nbsp;none}</code></p>
+<p>wird für ein beliebiges Tag angewendet, wenn dieser im Attribut <span class="Code">lang</span> einen Wert speichert, der mit "de" beginnt und eventuell mit einem Bindestrich getrennt weitere Werte speichert, beispielsweise "de-de" oder "de-ch".</p>
+<a name="h3_354"><h3>4.2.3&nbsp;&nbsp;Child-Selektoren</h3>
+<p>Child-Selektoren definieren Stilvorlagen für Elemente, die Child eines anderen Elements sind. Ein Child-Element ist einem Parent-Element direkt untergeordnet. Bei den kontextabhängigen CSS1-Selektoren darf das innere Element auch Teil eines anderen, in das äußere Element geschachtelten Tags sein. Bei Child-Selektoren ist festgelegt, dass das innere Element ein direkter Child des äußeren Elements ist.</p>
+<p><div class="Note">Child-Selektoren werden zwar vom Netscape 6 unterstützt, aber nicht von Netscape 4 und vom Internet Explorer (6).</div></p>
+<p>Die Deklaration ähnelt der von kontextabhängigen Selektoren, nur dass Sie hier ein &gt; zwischen die einzelnen Selektorangaben schreiben:</p>
+<p><code class="Fragment">h1&nbsp;&gt;&nbsp;span&nbsp;{background-color:&nbsp;silver}</code></p>
+<p>Auf das folgende Element wird diese Deklaration angewendet:</p>
+<p><code class="Fragment">&lt;h1&gt;Überschrift&nbsp;mit&nbsp;&lt;span&gt;span&lt;/span&gt;&nbsp;als&nbsp;Child&lt;/h1&gt;</code></p>
+<p>Ist das <span class="Code">span</span>-Tag aber nur indirekt Child eines <span class="Code">h1</span>-Tag, wird die Stilvorlage nicht angewendet:</p>
+<p><code class="Fragment">&lt;h1&gt;Überschrift&nbsp;mit&nbsp;&lt;b&gt;&lt;span&gt;span&lt;/span&gt;&lt;b&gt;&nbsp;b-Tag&nbsp;als&nbsp;Child,&nbsp;der&nbsp;wieder&nbsp;einen&nbsp;Span&nbsp;als&nbsp;Child&nbsp;besitzt&lt;/h1&gt;</code></p>
+<a name="h3_363"><h3>4.2.4&nbsp;&nbsp;Selektoren für angrenzende Geschwister</h3>
+<p>Für Elemente, die direkt neben einem anderen bestimmten Element in demselben Parent-Element angeordnet sind, können Sie in CSS2 ebenfalls Stilvorlagen definieren. Dazu geben Sie die Elemente getrennt durch ein Plus-Zeichen an:</p>
+<p><code class="Fragment">div&nbsp;+&nbsp;p&nbsp;{text-indent:&nbsp;0}</code></p>
+<p>Dieses Beispiel definiert eine Stilvorlage für ein <span class="Code">p</span>-Element, das direkt einem <span class="Code">div</span>-Element folgt. Das folgende Beispiel soll etwas Licht ins Dunkel bringen. Die Stildeklarationen definieren die Einrückung des <span class="Code">p</span>-Tag um und geben dann an, dass ein <span class="Code">p</span>-Tag, der einem <span class="Code">div</span>-Tag folgt, nicht eingerückt werden soll:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css&gt;<br>
+&lt;!--<br>
+&nbsp;p&nbsp;{text-indent:20px}<br>
+&nbsp;div&nbsp;+&nbsp;p&nbsp;{text-indent:0px}<br>
+--&gt;<br>
+&lt;/style&gt;</code></p>
+<p>Ein normales <span class="Code">p</span>-Element wird eingerückt dargestellt:</p>
+<p><code class="Fragment">&lt;p&gt;Das&nbsp;ist&nbsp;ein&nbsp;normaler&nbsp;Absatz&lt;/p&gt;</code></p>
+<p>Wenn das p-Element allerdings einem <span class="Code">div</span> folgt, wird nicht eingerückt:</p>
+<p><code class="Fragment">&lt;div&gt;Das&nbsp;ist&nbsp;ein&nbsp;div.&lt;/div&gt;<br>
+&lt;p&gt;Das&nbsp;ist&nbsp;ein&nbsp;Absatz&nbsp;neben&nbsp;einem&nbsp;div.&lt;/p&gt;</code></p>
+<p><div class="Note">Leider werden Selektoren für angrenzende Geschwister wieder nur von Netscape 6 (und vom Opera ab Version 4) unterstützt.</div></p>
+<a name="h2_373"><h2>4.3&nbsp;&nbsp;Pseudoklassen</h2>
+<p><a name="field_18">Pseudoklassen bezeichnen Teile von HTML-Elementen oder HTML-Elemente in einem besonderen Zustand. So gibt es beispielsweise eine Pseudoklasse für die erste Zeile eines Textes. Über diese Pseudoklasse können Sie die erste Zeile eines HTML-Elements anders formatieren als die übrigen Zeilen. Andere Pseudoklassen beziehen sich beispielsweise auf einen Verweis im noch nicht besuchten Zustand.</p>
+<p>Pseudoklassen werden mit einem Doppelpunkt getrennt an den Selektor angehängt. Das folgende Beispiel definiert die Farben der drei Verweisarten um:</p>
+<p><code class="Fragment">a:link&nbsp;{color:&nbsp;red}<br>
+a:visited&nbsp;{color:&nbsp;blue}<br>
+a:active&nbsp;{color:&nbsp;lime}</code></p>
+<p>Diese speziellen Pseudoklassen für Verweise können nur auf das <span class="Code">a</span>-Tag angewendet werden. Andere, wie beispielsweise die für die erste Zeile eines Absatzes, können mit allen Tags eingesetzt werden. Das folgende Beispiel definiert die erste Zeile eines <span class="Code">div</span> der Klasse <i>special</i> so um, dass diese in Großbuchstaben ausgegeben wird:</p>
+<p><code class="Fragment">div.special:first-line&nbsp;{text-transform:uppercase}</code></p>
+<p>Tabelle 4.2 listet die Pseudoklassen von CSS1 und CSS2 auf.</p>
+<table class="Document" width="100%" cellspacing="0" cellpadding="0"><tr class="TableHeader"><th class="TableHeader" valign="top">Pseudoklasse</th><th class="TableHeader" valign="top">Bedeutung</th></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">a:link</span></td><td class="TableBody" valign="top">bezieht sich auf unbesuchte Verweise.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">a:visited</span></td><td class="TableBody" valign="top">bezieht sich auf bereits besuchte Verweise.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">a:active</span></td><td class="TableBody" valign="top">bezieht sich auf aktive Verweise (die gerade den Eingabefokus besitzen).</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">first-line</span></td><td class="TableBody" valign="top">bezieht sich auf die erste Zeile eines Elements. Wird vom Netscape 6 und vom Internet Explorer ab Version 5.5 unterstützt.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">first-letter</span></td><td class="TableBody" valign="top">bezieht sich auf das ersten Zeichen des Textes eines Elements. Wird vom Netscape 6 und vom Internet Explorer ab Version 5.5 unterstützt.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">first-child</span> (CSS2)</td><td class="TableBody" valign="top">bezieht sich auf das erste Childelement eines Elements. Wird nur vom Netscape 6 unterstützt.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">hover</span> (CSS2)</td><td class="TableBody" valign="top">bezieht sich auf den Zustand, wenn der Anwender die Maus auf das Element bewegt und dort einen kurzen Moment ruhen lässt. Über diese Pseudoklasse können Sie sehr einfach dynamische Effekte erzielen ohne zu programmieren. Der Netscape ab Version 6 und der Internet Explorer unterstützen <span class="Code">hover</span> nur unvollständig, beispielsweise für das <span class="Code">a</span>-Tag.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">active</span> (CSS2)</td><td class="TableBody" valign="top">bezieht sich auf den Zustand, wenn der Anwender ein Element aktiviert, beispielsweise mit der Maus anklickt.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">focus</span> (CSS2)</td><td class="TableBody" valign="top">bezieht sich auf den Zustand, wenn ein Element den Eingabefokus erhält. Wird nur vom Netscape 6 unterstützt.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">lang</span> (CSS2)</td><td class="TableBody" valign="top">bezieht sich auf eine in Klammern angegebene Sprache. Wird von keinem Browser unterstützt.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">before</span> (CSS2)<span class="Code"></span></td><td class="TableBody" valign="top">Über diese Pseudoklasse können Sie einen Text definieren, der immer vor einem HTML-Element erscheint. Wird (leider) nur vom Netscape 6 unterstützt.</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">after</span> (CSS2)<span class="Code"></span></td><td class="TableBody" valign="top">Über diese Pseudoklasse können Sie einen Text definieren, der hinter einem HTML-Element erscheint. Wird (leider) nur vom Netscape 6 unterstützt.</td></tr></table><div class="TableSignature"><i>Tabelle 4.2: CSS1- und CSS2-Pseudoklassen</i></div>
+<p>Interessant sind die Pseudoklassen <span class="Code">first-line</span> und <span class="Code">first-letter</span>, über die Sie die erste Zeile bzw. das erste Zeichen des Textes in einem Element beeinflussen können. Das folgende Beispiel definiert eine Stilvorlage, die das erste Zeichen eines Absatzes der Klasse <i>special</i> 400% größer ausgibt als die übrigen und die die erste Zeile fett in Kapitälchen formatiert:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+body&nbsp;{background-color:&nbsp;#F0F0F0}<br>
+a:link&nbsp;{color:&nbsp;blue}<br>
+a:visited&nbsp;{color:&nbsp;green}<br>
+a:active&nbsp;{color:&nbsp;red}<br>
+a:hover&nbsp;{background-color:yellow}<br>
+p&nbsp;{font:&nbsp;arial&nbsp;12pt}<br>
+p.special:first-letter&nbsp;{font-size:400%}<br>
+p.special:first-line&nbsp;{font-variant:&nbsp;small-caps;&nbsp;font-weight:&nbsp;bold}<br>
+--&gt;<br>
+&lt;/style&gt;</code></p>
+<p>Ein Absatz der Klasse <i>special</i> wird nun entsprechend formatiert ausgegeben:</p>
+<p><code class="Fragment">&lt;p&nbsp;class="special"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;Absatz,&lt;br&gt;<br>
+&nbsp;dessen&nbsp;erstes&nbsp;Zeichen&nbsp;größer&nbsp;und&nbsp;dessen&nbsp;erste&nbsp;Zeile&lt;br&gt;<br>
+&nbsp;in&nbsp;fetten&nbsp;Kapitälchen&nbsp;ausgegeben&nbsp;werden&nbsp;sollte,&lt;br&gt;<br>
+&nbsp;sofern&nbsp;der&nbsp;Browser&nbsp;diese&nbsp;Pseudoklassen&nbsp;unterstützt.&nbsp;<br>
+&lt;/p&gt;</code></p>
+<p><p><img src="CSS_05.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 4.2: Ein Absatz mit umformatiertem ersten Zeichen und umformatierter erster Zeile</i></div>
+<p><div class="Note">Beachten Sie, dass der Netscape 4 die Pseudoklassen <span class="Code">first-line</span> und <span class="Code">first-letter</span> nicht unterstützt.</div></p>
+<p>Die Pseudoklasse <span class="Code">hover</span> können Sie einsetzen, um einfache dynamische Effekte zu erzielen ohne programmieren zu müssen. So können Sie beispielsweise das a-Tag umdefinieren, dass dieser ein andere Hintergrundfarbe erhält, wenn der Anwender die Maus auf das <span class="Code">a</span>-Element bewegt:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+&nbsp;a:hover&nbsp;{background-color:yellow}<br>
+--&gt;<br>
+&lt;/style&gt;</code></p>
+<p><div class="Note">Der Internet Explorer und der Netscape 6 unterstützen <span class="Code">hover</span> nur mäßig, scheinbar nur für Elemente, die auf Mausereignisse reagieren können. Der Netscape 4 unterstützt diese Pseudoklasse gar nicht.</div></p>
+<p>So können Sie beispielsweise auch die Farbe eines Schalters bei einer Mausbewegung umsetzen:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+&nbsp;&nbsp;input[type="button"]:hover&nbsp;{background-color:&nbsp;red}<br>
+--&gt;<br>
+&lt;/style&gt;</code></p>
+<p>Das Beispiel funktioniert aber nur im Netscape 6, weil der Internet Explorer erstens (leider) die Selektoren für Attribute nicht unterstützt und zweitens die <span class="Code">hover</span>-Pseudoklasse für ein <span class="Code">input</span>-Element ignoriert.</p>
+<p>Sehr interessant sind auch die Pseudoklassen <span class="Code">before</span> und <span class="Code">after</span>, über die Sie einen beliebigen Text vor bzw. nach einem Element platzieren können:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+&nbsp;&nbsp;div.warning:before&nbsp;{content:&nbsp;"Warnung:&nbsp;";<br>
+&nbsp;&nbsp;&nbsp;color:&nbsp;red;&nbsp;background-color:&nbsp;yellow}<br>
+&nbsp;&nbsp;div.warning:after&nbsp;{content:&nbsp;"&nbsp;Ende&nbsp;der&nbsp;Warnung.";<br>
+&nbsp;&nbsp;&nbsp;color:&nbsp;blue;&nbsp;background-color:&nbsp;yellow}<br>
+--&gt;<br>
+&lt;/style&gt;</code></p>
+<p>Ein <i>div</i>-Element der Klasse <i>warning</i> erhält nun den angegebenen Text vor und hinter dem Inhalt des Elements:</p>
+<p><code class="Fragment">&lt;div&nbsp;class="warning"&gt;Passen&nbsp;Sie&nbsp;auf&nbsp;Ihr&nbsp;Board&nbsp;auf,<br>
+&nbsp;wenn&nbsp;Skifahrer&nbsp;hinter&nbsp;Ihnen&nbsp;am&nbsp;Lift&nbsp;anstehen.&lt;/div&gt;</code></p>
+<p><p><img src="CSS_06.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 4.3: Ein div-Element mit Präfix- und Suffix-Text</i></div>
+<p><div class="Note">Leider funktioniert dieses nützliche Feature nur im Netscape 6 (und im Opera 5).</div></p>
+<p>Für diese Pseudoklassen können Sie nicht nur einen Text spezifizieren, sondern auch spezielle Eigenschaften des Element-Präfix und Suffix, wie beispielsweise Zähler (Counter) und die Funktion <span class="Code">attr</span>(<i>Attributname</i>), die den Wert eines Attributs zurückgibt. Diese speziellen Dinge will ich hier aber nicht besprechen, weil die Pseudoklassen <span class="Code">before</span> und <span class="Code">after</span> zurzeit noch nicht allzu intensiv unterstützt werden. In der CSS2-Spezifikation finden Sie Näheres dazu.</p>
+<a name="h1_520"><h1>5&nbsp;&nbsp;Stilvorlagen inline, im Dokument und in separaten Dateien</h1>
+<a name="h2_521"><h2>5.1&nbsp;&nbsp;Inline-Deklarationen</h2>
+<p><a name="field_19">Sie können den Stil jedes einzelnen HTML-Elements in seinem Start-Tag definieren. Die Stildeklaration geben Sie dazu in dem <span class="Code">style</span>-Attribut an. Das folgende Beispiel weist einem Header-Tag einen dünnen, durchgezogenen Rahmen und eine graue Hintergrundfarbe zu:</p>
+<p><code class="Fragment">&lt;h1&nbsp;style="border:&nbsp;thin&nbsp;solid;<br>
+&nbsp;background-color:silver"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;eine&nbsp;Überschrift&nbsp;mit&nbsp;Stil<br>
+&lt;/h1&gt;</code></p>
+<p>Wenn Sie in Inline-Deklarationen Stileigenschaften überschreiben, die das Element von übergeordneten Stilvorlagen geerbt hat, gelten die neuen Werte der Eigenschaften. Inline-Stile wirken auf der untersten Ebene und besitzen damit die höchste Priorität.</p>
+<a name="h2_525"><h2>5.2&nbsp;&nbsp;Eingebettete Stile</h2>
+<p><a name="field_20">Wenn Sie den Standard-Stil von HTML-Tags grundsätzlich ändern wollen oder Gruppen von Elementen mit gleichen Stilen versehen wollen, können (bzw. sollten) Sie die Stile im Kopfbereich des Dokuments in einem <span class="Code">style</span>-Tag definieren. Die Stildeklarationen binden Sie dazu in ein <span class="Code">style</span>-Tag ein. Im <span class="Code">type</span>-Attribut dieses Tags sollten Sie als Typ "text/css" angeben, da es sein kann, dass Browser in Zukunft auch andere Sprachen zur Deklaration von Stilvorlagen unterstützen als CSS. Das <span class="Code">style</span>-Tag binden Sie im <span class="Code">head</span>-Bereich der Seite ein.</p>
+<p>Das folgende Beispiel deklariert einer Stilvorlage für die Tags <span class="Code">body</span>, <span class="Code">h1</span>, <span class="Code">h2</span>, <span class="Code">h3</span> und <span class="Code">p</span>:</p>
+<p><code class="Fragment">&lt;head&gt;<br>
+&nbsp;...<br>
+&lt;style&nbsp;type="text/css"&gt;<br>
+&nbsp;&lt;!--<br>
+&nbsp;body&nbsp;{background-color:#F0F0F0}<br>
+&nbsp;h1&nbsp;{font:bold&nbsp;18pt&nbsp;Arial;&nbsp;color:blue;<br>
+&nbsp;&nbsp;background-color:silver;&nbsp;border:thin&nbsp;solid&nbsp;black;<br>
+&nbsp;&nbsp;padding:5px;}<br>
+&nbsp;h2&nbsp;{font:bold&nbsp;14pt&nbsp;Arial;color:&nbsp;blue;<br>
+&nbsp;&nbsp;background-color:silver;&nbsp;border:thin&nbsp;solid&nbsp;black;<br>
+&nbsp;&nbsp;padding:3px;}<br>
+&nbsp;h3&nbsp;{font:&nbsp;bold&nbsp;12pt&nbsp;Arial;&nbsp;color:&nbsp;blue;<br>
+&nbsp;&nbsp;background-color:&nbsp;silver;&nbsp;border:&nbsp;thin&nbsp;solid&nbsp;black;<br>
+&nbsp;&nbsp;padding:2px;}<br>
+&nbsp;p&nbsp;{font:&nbsp;10pt&nbsp;Arial;&nbsp;color:&nbsp;blue}<br>
+&nbsp;--&gt;<br>
+&lt;/style&gt;<br>
+...<br>
+&lt;/head&gt;</code></p>
+<p>Die HTML-Kommentare im <span class="Code">style</span>-Tag sorgen dafür, dass Browser, die CSS nicht kennen, nicht die enthaltenen Stilbeschreibungen im Dokument anzeigen.</p>
+<p><div class="Attention">Die HTML-Kommentare dürfen keinen weiteren Text beinhalten. Wenn Sie Text im Kommentar unterbringen, können Sie nicht davon ausgehen, dass die Stile in allen Browsern korrekt ausgewertet werden. Beim Netscape 4.7 und 6.1 funktionieren Stile z. B. nicht korrekt, wenn der Kommentar Text enthält. Daraus folgt auch, dass das <span class="Code">style</span>-Tag keine HTML-Kommentare enthalten darf.</div></p>
+<a name="h2_531"><h2>5.3&nbsp;&nbsp;Eingebundene Stile</h2>
+<p>Statt Stile in jedem HTML-Dokument separat zu definieren, können Sie diese auch in einer separaten Datei verwalten und in die einzelnen Dokumente einer Website einbinden. In der CSS-Datei werden die Stile wie bei eingebetteten Stilen definiert, nur dass das <span class="Code">style</span>-Tag wegfällt:</p>
+<p><code class="Fragment">@charset&nbsp;"iso-8859-1";<br>
+<br>
+body&nbsp;{background-color:#F0F0F0}<br>
+h1&nbsp;{font:bold&nbsp;18pt&nbsp;Arial;&nbsp;color:blue;<br>
+&nbsp;background-color:silver;&nbsp;border:thin&nbsp;solid&nbsp;black;<br>
+&nbsp;padding:5px;}<br>
+h2&nbsp;{font:bold&nbsp;14pt&nbsp;Arial;color:&nbsp;blue;<br>
+&nbsp;background-color:silver;&nbsp;border:thin&nbsp;solid&nbsp;black;<br>
+&nbsp;padding:3px;}<br>
+h3&nbsp;{font:&nbsp;bold&nbsp;12pt&nbsp;Arial;&nbsp;color:&nbsp;blue;<br>
+&nbsp;background-color:&nbsp;silver;&nbsp;border:&nbsp;thin&nbsp;solid&nbsp;black;<br>
+&nbsp;padding:2px;}<br>
+p&nbsp;{font:&nbsp;10pt&nbsp;Arial;&nbsp;color:&nbsp;blue}</code></p>
+<p>Den zu verwendenden Zeichensatz geben Sie über die At-Regel <span class="Code">@charset</span><a name="field_21"><span class="Code"> "iso-8859-1"</span> an. Die Bedeutung des korrekt angegebenen Zeichensatzes ist dieselbe wie bei HTML. Beachten Sie, dass die At-Regel mit einem Semikolon abgeschlossen werden muss.</p>
+<p>Im HTML-Dokument binden Sie die CSS-Datei nun über ein <span class="Code">link</span>-Tag ein:</p>
+<p><code class="Fragment">&lt;head&gt;<br>
+...<br>
+&lt;link&nbsp;rel="stylesheet"&nbsp;type="text/css"&nbsp;href="Stile.css"&gt;<br>
+...<br>
+&lt;/head&gt;</code></p>
+<p>Der Vorteil solcher eingebundenen Stildateien ist, dass eine Änderung der Stile in dieser Datei sich sofort auf <i>alle</i> Dokumente auswirkt, die die Stildatei einbinden. Damit können Sie den Stil einer ganzen Website sehr flexibel und einfach verwalten (abgesehen von den recht komplexen Stilangaben). Dieses Feature sollten Sie nicht unterschätzen (falls Sie das überhaupt machen). Wenn Sie die Stile möglichst aller HTML-Elemente in einer <i>css</i>-Datei verwalten und die HTML-Elemente zudem noch klassifizieren (über CSS-Klassen), geben Sie wahrscheinlich bei dem Wunsch Ihres Kunden, die Farben oder Schriftarten der Website zu ändern, ein gelangweiltes »Kein Problem, ist in fünf Minuten erledigt« zur Antwort. Ich habe mit der ersten, selbst gestalteten Website für einen Kunden bereits genug negative Erfahrung gesammelt, so dass ich jetzt immer konsequent <span class="Code">css</span>-Dateien einsetze.</p>
+<a name="h2_538"><h2>5.4&nbsp;&nbsp;Stile importieren</h2>
+<p>In eine Stilvorlage können Sie andere Stilvorlagen importieren. Die zu importierenden Stilvorlagen müssen dazu in einer Datei gespeichert sein. Diese Datei binden Sie über die At-Regel <span class="Code">@import</span><a name="field_22"> ein. Dazu geben Sie entweder den (relativen oder absoluten) Dateinamen als String an oder verwenden die <span class="Code">url</span>-Funktion zur Angabe einer URL:</p>
+<p><code class="Fragment">@charset&nbsp;"iso-8859-1";<br>
+@import&nbsp;"basestyles.css";<br>
+<br>
+body&nbsp;{margin:2cm}<br>
+h1&nbsp;{border-style:solid}<br>
+h2&nbsp;{border-style:solid}<br>
+h3&nbsp;{border-style:solid}</code></p>
+<p>Das Beispiel importiert die Stilvorlage der Datei <i>basestyles.css</i>, die im selben Verzeichnis erwartet wird.</p>
+<a name="h1_542"><h1>6&nbsp;&nbsp;Die wichtigsten CSS-Stile</h1>
+<p>Die Cascading Style Sheets definieren eine große Anzahl an Stilen. Viele davon können auf die meisten HTML-Tags angewendet werden, einige funktionieren (meistens naturgemäß) mit einigen Tags nicht. Die Beschreibung aller Stile und deren Verwendbarkeit mit den verschiedenen Tags würde den Rahmen dieses Buchs sprengen. Ich beschreibe deshalb hier nur die in meinen Augen wichtigsten Stile.</p>
+<p><div class="Note">Eine kurze und gute Übersicht über die einzelnen CSS1-Stile finden Sie auf der Seite <a class="RegularText" href="http://www.webreview.com/style/css1/glossary.shtml">www.webreview.com/style/css1/glossary.shtml</a>.</div></p>
+<a name="h2_545"><h2>6.1&nbsp;&nbsp;Ein Tipp zuvor</h2>
+<p>Wenn Sie mit Stilen arbeiten, sollten Sie immer überprüfen, ob Ihre Dokumente auch in allen gängigen Browsern funktionieren. Dazu gehören natürlich der Internet Explorer 5.x und 6.x, der Netscape 4.x (der immer noch von vielen Benutzern eingesetzt wird, weil die neuen Version 6.x wenig Zuspruch findet) und die neue Netscape-Version 6.x. Problematisch ist leider, dass der IE nicht gleichzeitig in mehreren Versionen installiert werden kann (beim Netscape-Browser geht das schon). Testen Sie einmal die Beispieldateien dieses Kapitels in den verschiedenen Versionen der Browser, und Sie sehen, was ich meine. Besonders die Seite <i>Positions- und Größen-Stile.htm</i> wird vom Netscape 4.7 sehr konfus dargestellt.</p>
+<a name="h2_547"><h2>6.2&nbsp;&nbsp;Stile für die Schriftart</h2>
+<p><a name="field_23"><a name="field_24">Natürlich können Sie auch die Schriftart mit einigen Stilen beeinflussen. Sie können einzelne Stile verwenden oder den <span class="Code">font</span>-Stil, der alle Angaben gemeinsam erlaubt.</p>
+<ul>
+<li><span class="Code">font-family</span><a name="field_25">: definiert die Schriftart. Sie können mehrere allgemeine oder spezielle Schriftartenname angeben, die Sie mit Kommata trennen. Damit erreichen Sie, dass der Browser einfach die nächste Schriftart verwendet, falls eine Schriftart nicht auf dem System installiert oder nicht verfügbar ist. Schriftartennamen, die Leerzeichen enthalten, müssen in Anführungszeichen gesetzt werden. Zu den allgemeinen Schriftartennamen gehören <span class="Code">serif</span>, <span class="Code">sans-serif</span>, <span class="Code">cursive</span>, <span class="Code">fantasy</span> und <span class="Code">monospace</span>.</li>
+Beispiel: <span class="Code">font-familiy:"Century Schoolbook",Times</span>.<li><span class="Code">font-size</span><a name="field_26">: Dieser Stil legt die Schriftgröße in den üblichen Einheiten (pt, % etc.) oder in einer speziellen "ungenauen" Einheit fest. Eine prozentuale Angabe bezieht sich auf die normale Größe der Schrift. Eine Schrift, die 50 Prozent größer ist als die normale Schrift, definieren Sie z. B. so: <span class="Code">font-size:150%</span>. Für »ungenaue« Angaben verwenden Sie die Werte <span class="Code">xx-small</span>, <span class="Code">x-small</span>, <span class="Code">small</span>, <span class="Code">medium</span>, <span class="Code">large</span>, <span class="Code">x-large</span>, <span class="Code">xx-large</span>, <span class="Code">smaller</span> <span class="Code">(</span>sichtbar kleiner als normal) und <span class="Code">larger</span> <span class="Code">(</span>sichtbar größer als normal).</li>
+<li><span class="Code">font-weight</span><a name="field_27">: Mit diesem Stil definieren Sie, ob und wie fett <a name="field_28"> die Schrift ausgegeben wird. Sie können die folgenden Werte verwenden: <span class="Code">bold</span> (fett), <span class="Code">bolder</span> (extra fett), <span class="Code">lighter</span> (dünner). Der Internet Explorer und der Netscape unterscheiden <span class="Code">bold</span> und <span class="Code">bolder</span> nicht. Alternativ können Sie das Schriftgewicht als Zahlwert zwischen 100 und 900 in Hunderterschritten angeben. 100 definiert ein extra dünnes Schriftgewicht, 900 ein extra fettes. Internet Explorer und Netscape unterscheiden allerdings nur die Werte 100 (normal) und 600 (fett).</li>
+<li><span class="Code">font-style</span><a name="field_29">: Definiert, ob die Schrift kursiv<a name="field_30"> ausgegeben wird. Sie können die Werte <span class="Code">italic</span> (kursiv) und <span class="Code">normal</span> verwenden.</li>
+<li><span class="Code">font-variant</span><a name="field_31">: Definiert, ob die Schriftart mit Kapitälchen<a name="field_32"> ausgegeben wird. Sie können die Werte <span class="Code">small-caps</span> (Kapitälchen) und <span class="Code">normal</span> verwenden.</li>
+<li><span class="Code">font</span><a name="field_33">: Mit dieser Eigenschaft können Sie die einzelnen Schrifteigenschaften zusammenfassen. Die Reihenfolge der Angaben ist festgelegt: <i>style</i> <i>variant</i> <i>weight</i> <i>size</i> <i>height</i> <i>family</i>. Einzelne Angaben können Sie allerdings auch einfach weglassen.</li>
+Beispiel: <span class="Code">font:bold italic 12pt Helvetica, Times</span>.</ul>
+<p>Abbildung 6.1 zeigt die Schriftart-Eigenschaften im Internet Explorer.</p>
+<p><p><img src="CSS_07.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 6.1: Die Schriftart-Eigenschaften der Cascading Style Sheets im Internet Explorer</i></div>
+<a name="h2_562"><h2>6.3&nbsp;&nbsp;Eigenschaften für die Textauszeichnung</h2>
+<ul>
+<li><a name="field_34"><span class="Code">word-spacing</span><a name="field_35">: Diese Eigenschaft bestimmt den Abstand zwischen einzelnen Worten. Wird nicht vom Internet Explorer (5.5) unterstützt!</li>
+<li><span class="Code">letter-spacing</span><a name="field_36">: bestimmt den Abstand zwischen den einzelnen Buchstaben der Wörter.</li>
+Beispiel: Gesperrte Schrift mit einer Zeichenhöhe Abstand: <span class="Code">letter-spacing:1em</span>.<li><span class="Code">text-decoration</span><a name="field_37">: legt die Dekoration eines Textes mit den folgenden Werten fest: <span class="Code">underline</span> (unterstrichen), <span class="Code">overline</span> (überstrichen), <span class="Code">line-through</span> (durchgestrichen). Der Wert <span class="Code">blink</span> ist im Standard vorgesehen, wird aber weder vom Internet Explorer noch vom Netscape unterstützt. Sie können mehrere Angaben kombinieren.</li>
+<li><span class="Code">vertical-align</span><a name="field_38">: Diese Eigenschaft bestimmt die vertikale Ausrichtung von Text in einem Element. Die Ausrichtung bezieht sich auf das übergeordnete Element. Die Werte, die Sie hier angeben können, sind vielfältig: <span class="Code">baseline</span> (Ausrichtung an der Basislinie des übergeordneten Elements), <span class="Code">middle</span> (mittige Ausrichtung), <span class="Code">sub</span> (tiefstellen), <span class="Code">super</span> (hochstellen), <span class="Code">text-top</span> (Ausrichtung am oberen Rand der Schrift im übergeordneten Element), <span class="Code">text-bottom</span> (Ausrichtung am unteren Rand der Schrift im übergeordneten Element), <span class="Code">top</span> (Ausrichtung oben am höchsten Element der Zeile) und <span class="Code">bottom</span> (Ausrichtung unten am niedrigsten Element der Zeile).</li>
+<li><span class="Code">text-transform</span><a name="field_39">: bestimmt die Transformation des Textes mit den folgenden Werten: <span class="Code">capitalize</span> (schreibt den ersten Buchstaben jedes Worts groß), <span class="Code">uppercase</span> (Großbuchstaben), <span class="Code">lowercase</span> (Kleinbuchstaben).</li>
+<li><span class="Code">text-align</span><a name="field_40">: bestimmt die horizontale Ausrichtung mit den Werten <span class="Code">left</span>, <span class="Code">right</span>, <span class="Code">center</span> oder <span class="Code">justify</span> (Blocksatz).</li>
+<li><span class="Code">text-indent</span><a name="field_41">: Diese Eigenschaft bestimmt die Einrückung der ersten Zeile eines Absatzes.</li>
+<li><span class="Code">line-height</span><a name="field_42">: bestimmt die Zeilenhöhe.</li>
+</ul>
+<p>Abbildung 6.2 zeigt die einzelnen Text-Eigenschaften im Internet Explorer.</p>
+<p><p><img src="CSS_08.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 6.2: Die Text-Eigenschaften der Cascading Style Sheets im Internet Explorer</i></div>
+<a name="h2_577"><h2>6.4&nbsp;&nbsp;Farb- und Hintergrundeigenschaften</h2>
+<p><a name="field_43"><a name="field_44"><a name="field_45">Mit den folgenden Stileigenschaften können Sie die Farbe und den Hintergrund eines HTML-Elements beeinflussen:</p>
+<ul>
+<li><span class="Code">color</span><a name="field_46">: Diese Eigenschaft bestimmt die Text- und die Rahmenfarbe als RGB-Wert oder über eine der vordefinierten Farbangaben (<span class="Code">red</span>, <span class="Code">green</span> etc.).</li>
+<li><span class="Code">background-color</span><a name="field_47">: Hintergrundfarbe als RGB-Wert oder eine der vordefinierten Farbangaben.</li>
+Beispiel: <span class="Code">background-color:#003366</span><li><span class="Code">background-image</span><a name="field_48">: Angabe eines Hintergrundbilds als Dateiangabe oder in Form einer URL. Das Bild wird normalerweise so oft wiederholt, bis der Inhalt des HTML-Elements ausgefüllt ist. Mit dem Stil <span class="Code">background-repeat</span> können Sie dieses Verhalten jedoch auch beeinflussen.</li>
+Beispiel: <span class="Code">&lt;body style="background-image:url(background.gif)"&gt;</span>.<li><span class="Code">background-repeat</span><a name="field_49">: Mit dieser Eigenschaft können Sie festlegen, ob und wie ein Hintergrundbild wiederholt ausgegeben wird. Verwenden Sie dazu die Werte <span class="Code">repeat</span> (horizontal und vertikal wiederholen), <span class="Code">repeat-x</span> (horizontal wiederholen), <span class="Code">repeat-y</span> (vertikal wiederholen) oder <span class="Code">no-repeat</span> (nicht wiederholen),</li>
+<li><span class="Code">background-attachment</span><a name="field_50">: Ein Hintergrundbild wird normalerweise mitgescrollt, wenn der Inhalt des HTML-Elements gescrollt wird. Mit dem Wert <span class="Code">fixed</span> können Sie erreichen, dass das Hintergrundbild stehen bleibt. Der andere mögliche Wert ist <span class="Code">scroll</span> (Voreinstellung).</li>
+<li><span class="Code">background-position</span><a name="field_51">: Wenn Sie ein Hintergrundbild nicht wiederholen lassen, können Sie das Bild mit diesem Stil an einer bestimmten Position innerhalb des Rahmens ausgeben lassen, der das HTML-Element umgibt. Dazu können Sie absolute und relative Angaben machen, die Sie durch Leerzeichen trennen. Eine Position von <span class="Code">20px 40px</span> bedeutet: Die Mitte der Grafik befindet sich 20 Pixel vom linken Rand und 40 Pixel vom rechten Rand. <span class="Code">20% 40%</span> bedeutet: Die Mitte der Grafik befindet sich 20% der Breite des Elements vom linken Rand und 40% der Höhe des Elements vom oberen Rand. Wenn Sie eine Grafik genau in der Mitte anlegen wollen, verwenden Sie eine Position von <span class="Code">50% 50%</span>. Alternativ können Sie auch die Werte <span class="Code">left</span>, <span class="Code">center</span> und <span class="Code">right</span> verwenden, um die Position von links festzulegen und die Werte <span class="Code">top</span>, <span class="Code">center</span> und <span class="Code">bottom</span> für die Position von oben.</li>
+<li><span class="Code">background</span><a name="field_52">: Mit dieser Eigenschaft können Sie die Hintergrund-Stile zusammenfassen. Die Reihenfolge der Angaben ist <i>color</i> <i>image</i> <i>repeat</i> <i>attachment</i> und <i>position</i><span class="Code"> und </span>muss eingehalten werden. Einzelne Angaben können Sie allerdings auch einfach weglassen.</li>
+</ul>
+<p>Abbildung 6.3 zeigt einige dieser Eigenschaften im Internet Explorer.</p>
+<p><p><img src="CSS_09.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 6.3: Einige Farb- und Hintergrundeigenschaften der Cascading Style Sheets im Internet Explorer</i></div>
+<a name="h2_593"><h2>6.5&nbsp;&nbsp;Eigenschaften zur Definition von Rahmen</h2>
+<p><a name="field_53"><a name="field_54">CSS definiert die folgenden Stile für die Definition von Rahmen um ein HTML-Element:</p>
+<ul>
+<li><span class="Code">border-width</span><a name="field_55">: definiert die Breite des Rahmens um ein HTML-Element mit den Werten <span class="Code">thin</span> (dünn), <span class="Code">medium</span> (mittel) und <span class="Code">thick</span> (dick).</li>
+<li><span class="Code">border-style</span><a name="field_56">: Dieser Stil steuert die Art des Rahmens um ein HTML-Element. Die Einstellungen sind <span class="Code">none</span> (kein Rahmen, Voreinstellung), <span class="Code">dotted</span> (gepunktet), <span class="Code">dashed</span> (gestrichelt), <span class="Code">solid</span> (durchgezogen), <span class="Code">double</span> (doppelt gerahmt), <span class="Code">groove</span> (vertiefter 3D-Rahmen), <span class="Code">ridge</span> (erhöhter 3D-Rahmen), <span class="Code">inset</span> (vertieft) und <span class="Code">outset</span> (erhöht).</li>
+<li><span class="Code">border-left-style</span><a name="field_57">, <span class="Code">border-right-style</span><a name="field_58">, <span class="Code">border-top-style</span><a name="field_59">, <span class="Code">border-bottom-style</span><a name="field_60"> (CSS2): Über diese Eigenschaften können Sie den Stil des Rahmens für jede Seite separat bestimmen.</li>
+<li><span class="Code">border-left-width</span><a name="field_61">, <span class="Code">border-right-width</span><a name="field_62">, <span class="Code">border-top-width</span><a name="field_63">, <span class="Code">border-bottom-width</span><a name="field_64">: Mit diesen Stilen können Sie die Breite der einzelnen Seiten des Rahmens separat festlegen. Beachten Sie, dass der Netscape 4(.7) nur die Rahmenseiten anzeigt, die mit Rahmen-Stilen angegeben wurden. IE 6 und NS 6 zeigen nicht angegebene Rahmenseiten in einer Default-Breite an, wenn mindestens einer der hier angegebenen Stile verwendet wird.</li>
+<li><span class="Code">border-color</span><a name="field_65">: definiert die Farbe des Rahmens.</li>
+<li><span class="Code">border-left-color</span><a name="field_66">, <span class="Code">border-right-color</span><a name="field_67">, <span class="Code">border-top-color</span><a name="field_68">, <span class="Code">border-bottom-color</span> (CSS2)<a name="field_69">: Über diese CSS2-Eigenschaften können Sie die Farbe von Teilen des Rahmens definieren.</li>
+<li><span class="Code">border</span><a name="field_70">: Zusammengesetzte Angabe der Rahmeneigenschaften aller Rahmenseiten in der Reihenfolge <i>width</i> <i>style</i> <i>color</i>.</li>
+Beispiel: <span class="Code">border: thin solid black</span>.<li><span class="Code">border-left</span><a name="field_71">, <span class="Code">border-right</span><a name="field_72">, <span class="Code">border-top</span><a name="field_73">, <span class="Code">border-bottom</span><a name="field_74">: Zusammengesetzte Angabe der Rahmeneigenschaften für die einzelnen Seiten des Rahmens in der <span class="Code">thin solid black</span>.</li>
+</ul>
+<p><div class="Note">Beachten Sie, dass Sie die Rahmenfarbe angeben sollten, wenn Sie mit dem Stil <span class="Code">color</span> eine allgemeine Vordergrundfarbe definiert haben und der Rahmen eine andere Farbe besitzen soll als die Schrift im HTML-Element.</div></p>
+<a name="h2_607"><h2>6.6&nbsp;&nbsp;Eigenschaften zur Beeinflussung des Element-Blocks</h2>
+<p>Mit den folgenden Eigenschaften können Sie den Block beeinflussen, in dem ein Element ausgegeben wird. Dazu gehören beispielsweise die äußeren und inneren Ränder:</p>
+<ul>
+<li><span class="Code">margin-left</span><a name="field_75">, <span class="Code">margin-right</span><a name="field_76">, <span class="Code">margin-top</span><a name="field_77">, <span class="Code">margin</span>-<span class="Code">bottom</span><a name="field_78">: definiert den Abstand des Elements von anderen HTML-Elementen.</li>
+<li><span class="Code">margin</span><a name="field_79">: Zusammengesetzte Angabe der Ränder. Wenn Sie nur einen Wert angeben, gilt dieser für aller Ränder. Geben Sie zwei Werte an, gilt der erste Wert für den oberen und unteren Rand und der zweite für den linken und rechten. Vier angegebene Werte gelten in der folgenden Reihenfolge: oben, rechts, unten und links.</li>
+<li><span class="Code">padding-left</span><a name="field_80">, <span class="Code">padding-right</span><a name="field_81">, <span class="Code">padding-top</span><a name="field_82">, <span class="Code">padding-bottom</span><a name="field_83">: Abstand zwischen innerem Rand des Elements und dem enthaltenen Text bzw. Grafik.</li>
+<li><span class="Code">padding</span><a name="field_84">: Zusammengesetzte Angabe der inneren Ränder. Die Werte werden wie bei <span class="Code">margin</span> ausgewertet.</li>
+<li><span class="Code">overflow</span><a name="field_85"> (CSS2): bestimmt, wie sich ein in der Größe festgelegtes Element verhält, wenn der Inhalt größer ist, als die sichtbare Fläche es eigentlich zulässt. Sie können die folgenden Werte einstellen:</li>
+</ul>
+<ul>
+<li><span class="Code">visible</span>: Der Inhalt wird nicht abgeschnitten. Beim Netscape 6 behält das Element seine Größe und der Inhalt reicht über das Element hinaus, wenn es sich um ein Blockelement handelt, Inline-Elemente werden nach rechts vergrößert. Der Internet Explorer und der Netscape 4 vergrößern das Element nach unten, um den Inhalt darzustellen,</li>
+<li><span class="Code">hidden</span>: Der Inhalt wird am Rand des Elements abgeschnitten,</li>
+<li><span class="Code">scroll</span>: Der Browser richtet permanente Rollbalken im Element ein, über die der Anwender den Inhalt scrollen kann und</li>
+<li><span class="Code">auto</span>: Der Browser richtet Rollbalken ein, sofern dies notwendig ist.</li>
+</ul>
+<p>Beachten Sie, dass obere und untere Ränder nur dann funktionieren, wenn das Element einen eigenen Absatz impliziert. Bei einem <span class="Code">span</span>-Tag, das keinen Absatz besitzt, wird ein eventuell eingegebener oberer und unterer Rand z. B. nicht dargestellt, bei einem <span class="Code">div</span>- oder <span class="Code">h1</span>-Tag dagegen schon.</p>
+<p>Abbildung 6.4 zeigt die Darstellung der Rand-Stile im Netscape 6.</p>
+<p><p><img src="CSS_10.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 6.4: Einige CSS-Blockeigenschaften im Netscape 6</i></div>
+<p>Die Eigenschaft <span class="Code">overflow</span> ist sehr interessant. Über diese Eigenschaft können Sie Elemente, die einen für das Element eigentlich zu großen Inhalt verwalten, automatisch mit Rollbalken ausstatten, was gleichzeitig verhindert, dass der Browser diese Elemente ungefragt vergrößert:</p>
+<p><code class="Fragment">&lt;div&nbsp;style="width:150px;height:80px;<br>
+&nbsp;background-color:white;<br>
+&nbsp;border:thin&nbsp;solid;overflow:auto"&gt;<br>
+&nbsp;Dieses&nbsp;div-Element&nbsp;speichert&nbsp;zu&nbsp;viel&nbsp;Text.<br>
+&nbsp;Das&nbsp;Element&nbsp;wird&nbsp;automatisch&nbsp;mit&nbsp;Rollbalken,<br>
+&nbsp;ausgestattet,&nbsp;weil&nbsp;die&nbsp;overflow-Eigenschaft&nbsp;<br>
+&nbsp;auf&nbsp;den&nbsp;Wert&nbsp;auto&nbsp;gesetzt&nbsp;wurde.<br>
+&lt;/div&gt;</code></p>
+<p><p><img src="CSS_11.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 6.5: Ein <span class="Code">div</span>-Element mit <span class="Code">overflow</span>=<span class="Code">auto</span> im Netscape 6</i></div>
+<p><div class="Note">Die <span class="Code">overflow</span>-Eigenschaft funktioniert im Internet Explorer ohne Probleme. Im Netscape 6 können Sie diese Eigenschaft nur für Blockelemente einsetzen. Der Netscape 4 kann mit <span class="Code">overflow</span> nichts anfangen.</div></p>
+<a name="h2_631"><h2>6.7&nbsp;&nbsp;Stile für die Position und die Größe</h2>
+<p><a name="field_86"><a name="field_87">Die Position und Größe eines HTML-Elements wird normalerweise vom Browser bestimmt. Die Position wird dabei streng nach der Reihenfolge der Tags im Quellcode und der Größe der vorhergehenden Elemente definiert. Einige Elemente wie <span class="Code">div</span> und die Header-Tags implizieren Absätze, so dass folgende Elemente immer unterhalb davon angelegt werden. Die Größe des Elements bestimmt der Browser nach dessen Inhalt. Position, Größe und das Positionierungsverhalten können Sie jedoch auch beeinflussen. Verwenden Sie dazu die folgenden Stile:</p>
+<ul>
+<li><span class="Code">position</span><a name="field_88"> (CSS2): bestimmt, auf welche Art das Element positioniert wird. Sie können die folgenden Werte einsetzen: <span class="Code">static</span>, <span class="Code">relative</span>, <span class="Code">absolute</span>, <span class="Code">fixed</span> und inherit. <span class="Code">static</span> bedeutet, dass das Element fließend im Dokument angelegt wird, wie es dem HTML-Standard entspricht. Die in <span class="Code">left</span> und <span class="Code">top</span> eventuell angegebenen Werte werden nicht berücksichtigt. Bei einer <span class="Code">relative</span>-Positionierung wird das Element fließend im Text angelegt, wobei die in <span class="Code">left</span> und <span class="Code">top</span> angegebenen Werte als Offset zur normalen Position addiert werden. Eine absolute Positionierung bezieht sich auf den linken, oberen Eckpunkt des Parent-Elements. Die letzte Möglichkeit, <span class="Code">inherit</span>, sorgt dafür, dass das Element die <span class="Code">position</span>-Eigenschaft von seinem Parent-Element erbt.</li>
+<li><span class="Code">left</span><a name="field_89">, <span class="Code">top</span><a name="field_90">, <span class="Code">right</span><a name="field_91">, <span class="Code">bottom</span><a name="field_92"> (CSS2): Mit diesen CSS2-Eigenschaften können Sie die Position bestimmen, wenn die <span class="Code">position</span>-Eigenschaft eine Positionierung erlaubt.</li>
+<li><span class="Code">width</span><a name="field_93">, <span class="Code">height</span><a name="field_94">: Mit diesen Eigenschaften können Sie die Breite und Höhe eines Elements bestimmen. Wenn Sie die Breite und Höhe eines Elements einstellen, müssen Sie beachten, dass die Browser das Element u. U. automatisch vergrößern. Für den Fall, dass ein im Element dargestellter Text zu groß ist für das Element, behält das Element beim Netscape 6 seine Größe und der Inhalt reicht über das Element hinaus, wenn es sich um ein Blockelement handelt, Inline-Elemente werden nach rechts vergrößert. Der Internet Explorer und der Netscape 4 vergrößern das Element nach unten, um den Inhalt darzustellen. Ist der Inhalt des Elements eine Grafik, wird die Grafik automatisch auf die angegebene Größe skaliert (allerdings nicht vom Netscape 4, benutzen Sie hier die <span class="Code">width</span>- und <span class="Code">height</span>-Attribute des <span class="Code">img</span>-Tag).<span class="Code"></span></li>
+</ul>
+<p><div class="Note">Beachten Sie, dass der Netscape 4.7 CSS-Höhen- und Breitenangaben ignoriert und dass der Netscape 6.1 diese zwar für Block-Elemente und für Inline-Elemente mit Bildinhalt, aber nicht für Inline-Elemente mit Textinhalt unterstützt.</div></p>
+<ul>
+<li><span class="Code">min-width</span><a name="field_95">, <span class="Code">min-height</span><a name="field_96">: Diese CSS2-Eigenschaften bestimmen die minimale Höhe bzw. Breite eines Elements. Der Browser darf die Elemente aber auch breiter bzw. höher ausgeben, wenn der Inhalt des Elements dies erfordert.</li>
+<li><span class="Code">max-width</span><a name="field_97">, <span class="Code">max-height</span><a name="field_98">: Diese CSS2-Eigenschaften bestimmen die maximale Höhe bzw. Breite eines Elements. Der Browser darf die Elemente nicht breiter bzw. höher ausgeben, auch wenn der Inhalt des Elements dies erfordert.</li>
+<li><span class="Code">float</span><a name="field_99">: Mit dieser Eigenschaft können Sie erreichen, dass HTML-Elemente und Text fließend um ein Element herum angelegt werden (so wie Sie es von der Zeitung her kennen). <span class="Code">float:left</span> bewirkt z. B., dass das Element am linken Rand des umschließenden Elements positioniert wird (z. B. am Rand des <span class="Code">body</span>) und andere Elemente derselben Ebene rechts vom Element fließend positioniert werden. Abbildung 7.7 auf Seite 33 zeigt, was ich damit meine. Bei <span class="Code">float: right</span> wird das Element äquivalent auf der rechten Seite des umschließenden Elements positioniert und andere Elemente fließen auf der linken Position. Beachten Sie, dass der Netscape 4.7 <span class="Code">float</span> nicht korrekt unterstützt und das Element nicht nur am linken bzw. rechten Rand des umschließenden Elements, sondern auch am oberen darstellt.</li>
+<li><span class="Code">clear</span><a name="field_100">: Diese Eigenschaft bestimmt, ob ein Element fließende Elemente an seinen Seiten erlaubt. Mit dem Wert <span class="Code">left</span> legen Sie fest, dass links keine fließenden Elemente erlaubt sind, <span class="Code">right</span> verbietet fließende Elemente rechts und <span class="Code">both</span> auf beiden Seiten.</li>
+</ul>
+<a name="h1_646"><h1>7&nbsp;&nbsp;Positionieren</h1>
+<a name="h2_647"><h2>7.1&nbsp;&nbsp;Relatives und absolutes Positionieren</h2>
+<p>Die folgenden Beispiele sollen die Positionierung von HTML-Elementen verdeutlichen. Im folgenden HTML-Quelltext,</p>
+<p><code class="Fragment">&lt;body&gt;<br>
+&lt;p&gt;Das&nbsp;ist&nbsp;ein&nbsp;Absatz.&lt;/p&gt;<br>
+Das&nbsp;ist&nbsp;Text&nbsp;vor&nbsp;dem&nbsp;span-Element.<br>
+&lt;span&nbsp;style="border:thin&nbsp;solid"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;span-Element.&lt;/span&gt;<br>
+&lt;b&gt;Das&nbsp;ist&nbsp;fetter&nbsp;Text.&lt;/b&gt;<br>
+&lt;div&nbsp;style="border:thin&nbsp;solid"&gt;Das&nbsp;ist&nbsp;ein&nbsp;div-Element&lt;/div&gt;<br>
+Das&nbsp;ist&nbsp;Text&nbsp;nach&nbsp;dem&nbsp;div-Element.</code></p>
+<p>werden das <span class="Code">span</span>-Element (wie alle anderen auch) fließend hinter dem Absatz und vor dem <span class="Code">b</span>-Element angelegt, das <span class="Code">div</span>-Element wird ebenso fließend angelegt, erzeugt aber einen Zeilenumbruch vor und nach der Ausgabe (Abbildung 7.1).</p>
+<p><p><img src="CSS_12.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 7.1: Ein <span class="Code">span</span>- und ein <span class="Code">div</span>-Element werden fließend im Dokument angelegt</i></div>
+<p>Mit einer relativen Positionierung können Sie diese Normalposition nun um einen X- und Y-Offset verschieben:</p>
+<p><code class="Fragment">&lt;p&gt;Das&nbsp;ist&nbsp;ein&nbsp;Absatz.&lt;/p&gt;<br>
+Das&nbsp;ist&nbsp;Text&nbsp;vor&nbsp;dem&nbsp;span-Element.<br>
+&lt;span&nbsp;style="border:thin&nbsp;solid;<br>
+&nbsp;<b>position:relative;top:80px;left:50px;</b>"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;span-Element.&lt;/span&gt;<br>
+&lt;b&gt;Das&nbsp;ist&nbsp;fetter&nbsp;Text.&lt;/b&gt;<br>
+&lt;div&nbsp;style="border:thin&nbsp;solid;<br>
+&nbsp;<b>position:relative;top:100px;</b>"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;div-Element&lt;/div&gt;<br>
+Das&nbsp;ist&nbsp;Text&nbsp;nach&nbsp;dem&nbsp;div-Element.</code></p>
+<p><p><img src="CSS_13.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 7.2: Ein <span class="Code">span</span>- und ein <span class="Code">div</span>-Element wurden relativ zu ihrer Normalposition verschoben</i></div>
+<p>Das <span class="Code">span</span>-Element wurde um 50 Pixel nach rechts und um 80 Pixel nach unten verschoben, relativ zu seiner normalen Position. Das <span class="Code">div</span>-Element wurde relativ um 100 Pixel nach unten verschoben. Blockelemente wie das <span class="Code">div</span>-Element können auch nach rechts verschoben werden. Die Breite bleibt dann allerdings bestehen. Wenn Sie diese nicht in der <span class="Code">width</span>-Eigenschaft spezifizieren, ist das Element immer etwa so breit wie der Innenbereich des Browserfensters (abzüglich der inneren Ränder des Dokuments).</p>
+<p>Wenn Sie ein Element absolut verschieben, beziehen sich die Angaben in <span class="Code">left</span> und <span class="Code">top</span> auf die linke, obere Ecke des Parent-Elements. Ist das Parent-Element das <span class="Code">body</span>-Tag, beziehen sich die Angaben auf die linke, obere Ecke des Dokuments:</p>
+<p><code class="Fragment">&lt;p&gt;Das&nbsp;ist&nbsp;ein&nbsp;Absatz.&lt;/p&gt;<br>
+Das&nbsp;ist&nbsp;Text&nbsp;vor&nbsp;dem&nbsp;span-Element.<br>
+&lt;span&nbsp;style="border:thin&nbsp;solid;<br>
+&nbsp;<b>position:absolute;top:80px;left:50px;</b>"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;span-Element.&lt;/span&gt;<br>
+&lt;b&gt;Das&nbsp;ist&nbsp;fetter&nbsp;Text.&lt;/b&gt;<br>
+&lt;div&nbsp;style="border:thin&nbsp;solid;<br>
+&nbsp;<b>position:absolute;top:100px;</b>"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;div-Element&lt;/div&gt;<br>
+Das&nbsp;ist&nbsp;Text&nbsp;nach&nbsp;dem&nbsp;div-Element.</code></p>
+<p><p><img src="CSS_14.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 7.3: Absolut verschobene <span class="Code">span</span>- und <span class="Code">div</span>-Elemente im Netscape 6</i></div>
+<p>Da die Position des <span class="Code">span</span>- und des <span class="Code">div</span>-Elements nun vom linken, oberen Rand des <span class="Code">body</span>-Tag aus gerechnet wird, werden die Elemente anders positioniert als bei der relativen Positionierung. Ein Nebeneffekt der absoluten Positionierung ist, dass ein Blockelement wie das <span class="Code">div</span>-Element nicht mehr als Blockelement dargestellt wird. Ob das so im Standard definiert ist oder ein Fehlverhalten der Browser ist, ist mir unklar. Der Internet Explorer macht übrigens bei der absoluten Positionierung Probleme, wenn Sie entweder <span class="Code">left</span> oder <span class="Code">top</span> nicht angeben. In unserem Beispiel ist das <span class="Code">div</span>-Element nach rechts verschoben ().</p>
+<p><p><img src="CSS_15.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 7.4: Ein absolut verschobenes Blockelement macht im Internet Explorer Probleme, weil <span class="Code">left</span> nicht angegeben ist</i></div>
+<p><div class="Note">Geben Sie deswegen immer besser <span class="Code">left</span> und <span class="Code">top</span> an, wenn Sie absolut verschieben.</div></p>
+<p><code class="Fragment">&lt;div&nbsp;style="border:thin&nbsp;solid;<br>
+&nbsp;position:absolute;<b>left:0</b>;top:100px;"&gt;<br>
+&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;div-Element&lt;/div&gt;</code></p>
+<p>Verschobene Elemente haben keinen Einfluss auf die Position anderer Elemente auf derselben Ebene. Der fett formatierte Text in Abbildung 7.2 wurde beispielsweise nicht verschoben, obwohl er ja eigentlich im HTML-Quelltext dem <span class="Code">span</span>-Element folgt. Die Position eines relativ verschobenen Elements ändert sich aber, wenn sein Parent-Element verschoben wird. Ein <span class="Code">span</span>-Tag, der Child eines anderen <span class="Code">span</span>-Tags ist und der innerhalb dieses Parent relativ positioniert ist, wird mit dem Parent verschoben, wenn dieser ebenfalls positioniert wird:</p>
+<p><code class="Fragment">&lt;span&nbsp;style="border:thin&nbsp;solid;&nbsp;background-color:silver;<br>
+&nbsp;position:absolute;left:20;top:20;<br>
+&nbsp;width:400px;height:80px"&gt;<br>
+&nbsp;&nbsp;&lt;span&nbsp;style="border:thin&nbsp;solid;background-color:white;<br>
+&nbsp;&nbsp;&nbsp;position:relative;&nbsp;left:10;top:10"&gt;<br>
+&nbsp;&nbsp;&nbsp;Das&nbsp;ist&nbsp;das&nbsp;innere&nbsp;span-Element.<br>
+&nbsp;&nbsp;&lt;/span&gt;<br>
+&lt;/span&gt;</code></p>
+<p><p><img src="CSS_16.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 7.5: Ein relativ positioniertes <span class="Code">span</span>-Element wird mit seinem Parent-Element verschoben.</i></div>
+<p>Dieses Feature nutzen HTML-Designer häufig für die Gestaltung von Menüs, bei denen die Menüeinträge relativ innerhalb eines absolut positionierten <span class="Code">span</span>-Elements platziert werden.</p>
+<a name="h2_672"><h2>7.2&nbsp;&nbsp;Den Fluss der Elemente steuern</h2>
+<p>Wenn Sie HTML-Elemente nicht positionieren, werden andere HTML-Elemente, die in derselben Zeile ausgegeben werden, per Voreinstellung an der Grundlinie des größeren HTML-Elements ausgerichtet und in die nächste Zeile unter dem größeren Element umbrochen:</p>
+<p><code class="Fragment">&lt;img&nbsp;src="hand.gif"&gt;<br>
+Wenn&nbsp;Sie&nbsp;HTML-Elemente&nbsp;nicht&nbsp;positionieren,&nbsp;werden&nbsp;andere&nbsp;HTML-Elemente,<br>
+die&nbsp;in&nbsp;derselben&nbsp;Zeile&nbsp;ausgegeben&nbsp;werden,&nbsp;per&nbsp;Voreinstellung&nbsp;an&nbsp;der&nbsp;Grundlinie&nbsp;<br>
+des&nbsp;größeren&nbsp;HTML-Elements&nbsp;ausgerichtet.</code></p>
+<p><p><img src="CSS_17.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 7.6: HTML-Elemente werden an der Grundlinie größerer Elemente in derselben Zeile ausgerichtet</i></div>
+<p>Sie können mit der <span class="Code">float</span>-Eigenschaft nun erreichen, dass ein Element entweder links oder rechts an seinem Parent ausgerichtet wird, dass Text, der in derselben Zeile steht, nun an der oberen Linie ausgerichtet wird und dass dieser Text dann rechts oder links am Element vorbeifließt:</p>
+<p><code class="Fragment">&lt;img&nbsp;src="hand.gif"&nbsp;style="float:left;"&gt;<br>
+Dieser&nbsp;Text&nbsp;wird&nbsp;deswegen&nbsp;fließend&nbsp;auf&nbsp;der&nbsp;rechten&nbsp;Seite&nbsp;des&nbsp;Bildes&nbsp;ausgegeben,<br>
+weil&nbsp;dieses&nbsp;den&nbsp;Stil&nbsp;float:left&nbsp;besitzt.&lt;br&gt;<br>
+&lt;div&nbsp;style="border:thin&nbsp;solid;&nbsp;background-color:silver"&gt;<br>
+Der&nbsp;Inhalt&nbsp;eines&nbsp;div-Elements&nbsp;wird&nbsp;(natürlich)&nbsp;ebenfalls&nbsp;fließend&nbsp;rechts&nbsp;<br>
+ausgegeben&nbsp;und&nbsp;fließt&nbsp;u.&nbsp;U.&nbsp;auch&nbsp;unter&nbsp;dem&nbsp;Bild&nbsp;weiter.&lt;/div&gt;<br>
+Weiterer&nbsp;Text&nbsp;fließt&nbsp;dann&nbsp;einfach&nbsp;unter&nbsp;das&nbsp;Bild.</code></p>
+<p><p><img src="CSS_18.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 7.7: Flusssteuerung mit der <span class="Code">float</span>-Eigenschaft</i></div>
+<p>Die <span class="Code">float</span>-Eigenschaft verträgt sich nicht direkt mit einer Positionierung. Wenn Sie beispielsweise relativ positionieren, überlagert das Bild den Text:</p>
+<p><code class="Fragment">&lt;img&nbsp;src="hand.gif"&nbsp;style="float:left;position:relative;left:20"&gt;<br>
+Dieser&nbsp;Text&nbsp;wird&nbsp;wahrscheinlich&nbsp;(je&nbsp;nach&nbsp;Browser)&nbsp;vom&nbsp;Bild&nbsp;teilweise&nbsp;überlagert,<br>
+weil&nbsp;float&nbsp;und&nbsp;position&nbsp;nicht&nbsp;ohne&nbsp;weiteres&nbsp;gleichzeitig&nbsp;eingesetzt&nbsp;werden&nbsp;können.</code></p>
+<p><p><img src="CSS_19.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 7.8: Der gleichzeitige Einsatz von <span class="Code">float</span> und einer Positionierung mit <span class="Code">left</span> oder <span class="Code">top</span> führt zu Problemen</i></div>
+<p>Wenn Sie aber den Text auch entsprechend verschieben, ist alles wieder in Ordnung:</p>
+<p><code class="Fragment">&lt;img&nbsp;src="hand.gif"&nbsp;style="float:left;position:relative;left:20"&gt;<br>
+&lt;span&nbsp;style="position:relative;left:20"&gt;<br>
+&nbsp;Wird&nbsp;der&nbsp;Text&nbsp;aber&nbsp;genauso&nbsp;verschoben,&nbsp;ist&nbsp;wieder&nbsp;alles&nbsp;in&nbsp;Ordnung.<br>
+&lt;/span&gt;</code></p>
+<p><p><img src="CSS_20.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 7.9: Gleichzeitiges Verschieben der Elemente löst das <span class="Code">float</span>-Problem</i></div>
+<a name="h1_689"><h1>8&nbsp;&nbsp;Klassifizierungs-Eigenschaften</h1>
+<p>Einige CSS-Eigenschaften teilen Elemente in Kategorien ein, anstatt die Formatierung der Ausgabe zu beeinflussen. Dazu gehört beispielsweise die Eigenschaft <span class="Code">display</span>, über die Sie steuern können, ob ein Element blockweise, als Inline-Element oder als Listeneintrag dargestellt wird.</p>
+<ul>
+<li><span class="Code">display</span><a name="field_101">: definiert, ob ein Element normal dargestellt wird (<span class="Code">none</span>, Voreinstellung), als Blockelement (<span class="Code">block</span>), als Inline-Element (<span class="Code">inline</span>) , als Eintrag einer Liste (<span class="Code">list-item</span>), als</li>
+<li><span class="Code">list</span>-<span class="Code">style-type</span><a name="field_102">: bestimmt den Typ eines Aufzählungs- oder Auflistungszeichens für den Eintrag einer Liste (in einem <span class="Code">ul</span>- oder <span class="Code">ol</span>-Element). Sie können die Werte <span class="Code">disc</span> (gefüllter Kreis), <span class="Code">circle</span> (ungefüllter Kreis), <span class="Code">square</span> (Rechteck), <span class="Code">decimal</span> (Zahlen), <span class="Code">lower-roman</span> (kleine römische Ziffern), <span class="Code">upper-roman</span> (große römische Ziffern), <span class="Code">lower-alpha</span> (Kleinbuchstaben), <span class="Code">upper-alpha</span> (Großbuchstaben) und <span class="Code">none</span> (kein Zeichen) verwenden.</li>
+<li><span class="Code">list-style-image</span><a name="field_103">: Über diese Eigenschaft können Sie eine Bilddatei als Aufzählungszeichen für Listen angeben. Verwenden Sie dazu die <span class="Code">url</span>-Funktion.</li>
+<li><span class="Code">list</span>-<span class="Code">style-position</span><a name="field_104">: Über diese Eigenschaft können Sie festlegen, wie das Aufzählungs- oder Auflistungszeichen eingerückt wird. Der Wert <span class="Code">outside</span> (Voreinstellung) bewirkt, dass das Zeichen links etwas vom Text eingerückt ist. Wenn Sie <span class="Code">inside</span> eintragen, wird das Zeichen nicht nach links eingerückt. <span class="Code">inside</span> soll wohl eine kompaktere Darstellung ermöglichen. Leider wird die gesamte Liste trotzdem nach rechts eingerückt, was dann wieder genauso viel Platz beansprucht.</li>
+<li><span class="Code">list-style</span><a name="field_105">: Über diese Eigenschaft können Sie die Werte der Eigenschaften <span class="Code">list</span>-<span class="Code">style-type</span>, <span class="Code">list-style-image</span> und <span class="Code">list</span>-<span class="Code">style-position</span> gemeinsam definieren.</li>
+</ul>
+<p>Über die <span class="Code">display</span>-Eigenschaft können Sie ein Element, das normalerweise inline dargestellt wird, auch als Block darstellen lassen. Für in einem Block dargestellte Elemente können Sie die Ränder nach oben und unten angeben. So können Sie beispielsweise für ein Dokument ein Inhaltsverzeichnis aus <span class="Code">a</span>-Tags zusammenstellen. Das Problem bei normalen <span class="Code">a</span>-Tags ist, dass diese nicht die Definition eines vertikalen Abstandes zum nächsten Element zulassen, weil es sich per Voreinstellung um ein Inline-Element handelt. Die Lösung ist die Umdefinition der benötigten Elemente zum Blockelement:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+a.h1<br>
+{<br>
+&nbsp;&nbsp;&nbsp;display:&nbsp;block;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;color:&nbsp;black;<br>
+&nbsp;&nbsp;&nbsp;text-decoration:none;<br>
+&nbsp;&nbsp;&nbsp;font-weight:normal;<br>
+&nbsp;&nbsp;&nbsp;font-size:medium;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;font-family:Arial;<br>
+&nbsp;&nbsp;&nbsp;margin-bottom:&nbsp;10px;<br>
+&nbsp;&nbsp;&nbsp;margin-top:&nbsp;10px;<br>
+}<br>
+a.h2<br>
+{<br>
+&nbsp;&nbsp;&nbsp;display:&nbsp;block;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;position:relative;<br>
+&nbsp;&nbsp;&nbsp;left:30px;<br>
+&nbsp;&nbsp;&nbsp;color:&nbsp;black;<br>
+&nbsp;&nbsp;&nbsp;text-decoration:none;<br>
+&nbsp;&nbsp;&nbsp;font-weight:normal&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;margin-bottom:&nbsp;5px;<br>
+&nbsp;&nbsp;&nbsp;margin-top:&nbsp;5px;<br>
+&nbsp;&nbsp;&nbsp;font-size:small;<br>
+&nbsp;&nbsp;&nbsp;font-family:Arial;<br>
+}<br>
+a.h3<br>
+{<br>
+&nbsp;&nbsp;&nbsp;display:&nbsp;block;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;position:&nbsp;relative;<br>
+&nbsp;&nbsp;&nbsp;left:&nbsp;60px;<br>
+&nbsp;&nbsp;&nbsp;color:&nbsp;black;<br>
+&nbsp;&nbsp;&nbsp;font-size:smaller;<br>
+&nbsp;&nbsp;&nbsp;text-decoration:none;<br>
+&nbsp;&nbsp;&nbsp;font-weight:normal;<br>
+&nbsp;&nbsp;&nbsp;font-family:Arial;<br>
+}<br>
+--&gt;<br>
+&lt;/style&gt;</code></p>
+<p>Wenn Sie nun ein Inhaltsverzeichnis mit diesen Tag-Klassen erzeugen,</p>
+<p><code class="Fragment">&lt;h1&gt;Inhaltsverzeichnis&lt;/h1&gt;<br>
+&lt;a&nbsp;class="h1"&nbsp;href="#Grundlagen"&gt;Grundlagen&lt;/a&gt;<br>
+&lt;a&nbsp;class="h2"&nbsp;href="#WhatIs"&gt;<br>
+&nbsp;Was&nbsp;ist&nbsp;Internetprogammierung?&lt;/a&gt;<br>
+&lt;a&nbsp;class="h3"&nbsp;href="#Client"&gt;<br>
+&nbsp;Clientseitige&nbsp;Progammierung&lt;/a&gt;<br>
+&lt;a&nbsp;class="h3"&nbsp;href="#Server"&gt;<br>
+&nbsp;Serverseitige&nbsp;Progammierung&lt;/a&gt;<br>
+&lt;a&nbsp;class="h2"&nbsp;href="#Protokolle"&gt;Internet-Protokolle&lt;/a&gt;<br>
+&lt;a&nbsp;class="h3"&nbsp;href="#IP"&gt;IP&lt;/a&gt;<br>
+&lt;a&nbsp;class="h3"&nbsp;href="#IP"&gt;TCP&lt;/a&gt;<br>
+&lt;a&nbsp;class="h3"&nbsp;href="#IP"&gt;UDP&lt;/a&gt;<br>
+&lt;a&nbsp;class="h3"&nbsp;href="#IP"&gt;HTTP&lt;/a&gt;<br>
+&lt;a&nbsp;class="h2"&nbsp;href="#IIS"&gt;Der&nbsp;IIS&lt;/a&gt;<br>
+&lt;a&nbsp;class="h1"&nbsp;href="#HTML"&gt;HTML&lt;/a&gt;<br>
+&lt;a&nbsp;class="h2"&nbsp;href="#Tags"&gt;Tags&lt;/a&gt;<br>
+&lt;a&nbsp;class="h2"&nbsp;href="#Textformatierung"&gt;<br>
+&nbsp;Textformatierung&lt;/a&gt;<br>
+&lt;a&nbsp;class="h2"&nbsp;href="#Tabellen"&gt;Tabellen&lt;/a&gt;</code></p>
+<p>sieht das Ergebnis aus, wie gewünscht (Abbildung 8.1).</p>
+<p><p><img src="CSS_21.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 8.1: Ein Inhaltsverzeichnis mit zu Blockelementen umdefinierten a-Tags</i></div>
+<a name="h1_705"><h1>9&nbsp;&nbsp;Medien</h1>
+<a name="h2_706"><h2>9.1&nbsp;&nbsp;Unterschiedliche Formatierung für verschiedene Ausgabemedien</h2>
+<p>In CSS2 können Sie zwischen verschiedenen Ausgabemedien unterscheiden. So können Sie beispielsweise ein Dokument für die Bildschirmausgabe anders formatieren als für den Druck:</p>
+<p><code class="Fragment">&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--<br>
+/*&nbsp;Stilvorlage&nbsp;für&nbsp;den&nbsp;Bildschirm&nbsp;und&nbsp;<br>
+&nbsp;&nbsp;&nbsp;für&nbsp;Handheld-Computer&nbsp;*/<br>
+@media&nbsp;screen,&nbsp;handheld<br>
+{<br>
+&nbsp;body&nbsp;{background-color:#F0F0F0;&nbsp;margin:20px;<br>
+&nbsp;&nbsp;font-family:arial;&nbsp;font-size:11pt}&nbsp;<br>
+&nbsp;div.special&nbsp;{background-color:silver;&nbsp;color:black;<br>
+&nbsp;&nbsp;border:2px&nbsp;solid&nbsp;black;&nbsp;padding:0.2cm}<br>
+&nbsp;div.onlyscreen&nbsp;{background-color:blue;<br>
+&nbsp;&nbsp;border:1px&nbsp;solid&nbsp;black;&nbsp;padding:3px;&nbsp;color:white;<br>
+&nbsp;&nbsp;visibility:show}<br>
+}<br>
+<br>
+/*&nbsp;Stilvorlage&nbsp;für&nbsp;den&nbsp;Ausdruck&nbsp;*/<br>
+@media&nbsp;print<br>
+{<br>
+&nbsp;body&nbsp;{background-color:white;&nbsp;margin:2cm;<br>
+&nbsp;&nbsp;font-family:times;&nbsp;font-size:12pt}&nbsp;<br>
+&nbsp;div.special&nbsp;{background-color:silver;&nbsp;color:black;<br>
+&nbsp;&nbsp;border:0.1cm&nbsp;solid&nbsp;black;&nbsp;padding:0.2cm}<br>
+&nbsp;div.onlyscreen&nbsp;{visibility:hidden}<br>
+}<br>
+--&gt;<br>
+&lt;/style&gt;</code></p>
+<p>CSS2 kennt dazu verschiedene Medientypen, die innerhalb einer Stilvorlage über die At-Regel <span class="Code">@media</span><a name="field_106"> angegeben werden.</p>
+<table class="Document" width="100%" cellspacing="0" cellpadding="0"><tr class="TableHeader"><th class="TableHeader" valign="top">Medientyp</th><th class="TableHeader" valign="top">Bedeutung</th></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">all</span></td><td class="TableBody" valign="top">alle Medien</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">aural</span></td><td class="TableBody" valign="top">Medien zur Sprachausgabe</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">braille</span></td><td class="TableBody" valign="top">Ausgabegeräte zur Erzeugung einer Zeile Blindenschrift</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">embossed</span></td><td class="TableBody" valign="top">Blindenschrift-Drucker</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">handheld</span></td><td class="TableBody" valign="top">Handheld-Computer</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">print</span></td><td class="TableBody" valign="top">Drucker</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">projection</span></td><td class="TableBody" valign="top">Projektoren (Beamer)</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">screen</span></td><td class="TableBody" valign="top">Bildschirm</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">tty</span></td><td class="TableBody" valign="top">Nicht grafische Ausgabegeräte mit fester Zeichenbreite wie beispielsweise der alte DOS-Bildschirm</td></tr><tr class="TableBody"><td class="TableBody" valign="top"><span class="Code">tv</span></td><td class="TableBody" valign="top">TV-Geräte</td></tr></table><div class="TableSignature"><i>Tabelle 9.1: Die CSS2-Medientypen</i></div>
+<p>Sie können Stilvorlagen für eine oder mehrere Medientypen erzeugen. Das Beispiel oben erzeugt je eine Stilvorlage für den Ausdruck und für die Ausgabe auf dem Bildschirm bzw. einem Handheld-Computer. Dabei werden verschiedene Eigenschaften, wie die Schriftart, die Dokument-Ränder, die Rahmenstärken und die inneren Ränder der <span class="Code">div</span>-Elemente, verschieden definiert. Ein besonders nettes Feature ist, dass Sie über die Verwendung mediengebundener Stilvorlagen auch Elemente bei der Ausgabe auf bestimmten Medien verstecken können, wie es im Beispiel für das <span class="Code">div</span>-Element der Klasse <i>onlyscreen</i> der Fall ist. Dieses Element wird im Druck nicht ausgegeben.</p>
+<p><div class="Note">Stilvorlagen für unterschiedliche Medien werden von Netscape 4 nicht unterstützt.</div></p>
+<a name="h2_813"><h2>9.2&nbsp;&nbsp;Import für bestimmte Medien</h2>
+<p>Wenn Sie Ihre medienbezogenen Stilvorlagen in <span class="Code">css</span>-Dateien verwalten, können Sie diese recht einfach über das <span class="Code">link</span>-Tag in ein Dokument einbinden. Dazu geben Sie im <span class="Code">media</span>-Attribut die Medien an, für die die gelinkte Stilvorlage gelten soll:</p>
+<p><code class="Fragment">&lt;head&gt;<br>
+...<br>
+&lt;link&nbsp;rel="stylesheet"&nbsp;href="screen.css"&nbsp;media="screen"&gt;<br>
+&lt;link&nbsp;rel="stylesheet"&nbsp;href="printer.css"&nbsp;media="print"&gt;<br>
+...<br>
+&lt;/head&gt;</code></p>
+<p><div class="Note">Diese Technik funktioniert mit dem Internet Explorer (6) und dem Netscape 6. Der Netscape 4 kennt ja leider das Konzept der medienbezogenen Formatierung nicht.</div></p>
+<p>Alternativ können Sie <i>css</i>-Dateien auch über die At-Regel <span class="Code">@import</span> medienbezogen importieren. Diese Variante funktioniert allerdings nicht mit dem Internet Explorer (6). Geben Sie die Medien dazu am Ende der <span class="Code">@import</span>-Regel an:</p>
+<p><code class="Fragment">&lt;head&gt;<br>
+...<br>
+&lt;style&nbsp;type="text/css"&gt;<br>
+&lt;!--/*&nbsp;Stilvorlagen&nbsp;importieren&nbsp;*/<br>
+&nbsp;@import&nbsp;"screen.css"&nbsp;screen,&nbsp;handheld;<br>
+&nbsp;@import&nbsp;"printer.css"&nbsp;print;<br>
+--&gt;<br>
+&lt;/style&gt;<br>
+...<br>
+&lt;/head&gt;</code></p>
+<p><div class="Note">Der medienbezogene Import über <span class="Code">@import</span> wird nicht vom Netscape 4 und auch nicht vom Internet Explorer (6) unterstützt. Der Netscape 6 hat allerdings keine Probleme damit. Beachten Sie, dass Sie für den Internet Explorer die Variante mit dem <span class="Code">link</span>-Tag verwenden können.</div></p>
+<a name="h1_820"><h1>10&nbsp;&nbsp;Praxistipps</h1>
+<a name="h2_821"><h2>10.1&nbsp;&nbsp;Layer für den Netscape 4, den Netscape 6 und den Internet Explorer</h2>
+<p><a name="field_107">Layer sind ein wichtiges Gestaltungsmittel für HTML-Dokumente. Im Prinzip können Sie bei der Gestaltung eines ansprechenden HTML-Dokuments nur zwischen Tabellen und Layern wählen. Tabellen besitzen zwar den Vorteil, dass solche HTML-Dokumente eigentlich von allen Browsern angezeigt werden können, Layer lassen Ihnen aber viel mehr Freiheit bei der Gestaltung und ermöglichen besondere Features, wie beispielsweise Menüsysteme.</p>
+<p>Layer, die im Netscape 6 und im Internet Explorer funktionieren, sind kein Problem, weil beide Browser die CSS-Attribute für die Positionierung und Größeneinstellung korrekt interpretieren. Kommt dagegen der Netcape 4 ins Spiel, wird das Ganze etwas komplizierter.</p>
+<p>Wie ich bereits im Artikel <i>HTML</i> beschrieben habe, hat der Netscape 4 so einige Probleme mit dem <span class="Code">div</span>- und dem <span class="Code">span</span>-Tag. Wenn Sie Layer für die Gestaltung Ihrer Dokumente einsetzen und diese frei positionieren wollen, müssen Sie zu einem kleinen Trick greifen. Der Netscape 4 wertet immerhin Positionierungsangaben von <span class="Code">div</span>- und <span class="Code">span</span>-Elementen korrekt aus, wenn diese absolut angegeben werden. Mit relativen Angaben hat er allerdings Probleme, die Attribute <span class="Code">width</span>, <span class="Code">height</span>, <span class="Code">padding</span> und andere wertet er erst gar nicht aus:</p>
+<p><code class="Fragment">&lt;span&nbsp;name="ie6ns6Layer"&nbsp;id="ie6ns6Layer"<br>
+&nbsp;style="position:absolute;<br>
+&nbsp;left:60;top:50;width:200;height:100;<br>
+&nbsp;background-color:silver;padding:5px"&gt;<br>
+&nbsp;&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;absolut&nbsp;positioniertes&nbsp;span-Element.<br>
+&lt;/span&gt;</code></p>
+<p><p><img src="CSS_22.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 10.1: Ein absolut positionierter Layer mit CSS-Angaben für die Breite und Höhe im Netscape 4.7</i></div>
+<p>Um nun wenigstens die Breite und Höhe einstellen zu können, platzieren Sie ein <span class="Code">layer</span>-Element in dem <span class="Code">span</span>- oder <span class="Code">div</span>-Element. Achten Sie darauf, dass Sie eine andere Id für diesen Layer verwenden als für das <span class="Code">span</span>- bzw. <span class="Code">div</span>-Element, ansonsten stellt der Netscape 4 den Layer schon einmal inkorrekt dar:</p>
+<p><code class="Fragment">&lt;span&nbsp;name="iens6Layer"&nbsp;id="iens6Layer"<br>
+&nbsp;style="position:absolute;<br>
+&nbsp;left:60;top:50;width:200;height:100;<br>
+&nbsp;background-color:silver;padding:5px"&gt;<br>
+&nbsp;&lt;layer&nbsp;id="ns4Layer"&nbsp;width="200"<br>
+&nbsp;&nbsp;height="100"&nbsp;bgcolor="silver"&gt;<br>
+&nbsp;&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;absolut&nbsp;positioniertes&nbsp;span-Element<br>
+&nbsp;&nbsp;mit&nbsp;einem&nbsp;Netscape-Layer.<br>
+&nbsp;&lt;/layer&gt;<br>
+&lt;/span&gt;</code></p>
+<p>Im <span class="Code">layer</span>-Tag müssen Sie neben der Breite und der Höhe die Hintergrundfarbe noch einmal angeben. Das Ergebnis ist einigermaßen zufrieden stellend, wie Abbildung 10.2 zeigt, und wird auch im Netscape 6 und im Internet Explorer korrekt dargestellt (Abbildung 10.3).</p>
+<p><p><img src="CSS_23.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 10.2: Ein span-Layer mit einem integrierten layer-Element im Netscape 4</i></div>
+<p><p><img src="CSS_24.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 10.3: Ein span-Layer mit einem integrierten layer-Element im Internet Explorer 6</i></div>
+<p>Leider bietet der Netscape-Layer keine Möglichkeit, den inneren Rand einzustellen, was bei CSS ja über das <span class="Code">padding</span>-Attribut möglich ist. Da das <span class="Code">left</span>- und das <span class="Code">top</span>-Attribut des <span class="Code">layer</span>-Tag nicht ausgewertet werden, wenn das <span class="Code">layer</span>-Element Child eines <span class="Code">span</span>- oder <span class="Code">div</span>-Tags ist (was ich ausprobiert habe), müssen Sie wieder zu einem kleinen Trick greifen, wenn Sie einen inneren Rand einstellen wollen: Platzieren Sie den Netscape-Layer einfach in einem weiteren Layer und rücken Sie den inneren Layer um die Anzahl Pixel ein, die den inneren Rand darstellen sollen:</p>
+<p><code class="Fragment">&lt;span&nbsp;name="iens6Layer"&nbsp;id="iens6Layer"<br>
+&nbsp;style="position:absolute;<br>
+&nbsp;left:60;top:50;width:200;height:100;<br>
+&nbsp;background-color:silver;padding:5px"&gt;<br>
+&nbsp;&nbsp;&lt;layer&nbsp;width="200"&nbsp;height="100"<br>
+&nbsp;&nbsp;&nbsp;bgcolor="silver"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;layer&nbsp;id="ns4Layer"&nbsp;<b>left="5"&nbsp;top="5"</b>&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>width="190"&nbsp;height="90"</b>&nbsp;bgcolor="silver"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Das&nbsp;ist&nbsp;ein&nbsp;absolut&nbsp;positioniertes&nbsp;span-Element<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mit&nbsp;einem&nbsp;Netscape-Layer.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/layer&gt;<br>
+&nbsp;&nbsp;&lt;/layer&gt;<br>
+&lt;/span&gt;</code></p>
+<p>Nun ist das Ergebnis im Netscape 4, im Netscape 6 und im Internet Explorer 6 in etwa identisch (wenn der Netscape 6 (!) auch eine andere Vorstellung davon hat, wie groß 1 Pixel denn nun wirklich ist).</p>
+<p><p><img src="CSS_25.gif"></p></p>
+<div class="ImageSignature"><i>Abbildung 10.4: Ein korrekt formatierter Layer im Netscape 4</i></div>
+<p/><hr size="5" noShade="noShade">
+<a name="Index"><h1 class="Index">Index</h1>
+<div class="IndexHeader">&</div>
+<a class="IndexItem" href="#field_2">&lt;$nopage&gt;CSS siehe Cascading Style Sheets</a><div class="IndexHeader">@</div>
+<a class="IndexItem" href="#field_21">@charset-Regel </a><a class="IndexItem" href="#field_22">@import-Regel </a><a class="IndexItem" href="#field_106">@media-Regel (CSS2)</a><div class="IndexHeader">B</div>
+<a class="IndexItem" href="#field_50">background-attachment-Eigenschaft </a><a class="IndexItem" href="#field_47">background-color-Eigenschaft </a><a class="IndexItem" href="#field_52">background-Eigenschaft </a><a class="IndexItem" href="#field_48">background-image-Eigenschaft </a><a class="IndexItem" href="#field_51">background-position-Eigenschaft </a><a class="IndexItem" href="#field_49">background-repeat-Eigenschaft </a><a class="IndexItem" href="#field_4">Blockelement</a><a class="IndexItem" href="#field_69">border-bottom-color-Eigenschaft </a><a class="IndexItem" href="#field_74">border-bottom-Eigenschaft </a><a class="IndexItem" href="#field_60">border-bottom-style-Eigenschaft </a><a class="IndexItem" href="#field_64">border-bottom-width-Eigenschaft </a><a class="IndexItem" href="#field_65">border-color-Eigenschaft </a><a class="IndexItem" href="#field_70">border-Eigenschaft </a><a class="IndexItem" href="#field_66">border-left-color-Eigenschaft </a><a class="IndexItem" href="#field_71">border-left-Eigenschaft </a><a class="IndexItem" href="#field_57">border-left-style-Eigenschaft </a><a class="IndexItem" href="#field_61">border-left-width-Eigenschaft </a><a class="IndexItem" href="#field_67">border-right-color-Eigenschaft </a><a class="IndexItem" href="#field_72">border-right-Eigenschaft </a><a class="IndexItem" href="#field_58">border-right-style-Eigenschaft </a><a class="IndexItem" href="#field_62">border-right-width-Eigenschaft </a><a class="IndexItem" href="#field_56">border-style-Eigenschaft </a><a class="IndexItem" href="#field_68">border-top-color-Eigenschaft </a><a class="IndexItem" href="#field_73">border-top-Eigenschaft </a><a class="IndexItem" href="#field_59">border-top-style-Eigenschaft </a><a class="IndexItem" href="#field_63">border-top-width-Eigenschaft </a><a class="IndexItem" href="#field_55">border-width-Eigenschaft </a><a class="IndexItem" href="#field_92">bottom-Eigenschaft </a><div class="IndexHeader">C</div>
+<a class="IndexItem" href="#field_54">Cascading Style Sheets:Eigenschaften für Rahmen</a><a class="IndexItem" href="#field_45">Cascading Style Sheets:Farb- und Hintergrundstile</a><a class="IndexItem" href="#field_16">Cascading Style Sheets:Farben</a><a class="IndexItem" href="#field_15">Cascading Style Sheets:Größeneinheiten</a><a class="IndexItem" href="#field_3">Cascading Style Sheets:Grundlagen</a><a class="IndexItem" href="#field_86">Cascading Style Sheets:Positions- und Größenstile</a><a class="IndexItem" href="#field_23">Cascading Style Sheets:Stile für die Schriftart</a><a class="IndexItem" href="#field_34">Cascading Style Sheets:Text-Eigenschaften</a><a class="IndexItem" href="#field_6">Child-Element</a><a class="IndexItem" href="#field_17">class-Attribut</a><a class="IndexItem" href="#field_100">clear-Eigenschaft </a><a class="IndexItem" href="#field_46">color-Eigenschaft </a><div class="IndexHeader">D</div>
+<a class="IndexItem" href="#field_101">display-Eigenschaft </a><a class="IndexItem" href="#field_0">Dokument:mit CSS formatieren</a><div class="IndexHeader">E</div>
+<a class="IndexItem" href="#field_20">Eingebettete Stile </a><div class="IndexHeader">F</div>
+<a class="IndexItem" href="#field_43">Farben</a><a class="IndexItem" href="#field_28">Fette Schrift</a><a class="IndexItem" href="#field_99">float-Eigenschaft </a><a class="IndexItem" href="#field_33">font-Eigenschaft </a><a class="IndexItem" href="#field_25">font-family-Eigenschaft </a><a class="IndexItem" href="#field_26">font-size-Eigenschaft </a><a class="IndexItem" href="#field_29">font-style-Eigenschaft </a><a class="IndexItem" href="#field_31">font-variant-Eigenschaft </a><a class="IndexItem" href="#field_27">font-weight-Eigenschaft </a><a class="IndexItem" href="#field_1">Formatieren</a><div class="IndexHeader">H</div>
+<a class="IndexItem" href="#field_94">height-Eigenschaft </a><a class="IndexItem" href="#field_44">Hintergrund</a><div class="IndexHeader">I</div>
+<a class="IndexItem" href="#field_14">inherit-Wert </a><a class="IndexItem" href="#field_19">Inline-Deklarationen </a><div class="IndexHeader">K</div>
+<a class="IndexItem" href="#field_32">Kapitälchen</a><a class="IndexItem" href="#field_30">Kursive Schrift</a><div class="IndexHeader">L</div>
+<a class="IndexItem" href="#field_107">Layer:mit CSS formatieren</a><a class="IndexItem" href="#field_89">left-Eigenschaft </a><a class="IndexItem" href="#field_36">letter-spacing-Eigenschaft </a><a class="IndexItem" href="#field_42">line-height-Eigenschaft </a><a class="IndexItem" href="#field_105">list-style-Eigenschaft </a><a class="IndexItem" href="#field_103">list-style-image-Eigenschaft </a><a class="IndexItem" href="#field_104">list-style-position-Eigenschaft </a><a class="IndexItem" href="#field_102">list-style-type-Eigenschaft </a><div class="IndexHeader">M</div>
+<a class="IndexItem" href="#field_78">margin-bottom-Eigenschaft </a><a class="IndexItem" href="#field_79">margin-Eigenschaft </a><a class="IndexItem" href="#field_75">margin-left-Eigenschaft </a><a class="IndexItem" href="#field_76">margin-right-Eigenschaft </a><a class="IndexItem" href="#field_77">margin-top-Eigenschaft </a><a class="IndexItem" href="#field_98">max-height-Eigenschaft </a><a class="IndexItem" href="#field_97">max-width-Eigenschaft </a><a class="IndexItem" href="#field_96">min-height-Eigenschaft </a><a class="IndexItem" href="#field_95">min-width-Eigenschaft </a><div class="IndexHeader">O</div>
+<a class="IndexItem" href="#field_85">overflow-Eigenschaft </a><div class="IndexHeader">P</div>
+<a class="IndexItem" href="#field_83">padding-bottom-Eigenschaft </a><a class="IndexItem" href="#field_84">padding-Eigenschaft </a><a class="IndexItem" href="#field_80">padding-left-Eigenschaft </a><a class="IndexItem" href="#field_81">padding-right-Eigenschaft </a><a class="IndexItem" href="#field_82">padding-top-Eigenschaft </a><a class="IndexItem" href="#field_5">Parent-Element</a><a class="IndexItem" href="#field_87">Position </a><a class="IndexItem" href="#field_88">position-Eigenschaft </a><a class="IndexItem" href="#field_18">Pseudoklassen </a><div class="IndexHeader">R</div>
+<a class="IndexItem" href="#field_53">Rahmen</a><a class="IndexItem" href="#field_9">Regelsätze</a><a class="IndexItem" href="#field_91">right-Eigenschaft </a><a class="IndexItem" href="#field_10">Rule Sets</a><div class="IndexHeader">S</div>
+<a class="IndexItem" href="#field_24">Schriftart</a><a class="IndexItem" href="#field_11">Selektor </a><a class="IndexItem" href="#field_7">Stilvorlagen</a><a class="IndexItem" href="#field_8">Style Sheets </a><div class="IndexHeader">T</div>
+<a class="IndexItem" href="#field_40">text-align-Eigenschaft </a><a class="IndexItem" href="#field_37">text-decoration-Eigenschaft </a><a class="IndexItem" href="#field_41">text-indent-Eigenschaft </a><a class="IndexItem" href="#field_39">text-transform-Eigenschaft </a><a class="IndexItem" href="#field_90">top-Eigenschaft </a><div class="IndexHeader">V</div>
+<a class="IndexItem" href="#field_12">Vererbung</a><a class="IndexItem" href="#field_13">Vererbung:in CSS2 steuern</a><a class="IndexItem" href="#field_38">vertical-align-Eigenschaft </a><div class="IndexHeader">W</div>
+<a class="IndexItem" href="#field_93">width-Eigenschaft </a><a class="IndexItem" href="#field_35">word-spacing-Eigenschaft </a><p class="Copyright">
+© Jürgen Bayer 2002
+</p>
+
+
+<!-- Abschluß der Layout-Tabelle -->
+</td>
+</tr>
+</table>
+
+</body>
+</html>

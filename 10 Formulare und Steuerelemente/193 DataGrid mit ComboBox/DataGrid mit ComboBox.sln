@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGrid mit ComboBox", "DataGrid mit ComboBox.csproj", "{F62C174B-B383-4CB3-BE04-02E8CCA6D17B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F62C174B-B383-4CB3-BE04-02E8CCA6D17B}.Debug.ActiveCfg = Debug|.NET
+		{F62C174B-B383-4CB3-BE04-02E8CCA6D17B}.Debug.Build.0 = Debug|.NET
+		{F62C174B-B383-4CB3-BE04-02E8CCA6D17B}.Release.ActiveCfg = Release|.NET
+		{F62C174B-B383-4CB3-BE04-02E8CCA6D17B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

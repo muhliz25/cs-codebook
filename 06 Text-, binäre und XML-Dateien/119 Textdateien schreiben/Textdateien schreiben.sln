@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Textdateien schreiben", "Textdateien schreiben.csproj", "{0C21680C-721E-4103-AF8B-600CD7A788B6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0C21680C-721E-4103-AF8B-600CD7A788B6}.Debug.ActiveCfg = Debug|.NET
+		{0C21680C-721E-4103-AF8B-600CD7A788B6}.Debug.Build.0 = Debug|.NET
+		{0C21680C-721E-4103-AF8B-600CD7A788B6}.Release.ActiveCfg = Release|.NET
+		{0C21680C-721E-4103-AF8B-600CD7A788B6}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

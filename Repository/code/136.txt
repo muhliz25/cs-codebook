@@ -1,0 +1,64 @@
+using System;
+using System.Xml;
+using System.IO;
+using System.Windows.Forms;
+
+...
+
+// Der Dateiname der XML-Datei und der Schema-Datei
+string xmlFileName = Path.Combine(
+   Application.StartupPath, "Persons.xml");
+string xsdFileName = Path.Combine(
+   Application.StartupPath, "Persons.xsd");
+
+// XmlDocument-Instanz erzeugen
+XmlDocument xmlDoc = new XmlDocument();
+
+// XML-Datei laden
+try
+{
+   // XmlValidatingReader zum validierenden Lesen erzeugen
+   // und initialisieren
+   XmlValidatingReader xmlValidatingReader = 
+      new XmlValidatingReader(new XmlTextReader(xmlFileName));
+   xmlValidatingReader.ValidationType = ValidationType.Schema;
+   xmlValidatingReader.Schemas.Add(null, xsdFileName);
+
+   // XmlValidatingReader zum Laden des Dokuments verwenden
+   xmlDoc.Load(xmlValidatingReader);
+}
+catch (Exception ex)
+{
+   MessageBox.Show("Fehler beim Einlesen der XML-Datei: " + 
+      ex.Message, Application.ProductName, MessageBoxButtons.OK,
+      MessageBoxIcon.Error);
+   return;
+}
+
+// Alle person-Elemente einlesen und durchgehen
+XmlNodeList personNodeList = xmlDoc.GetElementsByTagName("person");
+for (int i = 0; i < personNodeList.Count; i++)
+{
+   Console.WriteLine("\r\nPerson");
+
+   // Das Attribut id einlesen
+   XmlAttribute xmlAttribute = personNodeList[i].Attributes["id"];
+   if (xmlAttribute != null)
+      Console.WriteLine("Id: {0}", xmlAttribute.InnerText); 
+
+   // firstname-Element suchen
+   XmlNode xmlNode = personNodeList[i].SelectSingleNode("firstname");
+   if (xmlNode != null)
+      Console.WriteLine("Vorname: {0}", xmlNode.InnerText);
+
+   // lastname-Element suchen
+   xmlNode = personNodeList[i].SelectSingleNode("lastname");
+   if (xmlNode != null)
+      Console.WriteLine("Nachname: {0} ", xmlNode.InnerText);
+    
+   // type-Element suchen
+   xmlNode = personNodeList[i].SelectSingleNode("type");
+   if (xmlNode != null)
+      Console.WriteLine("Typ: {0}", xmlNode.InnerText);
+}
+

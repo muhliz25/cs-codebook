@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Mails über SMTP versenden", "E-Mails über SMTP versenden.csproj", "{BCCB4378-CC7C-4FCE-93ED-886D131CD758}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BCCB4378-CC7C-4FCE-93ED-886D131CD758}.Debug.ActiveCfg = Debug|.NET
+		{BCCB4378-CC7C-4FCE-93ED-886D131CD758}.Debug.Build.0 = Debug|.NET
+		{BCCB4378-CC7C-4FCE-93ED-886D131CD758}.Release.ActiveCfg = Release|.NET
+		{BCCB4378-CC7C-4FCE-93ED-886D131CD758}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

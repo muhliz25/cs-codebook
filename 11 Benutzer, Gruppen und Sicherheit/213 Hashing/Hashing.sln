@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing", "Hashing.csproj", "{5040B051-6C4A-499D-A546-82516C31E3C6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{5040B051-6C4A-499D-A546-82516C31E3C6}.Debug.ActiveCfg = Debug|.NET
+		{5040B051-6C4A-499D-A546-82516C31E3C6}.Debug.Build.0 = Debug|.NET
+		{5040B051-6C4A-499D-A546-82516C31E3C6}.Release.ActiveCfg = Release|.NET
+		{5040B051-6C4A-499D-A546-82516C31E3C6}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

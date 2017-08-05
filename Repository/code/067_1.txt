@@ -1,0 +1,14 @@
+using System;
+using Microsoft.VisualBasic;
+
+...
+
+// Anwendung über die Visual-Basic-Methode AppActivate aktivieren
+try
+{
+   Interaction.AppActivate("Google - Mozilla");
+}
+catch (Exception ex)
+{
+   Console.WriteLine(ex.Message);
+}
