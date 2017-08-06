@@ -1,0 +1,6 @@
+C:\ncom\_repos\cs-codebook\09 Internet\165 Internetverbindung prüfen\Internetverbindung über CheckConnectedState prüfen\bin\Debug\Internetverbindung über CheckConnectedState prüfen.exe.config
+C:\ncom\_repos\cs-codebook\09 Internet\165 Internetverbindung prüfen\Internetverbindung über CheckConnectedState prüfen\bin\Debug\Internetverbindung über CheckConnectedState prüfen.exe
+C:\ncom\_repos\cs-codebook\09 Internet\165 Internetverbindung prüfen\Internetverbindung über CheckConnectedState prüfen\bin\Debug\Internetverbindung über CheckConnectedState prüfen.pdb
+C:\ncom\_repos\cs-codebook\09 Internet\165 Internetverbindung prüfen\Internetverbindung über CheckConnectedState prüfen\obj\Debug\Internetverbindung über CheckConnectedState prüfen.csprojResolveAssemblyReference.cache
+C:\ncom\_repos\cs-codebook\09 Internet\165 Internetverbindung prüfen\Internetverbindung über CheckConnectedState prüfen\obj\Debug\Internetverbindung über CheckConnectedState prüfen.exe
+C:\ncom\_repos\cs-codebook\09 Internet\165 Internetverbindung prüfen\Internetverbindung über CheckConnectedState prüfen\obj\Debug\Internetverbindung über CheckConnectedState prüfen.pdb
